@@ -1,5 +1,5 @@
 ## Welcome to Summer's Blog
 
-#### [Test](https://sunmerrr.github.io/test)
+#### [About Summer](https://sunmerrr.github.io/)
 
-#### [Test2](https://sunmerrr.github.io/test/test2)
+#### [JavaScript](https://sunmerrr.github.io/JavaScript)
