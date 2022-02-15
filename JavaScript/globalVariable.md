@@ -47,7 +47,7 @@
 
 - 문제점
 
-  1. 결합
+  1. 결합과 중복 선언
 
   - 모든 전역변수들은 암묵적으로 결합되어있다.
   - 이런 경우에는 사용되고 있던 전역 변수가 쉽게 수정될 수 있고, 비슷한 이름으로 할당 될 수 있으며, 같은 이름으로 재할당 될 수 있다는 문제점이 있다.
@@ -77,10 +77,6 @@
 
 <br>
 
-- All the function have access to the global scope
-
-- function scope vs block scope
-
 <br>
 <br>
 
@@ -88,56 +84,74 @@
 
 <br>
 
-- 스코프로 묶어줌
--
+- 스코프로 묶어준다.
+- let, const 등 다른 키워드로 변수를 선언한다.
+- 함수 안에서만 사용할 수 있는 변수를 선언하여 변수의 주기를 짧게 한다.
 
 <br>
 
-1. IIFE
+1. Name Space Object
 
-- immediately invoked function expression 의 약자로 정의와 실행이 함께 일어나는 즉시 실행 함수이다.
-
-- 예시
-  ```
-  (function example () {
-    console.log('invoked!')
-  }()
-  ```
+- 전역에 해당하는 객체를 하나 만들어서 네임스페이스를 만들어준다.
+- 이렇게 관리하게되면 변수나 함수의 이름이 중첩되거나 변형되는 것을 방지한다.
+- 네임 스페이스 구역 안에 다른 네임스페이스를 생성해줄수도 있다.
 
 <br>
-<br>
-
-2. Name Space Object
 
 ```
 var obj = {
   name: 'name',
-  number: 14
   func() {
     return `hello, my name is ${this.name}.`
   }
 }
+
+obj.birth = 0422
+obj.birth.month = 4
+obj.birth.day = 22
+
 ```
 
 <br>
+<br>
 
-- 네임 스페이스를 사용하여
+(아래 설명하는 IIFE 와 Module Pattern은 closure와 매우 비슷해 보인다. 실제로 Module Pattern은 클로저를 기반으로 작동한다는 것을 기억하자!)
+
+2. IIFE
+
+- immediately invoked function expression 의 약자로 정의와 실행이 함께 일어나는 즉시 실행 함수이다.
+- 함수를 선언과 동시에 즉시 실행하여 함수의 지역을 생성하고, 함수 안에 선언된 변수들은 함수의 지역안에 생성된 지역변수가 된다.
+- 외부에서는 함수 안의 변수에 접근할 수 없으며, 변수의 중첩, 재할당등 전역변수의 문제를 피해갈 수 있다.
+
+- 예시
+
+```
+
+(example = function () {
+  var myName = 'Tony'
+  return myName
+})()
+
+example()  // 'Tony'
+myName  //  ReferenceError: myName is not defined
+
+```
 
 <br>
 <br>
 
 3. Module Pattern
 
-- 모듈 패턴은 보통 iife와 함게 사용되므로 iife를 모른다면 조금 어려울 수 있다.
-
 - module pattern이란?
-  - 변수와 메소드를 wrapping해줘서
+  - 즉시 실행 함수로 감싸 지역을 만들고 그 안에 클래스를 넣은 것이라고 생각하면 된다.
 
 <br>
 
 - module pattern의 사용법
 
-  - 예시
+  -
+
+- 예시
 
 <br>
 
@@ -155,3 +169,7 @@ var obj = {
 <br>
 
 ### 1 ~ 4 번의 기능의 차이점
+
+```
+
+```
