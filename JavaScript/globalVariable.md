@@ -1,10 +1,10 @@
-# 전역변수의 문제점
+# 전역변수의 문제점과 전역변수 피하기
 
 ---
 
 <br>
 
-## 전역변수
+## 1. 전역변수
 
 - 전역변수란 프로그램 전체에서 접근할 수 있는 변수이다. 글로벌 스코프를 갖는 변수라고도 할 수 있겠다.
 - 프로젝트 어디에서든 접근하여 참조, 할당, 재할당 할 수 있다.
@@ -43,7 +43,7 @@
 <br>
 <br>
 
-## 전역변수의 문제점
+## 2. 전역변수의 문제점
 
 - 문제점
 
@@ -80,7 +80,7 @@
 <br>
 <br>
 
-## 전역변수의 문제점 해결 방법
+## 3. 전역변수의 문제점 해결 방법
 
 <br>
 
@@ -98,19 +98,21 @@
 
 <br>
 
-```
-var obj = {
-  name: 'name',
-  func() {
-    return `hello, my name is ${this.name}.`
+- 예시
+
+  ```
+  var obj = {
+    name: 'name',
+    func() {
+      return `hello, my name is ${this.name}.`
+    }
   }
-}
 
-obj.birth = 0422
-obj.birth.month = 4
-obj.birth.day = 22
+  obj.birth = 0422
+  obj.birth.month = 4
+  obj.birth.day = 22
 
-```
+  ```
 
 <br>
 <br>
@@ -125,17 +127,17 @@ obj.birth.day = 22
 
 - 예시
 
-```
+  ```
 
-(example = function () {
-  var myName = 'Tony'
-  return myName
-})()
+  (example = function () {
+    var myName = 'Tony'
+    return myName
+  })()
 
-example()  // 'Tony'
-myName  //  ReferenceError: myName is not defined
+  example()  // 'Tony'
+  myName  //  ReferenceError: myName is not defined
 
-```
+  ```
 
 <br>
 <br>
@@ -144,32 +146,56 @@ myName  //  ReferenceError: myName is not defined
 
 - module pattern이란?
   - 즉시 실행 함수로 감싸 지역을 만들고 그 안에 클래스를 넣은 것이라고 생각하면 된다.
+  - 클로저의 기능중 하나라고 생각해도 될것 같다.
+  - 만약 클로저를 모른다면 스코프를 생성하고 전역 변수를 방지하는 차원에서만 알고 넘어가면 좋을 것 같다.
 
 <br>
-
-- module pattern의 사용법
-
-  -
 
 - 예시
 
-<br>
+  ```
+  var counter = (function() {
+    var number = 0; // 클로저로 인해서 전역변수가 아닌 지역변수가 되며 외부에서는 접근할 수 없다.
 
-- 장점
+    return function () {  // 외부로 공개할 함수나 메서드나 객체, 변수를 반환해준다.
+      return ++number;
+    }
+  }());
 
-<br>
+  console.log(counter())  // 1
+  console.log(counter())  // 2
+  console.log(counter())  // 3
+  console.log(counter.number)  // undefined
 
-- 단점
+  ```
 
 <br>
 <br>
 
 4. ES6 Module
 
+- 기존에 javascript에서는 지원되지 않던 모듈 기능을 추가한 것이다.
+- 아직까지는 Chrome 61, FF 60, SF 10.1, Edge 16 이상 정도에서 지원한다고 한다.
+- ES6 Module을 사용하면 var 키워드는 전역 키워드가 되지 않으며 하나의 script파일을 하나의 스코프를 갖을 수 있게 된다.
+
+- 사용방법
+
+  - script 태그를 추가할때 type="module"로 지정하여 추가해주고, javascript의 파일 확장자 명은 mjs로 지정해준다.
+  - 파일 확장자명을 mjs로 하지 않아도 되지만 ECMAScript에서 권장하고 있기 때문에 되도록이면 mjs로 해주자
+
+  - 예시
+
+    ```
+    <script? type='module' src='test.mjs'></script?>
+    <script? type='module' src='ES6ModuleTest.mjs'></script?>
+
+    ```
+
+- 주의) 몇몇의 구형 브라우저에서는 지원되지 않는 기능이라서 잘 살펴보고 사용해야한다.
+
+<br>
 <br>
 
-### 1 ~ 4 번의 기능의 차이점
+5. let, const 키워드
 
-```
-
-```
+### 1 ~ 5 번의 기능의 차이점
