@@ -62,7 +62,7 @@
   - 위의 6가지 프로퍼티 어트리뷰트는 두가지의 다른 프로퍼티에서 작동한다.
    <br>
    
-  ### 데이터 프로퍼티
+  - ### 데이터 프로퍼티
 
     - 데이터의 상태를 나타내주는 프로퍼티이다.
     - 1 ~ 4번의 프로퍼티 어트리뷰트가 정의된다.
@@ -101,7 +101,7 @@
       - 참고: [Object.getOwnPropertyDescriptor()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
      <br>
 
-  ### 접근자 프로퍼티
+  - ### 접근자 프로퍼티
 
     - 데이터 프로퍼티의 값을 읽거나 저장할때 사용하는 접근자 함수로 구성되어있다.
     - 자체적으로 값을 갖지 않는다.
@@ -135,7 +135,7 @@
       ```
        <br>
 
-  ### 프로퍼티의 정의
+  - ### 프로퍼티의 정의
 
     - 위의 프로퍼티는 따로 정의가 가능하다.
     - 프로퍼티를 새로 만들거나 재정의 하는 방식이다.
@@ -169,7 +169,7 @@
       - 참고: [Object.defineProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 
        <br>
        
-    #### 프로퍼티 어트리뷰트의 특징
+    - #### 프로퍼티 어트리뷰트의 특징
 
       - 프로퍼티 어트리뷰트는 그 특징에 따라서 false일때와 true일때 객체에 미치는 영향이 다른다.
         
