@@ -61,6 +61,7 @@
     **6. Set** : set 메소드이며, 프로퍼티의 값은 저장할때 사용된다. <br>
   - 위의 6가지 프로퍼티 어트리뷰트는 두가지의 다른 프로퍼티에서 작동한다.
    <br>
+   
   ### 데이터 프로퍼티
 
     - 데이터의 상태를 나타내주는 프로퍼티이다.
@@ -99,6 +100,7 @@
       
       - 참고: [Object.getOwnPropertyDescriptor()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
      <br>
+
   ### 접근자 프로퍼티
 
     - 데이터 프로퍼티의 값을 읽거나 저장할때 사용하는 접근자 함수로 구성되어있다.
@@ -132,6 +134,7 @@
       // {enumerable: true, configurable: true, get: ƒ, set: ƒ} 출력
       ```
        <br>
+
   ### 프로퍼티의 정의
 
     - 위의 프로퍼티는 따로 정의가 가능하다.
@@ -165,6 +168,7 @@
       - `Object.defineProperties`를 사용하여 여러개의 프로퍼티를 한번에 정의 할 수 있다.
       - 참고: [Object.defineProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 
        <br>
+       
     #### 프로퍼티 어트리뷰트의 특징
 
       - 프로퍼티 어트리뷰트는 그 특징에 따라서 false일때와 true일때 객체에 미치는 영향이 다른다.
