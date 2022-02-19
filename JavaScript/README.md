@@ -9,3 +9,5 @@
   <br>
 
 - [전역변수의 문제점과 전역변수 피하기](https://sunmerrr.github.io/JavaScript/globalVariable)
+
+- [getter, setter (+ property attribute)](https://sunmerrr.github.io/JavaScript/getterAndSetter)
