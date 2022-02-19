@@ -54,9 +54,9 @@
   - 프로퍼티 어트리뷰트는 프로퍼티 디스크립터(Properdy Descriptor) 객체를 통해서 간접적으로만 접근이 가능하며, 직접적으로는 접근할 수 없다.
   - 프로퍼티 디스크립터를 통해서 네가지의 상태와 두가지의 함수를 출력해볼 수 있다.
     **1. value** : 프로퍼티의 키 값에 정의되어있는 value 값이다. <br>
-    **2. writable** : 값의 변경 가능 여부를 나타내 준다. boolear 값이다. <br>
-    **3. enumerable** : 열거 가능 여부를 나타내 준다. boolear 값이다. <br>
-    **4. configurable** : 재정의 가능 여부를 나타내며 이또한 boolear 값이다. <br>
+    **2. writable** : 값의 변경 가능 여부를 나타내 준다. boolean 값이다. <br>
+    **3. enumerable** : 열거 가능 여부를 나타내 준다. boolean 값이다. <br>
+    **4. configurable** : 재정의 가능 여부를 나타내며 이또한 boolean 값이다. <br>
     **5. Get** : get 메소드이며, 프로퍼티의 값을 읽을때 사용된다. <br>
     **6. Set** : set 메소드이며, 프로퍼티의 값은 저장할때 사용된다. <br>
   - 위의 6가지 프로퍼티 어트리뷰트는 두가지의 다른 프로퍼티에서 작동한다.
@@ -163,7 +163,7 @@
       } */
       ```
 
-      - 프로퍼티를 정의하면서 디스크립터를 생략하게 되면 boolear의 값은 false로, 접근자 함수와 value는 undifined로 기본값을 갖게 된다.
+      - 프로퍼티를 정의하면서 디스크립터를 생략하게 되면 boolean의 값은 false로, 접근자 함수와 value는 undifined로 기본값을 갖게 된다.
       - writable, enumerable, configurable도 undefined로 정의되며, undefined는 false 값이기 때문에 결과적으로 false를 기본값으로 갖게 된다.
       - `Object.defineProperties`를 사용하여 여러개의 프로퍼티를 한번에 정의 할 수 있다.
       - 참고: [Object.defineProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 
