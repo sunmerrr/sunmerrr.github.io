@@ -8,11 +8,12 @@
 ## 생성 방법
 
 1. {}
-2. object 생성자 함수
-3. 생성자 함수
-4. Object.create 메서드
-5. class
-   4 ~ 5=> udemy(JavaScript: The Advanced Concepts (2022 Update)) > 102 Object.creat() vs Class
+2. 생성자 함수
+3. Object.create 메서드
+4. class
+
+   udemy(JavaScript: The Advanced Concepts (2022 Update)) > 섹션 6: Object Oriented Programming
+   3 ~ 4 => udemy(JavaScript: The Advanced Concepts (2022 Update)) > 102 Object.creat() vs Class
 
 <br>
 <br>
