@@ -93,7 +93,7 @@ last_modified_at: 2022-02-23
     ```
     function PlusTen(num) {
       this.num = num;
-      this.getPlusTen = function () {
+      this.getPlusTen = function () { 
         return 10 + this.num;
       };
     }
@@ -107,4 +107,4 @@ last_modified_at: 2022-02-23
     1. `function PlusTen() {...}` : 생성자 함수
     2. `const five = new PlusTen(5)` : 객체(인스턴스) 생성 및 반환
 
-  **- {]와 비교 : {}방식으로 동일한 프로퍼티를 갖는 객체를 생성할 경우 똑같은 코드를 반복해서 쳐야하지만, 생성자 함수를 사용하여 클래스처럼 간편하게 여러개의 동일한 객체를 생성할 수 있다.**
+  **- {}와 비교 : {}방식으로 동일한 프로퍼티를 갖는 객체를 생성할 경우 똑같은 코드를 반복해서 쳐야하지만, 생성자 함수를 사용하여 클래스처럼 간편하게 여러개의 동일한 객체를 생성할 수 있다.**

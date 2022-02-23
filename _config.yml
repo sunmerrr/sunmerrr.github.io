@@ -1,3 +1,10 @@
+# theme: jekyll-theme-minimal
+
+# title: "Summer's Blog"
+# name: "김여름"
+# emain: "sunmer6@gmail.com"
+# description: "코딩한다고 밥 먹는걸 까먹지는 말자"
+# url: "https://sunmerrr.github.io"
 
 
 # Welcome to Jekyll!
@@ -22,7 +29,7 @@ title                    : "Summer's Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "김여름"
-description              : "코딩한다고 밥 먹는걸 까먹지는 말자"
+# description              : "코딩한다고 밥 먹는걸 까먹지는 말자"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -106,7 +113,7 @@ analytics:
 author:
   name             : "김여름"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : 
+  bio              : "코딩한다고 밥 먹는걸 까먹지는 말자"
   location         : "South Korea"
   email            : "sunmer6@gmail.com"
   links:
@@ -220,7 +227,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/seoul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)
