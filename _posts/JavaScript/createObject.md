@@ -1,3 +1,19 @@
+---
+title: "Object 생성 방법과 차이"
+excerpt: "object 생성방식에는 여러가지가 있다. 생성방식과 차이점을 정리해보고자 한다."
+
+categories:
+  - object
+tags:
+  - [object, javascript, function, class]
+
+toc: true
+toc_sticky: true
+ 
+date: 2022-02-03
+last_modified_at: 2022-02-23
+---
+
 # Object 생성 방법과 차이
 
 - object 생성방식에는 여러가지가 있다. 크게 차이는 없겠지만 생성방식과 차이점을 정리해보고자 한다.
@@ -34,13 +50,13 @@
 
 #### 예시
 
-  **- 포로퍼티가 없는 객체**
+  - **프퍼티가 없는 객체**
 
     ```
     const empty = {};
     ```
 
-  **- 1개 이상의 프로퍼티가 있는 객체**
+  - **1개 이상의 프로퍼티가 있는 객체**
 
     ```
     const obj = {
@@ -53,7 +69,7 @@
     };
     ```
 
-  **- function 을 value로 가지고있는 key의 축약형**
+  - **function 을 value로 가지고있는 key의 축약형**
 
     ```
     const obj = {
@@ -90,3 +106,5 @@
     ```
     1. `function PlusTen() {...}` : 생성자 함수
     2. `const five = new PlusTen(5)` : 객체(인스턴스) 생성 및 반환
+
+  **- {]와 비교 : {}방식으로 동일한 프로퍼티를 갖는 객체를 생성할 경우 똑같은 코드를 반복해서 쳐야하지만, 생성자 함수를 사용하여 클래스처럼 간편하게 여러개의 동일한 객체를 생성할 수 있다.**
