@@ -19,9 +19,8 @@ last_modified_at: 2022-02-23
 - object 생성방식에는 여러가지가 있다. 크게 차이는 없겠지만 생성방식과 차이점을 정리해보고자 한다.
 
 <br>
-<br>
 
-## 생성 방법
+## 네가지 생성 방법
 
 1. {}
 2. 생성자 함수
@@ -31,7 +30,6 @@ last_modified_at: 2022-02-23
    <!-- udemy(JavaScript: The Advanced Concepts (2022 Update)) > 섹션 6: Object Oriented Programming
    3 ~ 4 => udemy(JavaScript: The Advanced Concepts (2022 Update)) > 102 Object.creat() vs Class -->
 
-<br>
 <br>
 
 ## 1. {}
@@ -48,7 +46,7 @@ last_modified_at: 2022-02-23
   - {} 생성 시 property가 없으면 빈 객체가 생성된다.
   - 객체에 사용되는 중괄호 {} 는 코드 블록을 의미하는것이 아니기 때문에 뒤에 세미콜론(;)이 따라온다.
 
-#### 예시
+  - 예시
 
   - **프퍼티가 없는 객체**
 
