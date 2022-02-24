@@ -14,22 +14,7 @@ date: 2022-01-28
 last_modified_at: 2022-01-30
 ---
 
-
-# 조건문
-
 ### if...else, 삼항연산자, switch&case
-
-<br>   
-
-## 목차
-
-1. 조건문
-2. if...else
-3. 삼항연산자
-4. switch&case
-5. 정리
-
-<br>
 
 ## 1. 조건문
 

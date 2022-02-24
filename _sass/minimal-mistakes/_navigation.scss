@@ -159,9 +159,11 @@
 .page__meta + .pagination,
 .page__share + .pagination,
 .page__comments + .pagination {
+  display: inline-block;
   margin-top: 2em;
   padding-top: 2em;
   border-top: 1px solid $border-color;
+  margin-right: 10px;
 }
 
 /*
