@@ -42,7 +42,7 @@ last_modified_at: 2022-01-30
   - 예시
 
   - `조건이 하나인 경우: if 만 사용`
-    ```
+    ```jsx
     const num = 5;
 
     if ( num ===  5 ) {
@@ -51,7 +51,7 @@ last_modified_at: 2022-01-30
     ```
 
   - `조건이 두개인 경우: if...else 사용`
-    ```
+    ```jsx
     const num = 5;
 
     if ( num > 5 ) {
@@ -63,7 +63,7 @@ last_modified_at: 2022-01-30
 
 
   - `조건이 세 개 이상인 경우: if ... if else ... else`
-    ```
+    ```jsx
     const num = 5;
 
     if ( num > 5 ) {
@@ -89,7 +89,7 @@ last_modified_at: 2022-01-30
   - 예시
 
   - `일반적인 삼항연산자`
-    ```
+    ```jsx
     const num = 5;
 
     num > 5 ? 'num 은 5보다 큽니다.' : 'num 은 5보다 작거나 같습니다.';
@@ -97,7 +97,7 @@ last_modified_at: 2022-01-30
     ```
 
   - `조건이 두가지 이상일때`
-    ```
+    ```jsx
     const num = 5;
 
     (num > 5)
@@ -120,7 +120,7 @@ last_modified_at: 2022-01-30
   - 예시
 
   - `switch, case, break, default를 모두 사용`
-    ```
+    ```jsx
     const num = 5;
 
     switch (num) {
