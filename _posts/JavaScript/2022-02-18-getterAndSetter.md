@@ -3,9 +3,9 @@ title: "getter, setter"
 excerpt: "get, set 메서드와 프로퍼티 어트리뷰트"
 
 categories:
-  - 
+  - [property attribute]
 tags:
-  - [condition, control flow, javascript, if, switch, ternary operator]
+  - [constructor, getter, setter, javascript, property attribute]
 
 toc: true
 toc_sticky: true
@@ -66,7 +66,7 @@ last_modified_at: 2022-02-19
 
   - 프로퍼티 어트리뷰트란 프로퍼티의 상태를 나타내며, 자바스크립트가 자동으로 정의한다.
   - 프로퍼티 어트리뷰트는 프로퍼티 디스크립터(Properdy Descriptor) 객체를 통해서 간접적으로만 접근이 가능하며, 직접적으로는 접근할 수 없다.
-  - 프로퍼티 디스크립터를 통해서 네가지의 상태와 두가지의 함수를 출력해볼 수 있다.
+  - 프로퍼티 디스크립터를 통해서 네가지의 상태와 두가지의 함수를 출력해볼 수 있다. <br>
     **1. value** : 프로퍼티의 키 값에 정의되어있는 value 값이다. <br>
     **2. writable** : 값의 변경 가능 여부를 나타내 준다. boolean 값이다. <br>
     **3. enumerable** : 열거 가능 여부를 나타내 준다. boolean 값이다. <br>
