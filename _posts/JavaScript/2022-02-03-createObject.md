@@ -14,9 +14,6 @@ date: 2022-02-03
 last_modified_at: 2022-02-23
 ---
 
-
-### object 생성방식에는 여러가지가 있다. 크게 차이는 없겠지만 생성방식과 차이점을 정리해보고자 한다.
-
 ## 네가지 생성 방법
 
 1. {}
@@ -44,16 +41,13 @@ last_modified_at: 2022-02-23
   - 객체에 사용되는 중괄호 {} 는 코드 블록을 의미하는것이 아니기 때문에 뒤에 세미콜론(;)이 따라온다.
 
   - 예시
-
-  - **프퍼티가 없는 객체**
-
-    ```
+  - `프퍼티가 없는 객체`
+    ```jsx
     const empty = {};
     ```
 
-  - **1개 이상의 프로퍼티가 있는 객체**
-
-    ```
+  - `1개 이상의 프로퍼티가 있는 객체`
+    ```jsx
     const obj = {
       word: 'summer',
       num: 123,
@@ -64,9 +58,8 @@ last_modified_at: 2022-02-23
     };
     ```
 
-  - **function 을 value로 가지고있는 key의 축약형**
-
-    ```
+  - `function 을 value로 가지고있는 key의 축약형`
+    ```jsx
     const obj = {
       string: 'summer',
       number: 123,
@@ -85,7 +78,7 @@ last_modified_at: 2022-02-23
   - 생성자 함수를 사용하게되면 똑같은 구조를 가진 객체를 여러개 생성 할 수 있다.
 
   - 예시
-    ```
+    ```jsx
     function PlusTen(num) {
       this.num = num;
       this.getPlusTen = function () { 

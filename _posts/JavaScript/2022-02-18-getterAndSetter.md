@@ -1,4 +1,20 @@
-# getter와 setter
+---
+title: "getter, setter"
+excerpt: "get, set 메서드와 프로퍼티 어트리뷰트"
+
+categories:
+  - 
+tags:
+  - [condition, control flow, javascript, if, switch, ternary operator]
+
+toc: true
+toc_sticky: true
+ 
+date: 2022-02-18
+last_modified_at: 2022-02-19
+---
+
+## getter와 setter
 
 - 자바스크립트는 프로퍼티를 생성하면서 자동으로 프로퍼티 어트리뷰트 값을 정의한다.
 - 프로퍼티 어트리뷰트는 console.log를 찍었을때 보이는 `[[Prototype]]`, `[[Value]]` 등의 값이라고 생각해주면 된다.
@@ -11,7 +27,7 @@
   - Get 은 우리가 흔히 아는 getter를 뜻하는 함수로 프로퍼티의 값을 읽는 역할을 한다.
 
   - 예시
-    ```
+    ```js
     const obj = {
       firstName: 'summer',
       lastName: 'Kim', 
@@ -22,16 +38,15 @@
     };
 
     console.log(obj.fullName);  // 'summer Kim'
-
     ```
-<br>
+    <br>
 
 ## Set
 
   - Set 은 setter를 뜻하며 프로퍼티의 값을 저장할때 호출한다.
 
   - 예시
-    ```
+    ```js
     const obj = {
       firstName: 'summer',
       lastName: 'Kim', 
@@ -44,9 +59,8 @@
     obj.fullName = 'winter Kim'
 
     console.log(obj.fullName);  // 'winter Kim'
-
     ```
-<br>
+    <br>
 
 ## 프로퍼티 어트리뷰트
 
@@ -60,31 +74,26 @@
     **5. Get** : get 메소드이며, 프로퍼티의 값을 읽을때 사용된다. <br>
     **6. Set** : set 메소드이며, 프로퍼티의 값은 저장할때 사용된다. <br>
   - 위의 6가지 프로퍼티 어트리뷰트는 두가지의 다른 프로퍼티에서 작동한다.
-   <br>
    
-  - ### 데이터 프로퍼티
+    ### 데이터 프로퍼티
 
     - 데이터의 상태를 나타내주는 프로퍼티이다.
     - 1 ~ 4번의 프로퍼티 어트리뷰트가 정의된다.
     - 값과 키로 이루어져 있다.
 
     - 예시
-      
       - `Object.getOwnPropertyDescriptor`
-
-        ``` 
+        ```js
         const me = {
           name: 'summer',
         };
 
         console.log(Object.getOwnPropertyDescriptor(me, 'name'));
         // {value: 'summer', writable: true, enumerable: true, configurable: true} 출력
-
         ```
 
       - `Object.getOwnPropertyDescriptors`
-
-        ```
+        ```js
         const me = {
           name: 'summer',
           age: 19,
@@ -95,13 +104,12 @@
           name: {value: 'summer', writable: true, enumerable: true, configurable: true},
           age: {value: 19, writable: true, enumerable: true, configurable: true}
         } 여러 값 출력 */ 
-
         ```
       
       - 참고: [Object.getOwnPropertyDescriptor()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor)
-     <br>
+      <br>
 
-  - ### 접근자 프로퍼티
+    ### 접근자 프로퍼티
 
     - 데이터 프로퍼티의 값을 읽거나 저장할때 사용하는 접근자 함수로 구성되어있다.
     - 자체적으로 값을 갖지 않는다.
@@ -109,7 +117,7 @@
     - get과 set은 하나만 사용할 수도 있고 동시에 사용할 수도 있다.
     
     - 예시
-      ```
+      ```js
       const obj = {
         firstName: 'summer',
         lastName: 'Kim', 
@@ -135,14 +143,14 @@
       ```
        <br>
 
-  - ### 프로퍼티의 정의
+    ### 프로퍼티의 정의
 
     - 위의 프로퍼티는 따로 정의가 가능하다.
     - 프로퍼티를 새로 만들거나 재정의 하는 방식이다.
     - `Object.defineProperty` 를 통해서 정의 또는 재정의한다.
 
     - 예시
-      ```
+      ```js
       const me = {};
 
       Object.defineProperty(me, 'firstName', {
@@ -169,13 +177,13 @@
       - 참고: [Object.defineProperty()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty) 
        <br>
        
-    - #### 프로퍼티 어트리뷰트의 특징
+      #### 프로퍼티 어트리뷰트의 특징
 
       - 프로퍼티 어트리뷰트는 그 특징에 따라서 false일때와 true일때 객체에 미치는 영향이 다른다.
         
         1. writable : 할당을 통해서 값의 변경 가능 여부를 타나내준다.
-          - 기본값 false
-            ```
+          **기본값: false**
+            ```js
             me.firstName = 'winter';
             me.lastName = 'Lee';
 
@@ -184,15 +192,15 @@
             ```
 
         2. enumerable : 열거 가능 여부를 나타내 준다.
-          - 기본값 false
-            ```
+          **기본값: false**
+            ```js
             console.log(Object.keys(me));  // ['firstName']
             // lastName은 enumerable이 false 일때 for ...in 문이나 Object.keys 등으로 열거되지 않는다.
             ```
 
         3. configurabel : 속성의 값 변경과 삭제 가능 여부를 타나내준다.
-          - 기본값 false
-            ```
+          **기본값: false**
+            ```js
             delete me.lastName;
             console.log(me);  // {firstName: 'winter', lastName: 'Kim'}
             // lastName의 configurable이 false임으로 삭제가 불가능하다.

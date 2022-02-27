@@ -27,8 +27,7 @@ last_modified_at: 2022-02-18
   - 함수 안에서 키워드 없이 값을 할당받은 변수
 
 - 예시
-
-  ```
+  ```jsx
   var a = 'global scope';
   b = 'global scope';
   function func() {
@@ -92,8 +91,7 @@ last_modified_at: 2022-02-18
 - 네임 스페이스 구역 안에 다른 네임스페이스를 생성해줄수도 있다.
 
 - 예시
-
-  ```
+  ```jsx
   var obj = {
     name: 'name',
     func() {
@@ -104,7 +102,6 @@ last_modified_at: 2022-02-18
   obj.birth = 0422
   obj.birth.month = 4
   obj.birth.day = 22
-
   ```
 
    <br>
@@ -118,9 +115,7 @@ last_modified_at: 2022-02-18
 - 외부에서는 함수 안의 변수에 접근할 수 없으며, 변수의 중첩, 재할당등 전역변수의 문제를 피해갈 수 있다.
 
 - 예시
-
-  ```
-
+  ```jsx
   (example = function () {
     var myName = 'Tony'
     return myName
@@ -128,7 +123,6 @@ last_modified_at: 2022-02-18
 
   example()  // 'Tony'
   myName  //  ReferenceError: myName is not defined
-
   ```
 
    <br>
@@ -142,8 +136,7 @@ last_modified_at: 2022-02-18
   - 만약 클로저를 모른다면 스코프를 생성하고 전역 변수를 방지하는 차원에서만 알고 넘어가면 좋을 것 같다.
 
 - 예시
-
-  ```
+  ```jsx
   var counter = (function() {
     var number = 0; // 클로저로 인해서 전역변수가 아닌 지역변수가 되며 외부에서는 접근할 수 없다.
 
@@ -156,7 +149,6 @@ last_modified_at: 2022-02-18
   console.log(counter())  // 2
   console.log(counter())  // 3
   console.log(counter.number)  // undefined
-
   ```
 
     <br>
@@ -173,11 +165,9 @@ last_modified_at: 2022-02-18
   - 파일 확장자명을 mjs로 하지 않아도 되지만 ECMAScript에서 권장하고 있기 때문에 되도록이면 mjs로 해주자
 
   - 예시
-
-    ```
+    ```jsx
     <script type='module' src='test.mjs'></script>
     <script type='module' src='ES6ModuleTest.mjs'></script>
-
     ```
 
 - 몇몇의 구형 브라우저에서는 지원되지 않는 기능이라서 잘 살펴보고 사용해야한다.
@@ -198,8 +188,7 @@ last_modified_at: 2022-02-18
       - 함수 뿐만 아니라 모든 블록 스코프 안에서만 유효하도록 되어있다.
 
       - 예제
-
-        ```
+        ```jsx
         let number = 24;
 
         {
@@ -212,7 +201,6 @@ last_modified_at: 2022-02-18
 
         number = 95;
         console.log(number);  // 95 출력
-
         ```
 
   2.  const
@@ -224,7 +212,7 @@ last_modified_at: 2022-02-18
 
       - 선언 예제
 
-        ```
+        ```jsx
         const number = 24;
 
         {
@@ -236,14 +224,13 @@ last_modified_at: 2022-02-18
         console.log(number);  // 24 출력
 
         number = 95;  // TypeError: Assignment to constant variable.
-
         ```
 
       - 상수 예제
       - 상수는 항상 스네이크케이스로 대문자를 써서 선언해준다.
 
-        ```
-        // 좋은 예제는 아니니 참고만 하자..
+        ```jsx
+        // 좋은 예제는 아니니 참고만..
 
         let user = '학생';
         const STUDENT = '학생';
@@ -253,7 +240,6 @@ last_modified_at: 2022-02-18
         } else {
           console.log('학생이 아니면 이용할 수 없습니다.')
         }
-
         ```
 
 ### 1 ~ 5 번의 기능의 차이점
