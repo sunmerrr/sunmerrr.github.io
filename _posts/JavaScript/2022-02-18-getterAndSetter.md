@@ -3,7 +3,7 @@ title: "getter, setter"
 excerpt: "get, set 메서드와 프로퍼티 어트리뷰트"
 
 categories:
-  - [property attribute]
+  - property attribute
 tags:
   - [constructor, getter, setter, javascript, property attribute]
 
