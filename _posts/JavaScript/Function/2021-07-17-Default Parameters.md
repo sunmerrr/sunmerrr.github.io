@@ -11,13 +11,13 @@ toc: true
 toc_sticky: true
  
 date: 2021-07-17
-last_modified_at: 2021-07-18
+last_modified_at: 2021-07-17
 ---
 
 ## 개념
 
 - 함수의 매개변수에 인수를 전달해주지 않으면 undefined를 기본값으로 갖는다.
-- 다른 기본 값을 설정하는 것이 유용할 수 있는 상황에서 default parameter를 사용한다.
+- undefined외에 기본 값을 설정하는 것이 유용할 수 있는 상황에서 default parameter를 사용한다.
 
 ## 사용
 
@@ -71,11 +71,11 @@ last_modified_at: 2021-07-18
 
 <!-- [기본값 매개변수 - JavaScript | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/Default_parameters#%ED%98%B8%EC%B6%9C_%EC%8B%9C_%ED%8F%89%EA%B0%80) -->
 
-- 함수는 호출 될 때마다 새로운 매개변수를 생성한다.
+- 함수는 호출 될 때마다 새로운 매개변수를 생성한다. 때문에 함수를 호출하여 매개변수의 기본값을 변경해줘도 다시 호출할때는 변경한 내용이 반영되어있지 않을것이다.
 - 기본값은 맨 마지막에 정의해줘야한다. 인수는 순서대로 매개변수에 할당되기때문에 앞쪽에 정의된 기본값은 덮어씌워질 수 있고 뒤쪽에 정의된 일반 매개변수는 인수를 전달받지 못할 수 있다.
 - 기본값보다 앞쪽에 나온 매개변수는 뒤쪽의 기본값에 사용할 수 있다.
 
-- MDN에서 이런 예제를 다뤘다.
+<!-- - MDN에서 이런 예제를 다뤘다. -->
 
 <!-- ```jsx
 function go() {
