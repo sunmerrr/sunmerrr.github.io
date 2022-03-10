@@ -15,10 +15,98 @@ last_modified_at: 2022-03-10
 ---
 
 ## 정의
-- 배열의 프로토타입으로 .sort의 앞이 배열일때 사용가능하다.
-- 콜백 함수를 쓰지 않아 조건이 없을 경우 배열속 요소들을 오름차순으로 정렬한다.
+- 배열의 프로토타입으로 .sort()의 앞의 값이 배열 일때 사용가능하다.
+- 비교 함수를 쓰지 않아 조건이 없을 경우 배열속 요소들을 오름차순으로 정렬한다.
 - 대문자와 소문자를 구별하여 정렬한다.
-- 숫자를 정렬하려고 할 경우에는 숫자가 문자열로 입력되어 있다면 일바적으로 생각하는 적은 수에서 큰 수로 정렬되지 않는다.
-- 객체 속 key, velue로도 정렬 메소드를 사용할 수 있다.
+- 숫자를 정렬하려고 할 경우에는 일바적으로 생각하는 적은 수에서 큰 수로 정렬되지 않는다.
+- 기본적으로 배열의 메소드지만 객체도 정렬할 수 있다.
+
+### 기본 정렬
+- 배열에 .sort()를 붙인다.
+ 
+  - 문자
+  ```jsx
+  const stringArr = [ 'pineapple', 'grape', 'banana', 'kiwi', 'apple' ];
+
+  stringArr.sort();  // abc 순으로 정렬 [ 'apple', 'banana', 'grape', 'kiwi', 'pineapple' ]
+  ```
+
+  - 숫자
+  ```jsx
+  const numberArr = [ 7, 4, 8, 2, 1 ];
+
+  numberArr.sort();  // 정렬 값 = [ 1, 2, 4, 7, 8 ]
+  ```
+
+  - 숫자의 경우에는 우리가 생각하는 것 처럼 정렬이 되지 않을 수 있다.
+  ```jsx
+  const numberArr = [ 200, 1300, 3, 10, -1, -55 ];
+
+  numberArr.sort();  //[ -1, -55, 10, 1300, 200, 3 ]
+  ```
+
+### 비교 함수
+- .sort()의 괄호 안에 비교함수를 넣어서 원하는 방향으로 정렬한다.
+- 비교함수를 사용하여 위에 숫자가 제대로 정렬되지 않는 문제도 해결할 수 있다.
+
+  - 오름차순
+  ```jsx
+  const numberArr = [ 200, 1300, 3, 10, -1, -55 ];
+
+  numberArr.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    if (a === b) return 0;
+  });
+  // 다시 정렬된 값 [ -55, -1, 3, 10, 200, 1300 ]
+  ```
+  
+  - 내림차순
+  ```jsx
+  const numberArr = [ 200, 1300, 3, 10, -1, -55 ];
+
+  numberArr.sort((a, b) => {
+    if (a < b) return 1;
+    if (a > b) return -1;
+    if (a === b) return 0;
+  });
+  // 반대로 정렬됨 [ 1300, 200, 10, 3, -1, -55 ]
+  ```
+
+### 비교 함수 축약
+- 오름차순과 내림차순 축약
+  ```jsx
+  const numberArr = [ 200, 1300, 3, 10, -1, -55 ];
+
+  const ascending = numberArr.sort((a, b) => {
+    return a - b;  // 오름차순
+  });
+
+  const descending = numberArr.sort((a, b) => {
+    return b - a;  // 내림차순
+  })
+  console.log(ascending); // 정렬된 값 [ -55, -1, 3, 10, 200, 1300 ]
+  console.log(descending); // 정렬된 값 [ 1300, 200, 10, 3, -1, -55 ]
+  ```
+  - 문자로 이루어진 배열에는 해당되지 않는 모양이다.
+
+### 객체 정렬
+- 객체값을 가진 배열도 정렬할 수 있다.
+
+  - key값으로 정렬하기
+  ```jsx
+  const fruits = [
+    {id: 1, name: 'strawberry'},
+    {id: 2, name: 'green apple'},
+    {id: 3, name: 'green apple'},
+  ];
+
+  fruits.sort((a, b) => {
+    
+  })
+  ```
+
+
+
 
 
