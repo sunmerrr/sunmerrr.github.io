@@ -15,14 +15,14 @@ last_modified_at: 2022-03-10
 ---
 
 ## 정의
-- 배열의 프로토타입으로 .sort()의 앞의 값이 배열 일때 사용가능하다.
+- 배열의 프로토타입으로 `.sort()`의 앞의 값이 배열 일때 사용가능하다.
 - 비교 함수를 쓰지 않아 조건이 없을 경우 배열속 요소들을 오름차순으로 정렬한다.
 - 대문자와 소문자를 구별하여 정렬한다.
 - 숫자를 정렬하려고 할 경우에는 일바적으로 생각하는 적은 수에서 큰 수로 정렬되지 않는다.
 - 기본적으로 배열의 메소드지만 객체도 정렬할 수 있다.
 
 ### 기본 정렬
-- 배열에 .sort()를 붙인다.
+- 배열에 `.sort()`를 붙인다.
  
   - 문자
   ```jsx
@@ -46,7 +46,7 @@ last_modified_at: 2022-03-10
   ```
 
 ### 비교 함수
-- .sort()의 괄호 안에 비교함수를 넣어서 원하는 방향으로 정렬한다.
+- `.sort()`의 괄호 안에 비교함수를 넣어서 원하는 방향으로 정렬한다.
 - 비교함수를 사용하여 위에 숫자가 제대로 정렬되지 않는 문제도 해결할 수 있다.
 
   - 오름차순
@@ -56,7 +56,7 @@ last_modified_at: 2022-03-10
   numberArr.sort((a, b) => {
     if (a < b) return -1;
     if (a > b) return 1;
-    if (a === b) return 0;
+    return 0;
   });
   // 다시 정렬된 값 [ -55, -1, 3, 10, 200, 1300 ]
   ```
@@ -68,7 +68,7 @@ last_modified_at: 2022-03-10
   numberArr.sort((a, b) => {
     if (a < b) return 1;
     if (a > b) return -1;
-    if (a === b) return 0;
+    return 0;
   });
   // 반대로 정렬됨 [ 1300, 200, 10, 3, -1, -55 ]
   ```
@@ -98,13 +98,22 @@ last_modified_at: 2022-03-10
   const fruits = [
     {id: 1, name: 'strawberry'},
     {id: 2, name: 'green apple'},
-    {id: 3, name: 'green apple'},
+    {id: 3, name: 'Mango'},
+    {id: 4, name: 'apple'},
   ];
 
+  // key 값 name으로 정렬
   fruits.sort((a, b) => {
-    
+    // 문자열은 대문자 소문자를 구분하기 때문에 맞춰서 정렬해줘야한다.
+    a = a.name.toUpperCase()
+    b = b.name.toUpperCase()
+
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
   })
   ```
+  - 문자열로 정렬할 경우 대문자 소문자를 구분하기때문에 모두 대문자로 변형해주기 위해 `.toUpperCase()`를 사용해주었다.
 
 
 
