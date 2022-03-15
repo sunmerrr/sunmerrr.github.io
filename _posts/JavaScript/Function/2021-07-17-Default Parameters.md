@@ -3,7 +3,7 @@ title: "Default Parameters"
 excerpt: "매개변수의 기본값"
 
 categories:
-  - function
+  - JavaScript
 tags:
   - [function, javascript, default parameters, parameters]
 

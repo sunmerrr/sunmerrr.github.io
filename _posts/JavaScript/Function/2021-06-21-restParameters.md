@@ -3,7 +3,7 @@ title: "Rest Parameters"
 excerpt: "함수에 매개변수 개수를 정해줄 수 없을때"
 
 categories:
-  - function
+  - JavaScript
 tags:
   - [function, javascript, rest parameters, rest operator]
 

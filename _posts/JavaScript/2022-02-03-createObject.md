@@ -3,7 +3,7 @@ title: "Object 생성 방법과 차이"
 excerpt: "object 생성방식에는 여러가지가 있다. 생성방식과 차이점을 정리해보고자 한다."
 
 categories:
-  - object
+  - JavaScript
 tags:
   - [object, javascript, function, class]
 

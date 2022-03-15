@@ -3,7 +3,7 @@ title: "조건문"
 excerpt: "조건문의 if...else와 삼항연산자, switch&case문 비교"
 
 categories:
-  - condition
+  - JavaScript
 tags:
   - [condition, control flow, javascript, if, switch, ternary operator]
 

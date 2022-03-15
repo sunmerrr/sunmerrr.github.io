@@ -3,7 +3,7 @@ title: "전역변수의 문제점과 전역변수 피하기"
 excerpt: "조건문의 if...else와 삼항연산자, switch&case문 비교"
 
 categories:
-  - glovalVariable
+  - JavaScript
 tags:
   - [glovalVariable, varable, javascript, scope]
 
