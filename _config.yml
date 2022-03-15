@@ -112,7 +112,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Soft"
+  name             : "Software Developer"
   avatar           : '/assets/images/summer.jpeg' # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "코딩한다고 밥 먹는걸 까먹지는 말자"
   location         : "South Korea"
