@@ -93,6 +93,11 @@ table,
 fieldset {
   orphans: 3;
   widows: 3;
+  // padding-left: 20px;
+}
+
+ul, ol, dl {
+  padding-left: 20px;
 }
 
 /* abbreviations */
@@ -197,6 +202,7 @@ ol li {
 li ul,
 li ol {
   margin-top: 0.5em;
+  padding-left: 20px;
 }
 
 /*
