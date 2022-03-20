@@ -10,13 +10,15 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2022-03-19
-last_modified_at: 2022-03-19
+date: 2021-11-24
+last_modified_at: 2021-11-24
 ---
 
 ## 구글 맵 API를 이용하여 내 사이트에 지도를 심어주자
   - 사용 API [`react-google-map/api`](https://www.npmjs.com/package/@react-google-maps/api)
-  - 2주 팀 프로젝트로 써본 라이브러리의 실패와 성공에 대한 기록
+  - 2주 팀 프로젝트에서 사용한 라이브러리의 실패와 성공에 대한 기록
+  - 배운점
+    - 급하더라도 공식문서를 샅샅히 보자. 대부분 공식문서에 답이 다 나와있다.
 
 ### 실패모음.zip
   - 왜 실패했는지 원인을 찾기엔 시간이 없었다는 핑계를 대본다.
@@ -156,3 +158,47 @@ last_modified_at: 2022-03-19
     - 프로젝트 인 airbnb 사이트의 출력 페이지
 
 
+<details><summary>임의로 사용한 Mock Data
+</summary>
+  
+  ```jsx
+  const locations = [
+    {
+      name: 'Location 1',
+      location: {
+        lat: 41.3954,
+        lng: 2.162,
+      },
+    },
+    {
+      name: 'Location 2',
+      location: {
+        lat: 41.3917,
+        lng: 2.1649,
+      },
+    },
+    {
+      name: 'Location 3',
+      location: {
+        lat: 41.3773,
+        lng: 2.1585,
+      },
+    },
+    {
+      name: 'Location 4',
+      location: {
+        lat: 41.3797,
+        lng: 2.1682,
+      },
+    },
+    {
+      name: 'Location 5',
+      location: {
+        lat: 41.4055,
+        lng: 2.1915,
+      },
+    },
+  ];
+  ```
+
+</details>
