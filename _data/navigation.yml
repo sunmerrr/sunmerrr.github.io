@@ -5,7 +5,7 @@ main:
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "JavaScript"
-    url: /categories/javascript/
+    url: /categories/
   - title: "Categories"
     url: /categories/
   # - title: "Sitemap"
