@@ -1,5 +1,5 @@
 ---
-title: "Object 생성 방법과 차이"
+title: "Object 생성 방법과 차이(ing)"
 excerpt: "object 생성방식에는 여러가지가 있다. 생성방식과 차이점을 정리해보고자 한다."
 
 categories:
@@ -17,9 +17,10 @@ last_modified_at: 2022-02-23
 ## 네가지 생성 방법
 
 1. {}
-2. 생성자 함수
-3. Object.create 메서드
-4. class
+2. Object 생성자 함수
+3. 생성자 함수
+4. Object.create 메서드
+5. class
 
    <!-- udemy(JavaScript: The Advanced Concepts (2022 Update)) > 섹션 6: Object Oriented Programming
    3 ~ 4 => udemy(JavaScript: The Advanced Concepts (2022 Update)) > 102 Object.creat() vs Class -->
@@ -70,7 +71,7 @@ last_modified_at: 2022-02-23
     };
     ```
 
-## 2. 생성자 함수
+## 3. 생성자 함수
 
   - new 연산자와 함께 호출하여 객체(인스턴스)를 생성하는 함수를 말한다.
   - 자바스크립트는 Object, String, Number, Boolean, Function, Date, RegExp 등을 생성자 함수로 제공한다.

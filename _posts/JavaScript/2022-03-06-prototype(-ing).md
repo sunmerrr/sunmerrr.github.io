@@ -1,5 +1,5 @@
 ---
-title: "prototype"
+title: "prototype(ing)"
 excerpt: "javacript는 프로토타입 기반 객체지향 프로그래밍 언어이다."
 
 categories:
