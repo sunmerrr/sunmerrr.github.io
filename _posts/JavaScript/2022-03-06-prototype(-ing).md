@@ -66,3 +66,7 @@ last_modified_at: 2022-03-06
 ## 객체
 - 프로토타입이 주제인데 왠 갑자기 객체? 라고 하겠지만, 프로토타입은 객체의 속성을 상속해주는 아이이기 때문에 객체가 빠질 수 없다.
 - 자바스크립트에는 Object 뿐만아니라 Array, Function, RegExp 등도 객체에 포함된다. [객체](https://sunmerrr.github.io/javascript/object/)
+
+
+### 프로토타입 기반 상속의 장점
+The fact that objects can share prototypes means that you can have objects with properties that are pointing to the same place in memory, thus being more efficient.
