@@ -17,7 +17,7 @@ last_modified_at: 2022-02-23
 ## 네가지 생성 방법
 
 1. {}
-2. Object 생성자 함수
+2. Object() 생성자 함수
 3. 생성자 함수
 4. Object.create 메서드
 5. class
@@ -70,6 +70,31 @@ last_modified_at: 2022-02-23
       },
     };
     ```
+
+## 2. Object() 생성자 함수
+  - new 연산자와함께 Object() 를 호출해서 객체를 만들어준다.
+  - 괄호 안에 아무것도 넣지 않거나 `undefined`, `null`값을 넣어주면 빈 객체를 생성한다.
+  - 객체 생성 후 key와 value는 객체의 특성에따라 자유롭게 추가해줄 수 있다.
+    ```js
+    const obj = new Object();
+    const objUndefined = new Object(undefined);
+    const objNull = new Object(null);
+
+    console.log(obj);  // {}
+    console.log(objUndefined);  // {}
+    console.log(objNull);  // {}
+
+    obj.name = 'Summer'
+    obj.myName = function() { return 'hello, my name is ' + this.name}
+
+    console.log(obj.myName())  // 'hello, my name is Summer'
+    ```
+  
+  - 객체 리터럴로 객체를 생성 시 위 과정이 생략된 것이라고 보면 된다.
+    ```js
+    const obj = {}  // const obj = new Object() 가 생략되어있음
+    ```
+
 
 ## 3. 생성자 함수
 
