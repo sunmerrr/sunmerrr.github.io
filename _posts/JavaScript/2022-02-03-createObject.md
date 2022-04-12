@@ -28,7 +28,6 @@ last_modified_at: 2022-02-23
 <br>
 
 ## 1. {}
-
   - 객체 리터럴 이라고하는 방식으로 우리가 흔히 사용하고 있는 방식이다.
   - {} 의 중괄호 안에 key와 value로 이루어진 property를 작성하여 생성한다.
   - key는 문자 또는 숫자로 이루어진 값으로 정의하며 자바스크립트 네이밍 규칙을 따라 camel case로 작성하는것을 권장한다.
@@ -97,7 +96,6 @@ last_modified_at: 2022-02-23
 
 
 ## 3. 생성자 함수
-
   - new 연산자와 함께 호출하여 객체(인스턴스)를 생성하는 함수를 말한다.
   - 자바스크립트는 Object, String, Number, Boolean, Function, Date, RegExp 등을 생성자 함수로 제공한다.
   - new 연산자와 함께 Object 생성자 함수를 호출하여 객체를 생성 할 수 있다.
@@ -122,3 +120,21 @@ last_modified_at: 2022-02-23
     2. `const five = new PlusTen(5)` : 객체(인스턴스) 생성 및 반환
 
   **- {}와 비교 : {}방식으로 동일한 프로퍼티를 갖는 객체를 생성할 경우 똑같은 코드를 반복해서 쳐야하지만, 생성자 함수를 사용하여 클래스처럼 간편하게 여러개의 동일한 객체를 생성할 수 있다.**
+
+
+## 4. Object.create 메서드
+  -  Object.create() 메소드를 이용해서 지정된 prototype을 가진 객체를 생성할 수 있다.
+  ```js
+  const obj = {
+    name: 'Summer', 
+    myName: function() { 
+      return 'Hello, I\'m ' + this.name 
+    }
+  }
+
+  const ingeritance = Object.create(obj)
+
+  console.log(inheritance.__proto__)  // { name: 'Summer', myName: ƒ myName() }  obj객체의 값들이 ingeritance의 prototype으로 상속되었다.
+
+  console.log(inheritance.myName())  // "Hello, I'm Summer"  obj객체가 가지고 있던 myName()이 inheritance 객체에 상속되어 사용되었다.
+  ```
