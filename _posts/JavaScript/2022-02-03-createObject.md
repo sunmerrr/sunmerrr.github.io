@@ -16,15 +16,14 @@ last_modified_at: 2022-02-23
 
 ## 다섯가지 생성 방법
 
+*검색하다보면 object 생성 방식을 2가지 또는 3가지로 정리해둔 글이 많이 보인다. 여기서는 object를 생성할 수 있는 모든 방법을 찾아서 적어볼 예정이다.* 
+
 1. {}
 2. Object() 생성자 함수
 3. 생성자 함수
 4. Object.create 메서드
 5. class
 
-<br>
-
-  *검색하다보면 object 생성 방식을 2가지 또는 3가지로 정리해둔 글을 많이 보인다. 여기서는 object를 생성할 수 있는 모든 방법을 찾아서 적어볼 예정이다.* 
 
    <!-- udemy(JavaScript: The Advanced Concepts (2022 Update)) > 섹션 6: Object Oriented Programming
    3 ~ 4 => udemy(JavaScript: The Advanced Concepts (2022 Update)) > 102 Object.creat() vs Class -->
@@ -138,7 +137,7 @@ last_modified_at: 2022-02-23
 
   const ingeritance = Object.create(obj)
 
-  console.log(inheritance.__proto__)  // { name: 'Summer', myName: ƒ myName() }  obj객체의 값들이 ingeritance의 prototype으로 상속되었다.
+  console.log(inheritance.getPrototypeOf(inheritance))  // { name: 'Summer', myName: ƒ myName() }  obj객체의 값들이 ingeritance의 prototype으로 상속되었다.
 
   console.log(inheritance.myName())  // "Hello, I'm Summer"  obj객체가 가지고 있던 myName()이 inheritance 객체에 상속되어 사용되었다.
   ```
