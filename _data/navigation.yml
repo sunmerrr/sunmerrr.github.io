@@ -6,6 +6,8 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   - title: "JavaScript"
     url: /categories/javascript/
+  - title: "React"
+    url: /categories/react/
   - title: "Categories"
     url: /categories/
   # - title: "Sitemap"
