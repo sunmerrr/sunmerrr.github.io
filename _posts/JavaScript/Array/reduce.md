@@ -18,18 +18,24 @@ last_modified_at: 2021-08-15
 - reducer의 역할을 수행해주는 메소드이다.
 - reducer란?
   이전의 상태나 동작을 받아서 새로운 상태나 동작을 반환해주는 함수
+- 다양한 메소드들을 reduce로 구현 할 수 있다.
 
 ## 사용
+- reduce 메소드의 콜백함수에는 누적값, 현재값, 인덱스, 요소를 인수로 전달해 줄 수 있다.
+- 누적값(accumulator) : total 값이다. 현재값을 하나씩 돌며 값을 누적
+- 현재값(correntValue) : 현재 비교(또는 계산)되고 있는 요소
+- 인덱스(currentIndex) : 현재 비교(또는 계산)되고 있는 요소의 인덱스
+- 요소(array) : reduce 메소드를 사용한 배열 원본
+- initialValue : 첫번째 인수에 전달할 값, 설정하지 않으면 인덱스 1에 있는 요소부터 시작하며 설정해 주면 인덱스 0에 있는 요소부터 시작
 
-```jsx
-배열.reduce((누적값, 현재값, 인덱스, 요소) => { 결과값 }, 초기값);
-arr.reduce((accumulator, currentValue, currentIndex, array) => { return }, initialValue);
-```
+  ```jsx
+  배열.reduce((누적값, 현재값, 인덱스, 요소) => { 결과값 }, 초기값);
+  arr.reduce((accumulator, currentValue, currentIndex, array) => { 
+    return ...
+  }, initialValue);
+  ```
 
-
-
-
-### 덧셈
+  #### 덧셈
   ```jsx
   let arr = [1, 2, 3, 4, 5];
   let sum = arr.reduce((pre, curval, curidx, arr) => {
@@ -38,9 +44,9 @@ arr.reduce((accumulator, currentValue, currentIndex, array) => { return }, initi
   
   console.log(sum);  // 15
   ```
-    
-### 초기값
-    
+      
+  #### 초기값
+      
   ```jsx
   let arr = [1, 2, 3, 4, 5];
   let sum = arr.reduce((pre, curval, curidx, arr) => {
@@ -49,38 +55,20 @@ arr.reduce((accumulator, currentValue, currentIndex, array) => { return }, initi
   
   console.log(sum);  // 115 -> pre가 100으로 설정되어있음
   ```
-  
-### 인스턴스 개수 세기
     
+  #### 인스턴스 개수 세기      
   ```jsx
   let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
   
   let count = names.reduce((allNames, name) => {
-    if (name in allNames) {
-      allNames[name]++;
-    } else {
-      allNames[name] = 1;
-    }
+    allNames[name] = ++allNames[name] || 1 ;
     return allNames;
   }, {});
   
-  console.log(count);  // { Alice: 2, Bob: 1, Tiff: 1, Bruce: 1 }
+  console.log(count);
   ```
-  
-  - 같은 코드를 아래와 같이 줄일 수 있음
-      
-    ```jsx
-    let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
-    
-    let count = names.reduce((allNames, name) => {
-      allNames[name] = ++allNames[name] || 1 ;
-      return allNames;
-    }, {});
-    
-    console.log(count);
-    ```
 
 ### 주의
 
-- `initialValue`를 지정하지 않으면 `reduce()`는 인덱스 1부터 시작하며, 0번째 인덱스는 건너뛴다. 이 경우 `accumulater`가 0번째 인덱스에 해당합니다.
-- `initialValue` 지정 시 인텍스 0부터 시작함
+- `initialValue`를 지정하지 않으면 `reduce()`는 인덱스 1부터 시작하며, 0번째 인덱스는 건너뛴다. 이 경우 `accumulater`가 0번째 인덱스에 해당하게 된다.
+- `initialValue`를 0으로 지정 시 인텍스 0부터 시작함
