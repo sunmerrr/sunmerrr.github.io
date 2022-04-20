@@ -14,6 +14,17 @@ date: 2022-04-17
 last_modified_at: 2022-04-17
 ---
 
+## module 이란
+- 자바스크립트의 전역 스코프에 대한 단점을 보안하기 위해 나온 메커니즘 이다.
+- 모듈을 작성한 파일에서 export 해주고 main.js 같은 최상위 모듈파일에서 import 해줌으로 모듈화를 해줄 수 있으며 스코프를 나눠줄 수 있다.
+- HTML 페이지에 적용 시 `<script>` 요소에 `type='module'`을 넣어줘야 한다.
+  ```Html
+  <script type='module' src='main.js'></script>
+  ```
+
+  ### import 
+
+  ### export
 
 ## module의 탄생 과정
 1. 자바스크립트의 스코프
@@ -33,3 +44,5 @@ last_modified_at: 2022-04-17
 
 3. Library
 - CommonJS 와 AMD
+
+4. 
