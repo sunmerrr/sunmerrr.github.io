@@ -22,9 +22,13 @@ last_modified_at: 2022-04-17
   <script type='module' src='main.js'></script>
   ```
 
-  ### import 
+  ### import
+  - 개발을 해본 사람이라면 import와 export는 익숙 할 것이다.
+  - 필요한 모듈을 사용하고자 하는 파일에 import해서 사용한다.
+  - import를 하기 전에는 반드시 끌어와서 사용하고자 하는 파일을 export 해줘야 한다.  
 
   ### export
+  - 
 
 ## module의 탄생 과정
 1. 자바스크립트의 스코프
