@@ -33,6 +33,10 @@ last_modified_at: 2022-05-01
       - 예) 일주일간 보지 않기 / 30일간 보지 않기 / 사용자 선호 테마 저장 등
     - Tracking : 사용자 행동 패턴 분석 및 기록
       - 예) 최근에 검색한 기록을 통해서 광고 띄우기
+      
+--
+  - 키워드 : 사용자 정보 저장
+    - 내용 : 사용자 정보를 계속해서 저장해두었다가 비교 후 로그인 유지+자동 로그인을 하기 위해
 
 
 <!-- [Cookie Deep Dive](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies) -->
