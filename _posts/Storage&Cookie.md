@@ -33,40 +33,52 @@ last_modified_at: 2022-05-01
       - 예) 일주일간 보지 않기 / 30일간 보지 않기 / 사용자 선호 테마 저장 등
     - Tracking : 사용자 행동 패턴 분석 및 기록
       - 예) 최근에 검색한 기록을 통해서 광고 띄우기
-      
---
-  - 키워드 : 사용자 정보 저장
-    - 내용 : 사용자 정보를 계속해서 저장해두었다가 비교 후 로그인 유지+자동 로그인을 하기 위해
-
 
 <!-- [Cookie Deep Dive](https://developer.mozilla.org/ko/docs/Web/HTTP/Cookies) -->
 
 ## Web Storage(modern storage APIs)
-- 쿠키 외에 사용자의 정보를 조금 더 직관적으로 저장할 수 있는 방법이다. 
+- 사용자의 정보를 더 직관적으로 저장할 수 있는 방법이다. 
+- 스토리지는 저장된 정보를 서버로 전송하지 않는다.
+- 키와 값으로 저장하고 키를 통해서 불러올 수 있다.
 
   ### Local Storage
   - 브라우저를 닫았다가 열어도 저장된 정보를 남겨둔다.
   - 쿠키나 세션 스토리지보다 저장공간이 커서 비교적 많은 양의 정보를 저장할 수 있다.
   - 유효기간 없이 정보를 저장한다.
-  - 키와 값으로 저장하고 키를 통해서 불러올 수 있다.
 
     #### 사용 예시
-    - 공유
-    - 구분 기준
+    - 저장
+      ```js
+      // window 객체의 localStorage가 포함되어있고, window. 은 생략할 수 있다.
+      localStorage.setItem('myName', 'summer')
+      ```
 
+    - 접근
+      ```js
+      const name = localStorage.getItem('myName')
+      ```
+
+    - 항목 삭제
+      ```js
+      localStorage.removeItem('myName')
+      ```
+
+    - localStorage 전체 삭제
+      ```js
+      localStorage.clear()
+      ```
 
   ### Session Storage
   - 브라우저를 닫으면 저장되었던 정보는 사라진다.
   - 쿠키보다는 많은 정보를 저장할 수 있지만 local storage에 비해 적은 양을 저장할 수 있다.
   - local storage와 마찬가지로 키와 값으로 저장하고 키를 통해서 불러올 수 있다.
 
-  - 공유
-    #### 사용 예시
+  ### 사용 예시
+  - 저장, 접근, 삭제 방법은 local storage와 동일하다.
 
 
+## IndexDB
+  - 비교적 많은 양의 데이터를 저장할 수 있다. 
 
-차이점
-
-장단점
 
 (이런 재미없는 글을 읽는 사람이 있을지 궁금하다)
