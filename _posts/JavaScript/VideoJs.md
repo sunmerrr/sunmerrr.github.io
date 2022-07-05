@@ -1,6 +1,6 @@
 ---
 title: "react video.js 시작하기"
-excerpt: "react에서 동영상 재생 페이지 만들기"
+excerpt: "react에서 영상 플레이어 페이지 만들고 옵션 설정하기"
 
 categories:
   - React
@@ -11,17 +11,18 @@ toc: true
 toc_sticky: true
  
 date: 2022-05-15
-last_modified_at: 2022-05-01
+last_modified_at: 2022-07-05
 ---
 
-## react에서 video.js를 사용하여 비디오 동영상 재생 페이지를 만들어보자
+## react에서 video.js를 사용하여 영상 플레이어 페이지를 만들고 옵션을 설정해보자.
 
-*api가 모두 셋팅되어있다는 조건 하에 작성했다.*
+*api가 모두 셋팅되어있다는 조건 하에 작성되었다.*
 
-### 1. video 띄우기
-  - video.js를 사용하여 동영상 재생 페이지를 만들려면 두개의 컴포넌트가 필요하다.
+### 1. 영상 플레이어 띄우기
+  - video.js를 사용하여 영상 재생 페이지를 만들려면 두개의 컴포넌트가 필요하다.
     1) 플레이어 환경을 설정하는 부모 컴포넌트
     2) 플레이어를 재생하는 자식 컴포넌트
+  - 두 개의 컴포넌트는 부모와 자식 관계로 연결되어있으며, 공식문서만 잘 따라해도 영상은 나오게 만들 수 있다.
 
     ##### 1) 플레이어 환경 설정
     - 말 그래도 플레이어를 띄워줄 화면이다.
@@ -35,10 +36,10 @@ last_modified_at: 2022-05-01
         const playerRef = useRef(null);
 
         const videoJsOptions = {
-          // 동영상 재생 시 넣어줄 조건을 여기에 작성한다.
-          autoplay: true,
-          controls: true,
-          responsive: true,
+          // 동영상 재생 조건을 여기에 작성한다. option에 대한 설명은 아래에 해두었다.
+          autoplay: true, 
+          controls: true, 
+          responsive: true, 
           fluid: true,
           sources: [{
             src: '/path/to/video.mp4',
@@ -113,9 +114,25 @@ last_modified_at: 2022-05-01
 
       export default Player;
       ```
-    
-### 2. theme 적용하기
-### 3. 단축키 설정하기
-### 4. play 시간 기록하기
+      * 이렇게만 해도 영상 플레이어는 잘 나온다
+
+### 2. option 설정하기
+  - 위에서 설정한 `VideoJsOptions`는 기본값이다.
+    ```js
+    const videoJsOptions = {
+      autoplay: true, // 페이지 로드 시 영상 자동 재생 여부, default: false
+      controls: true, // 유저가 재생 조작 가능 여부 - false면 autoplay: true 조건에서만 재생됨
+      responsive: true, // 반응형 에서 break point 적용 여부
+      fluid: true, // 유저의 화면에 유동적으로 맞춤 여부
+      sources: [{
+        src: '/path/to/video.mp4', // 영상의 url 입력
+        type: 'video/mp4' // 영상 확장자
+      }]
+    };
+    ```
+
+### 3. theme 적용하기
+### 4. 단축키 설정하기
+### 5. play 시간 기록하기
 
 [react video.js 공식문서](https://videojs.com/guides/react/)
