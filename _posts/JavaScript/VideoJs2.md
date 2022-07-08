@@ -50,7 +50,7 @@ last_modified_at: 2022-07-05
       };
       ```
     ###### 2) theme download
-
+    ![image](https://user-images.githubusercontent.com/65106740/178009895-177b477b-3b7a-4346-b0b3-3e804352d3b7.png)
     ```ts
     // app.ts
 
@@ -70,7 +70,8 @@ last_modified_at: 2022-07-05
       );
     };
     ```
-    - 너무 쉬워서 말도 안나온다..ㅋ
+    - sea theme 적용 영상
+      ![image](https://user-images.githubusercontent.com/65106740/178016183-cb7d987b-d077-43bc-9ee4-10b1cf31aa55.gif)
 
 ### 4. 단축키 설정하기
   - 
