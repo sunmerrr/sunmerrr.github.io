@@ -1,6 +1,6 @@
 ---
 title: "칭찬 로그"
-excerpt: "힘들때 보고 힘내려고요"
+excerpt: "지칠때 보고 힘내려고요"
 
 ccategories:
   - Developer
