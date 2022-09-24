@@ -11,10 +11,14 @@ toc: true
 toc_sticky: true
  
 date: 2022-07-19
-last_modified_at: 2022-07-19
+last_modified_at: 2022-08-10
 ---
 
 ### 지칠때 보고 힘내려고요
+
+###### 2022년 8월 9일
+- relay 질문 중 - GraphQL relay 문서와 예시가 별로 없어서 어려웠을텐데 잘 적용했다는 칭찬
+
 ###### 2022년 7월 19일
 - 코드 리뷰 중 - 컴포넌트를 잘 나눴다는 칭찬
 

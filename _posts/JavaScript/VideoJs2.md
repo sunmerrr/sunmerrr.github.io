@@ -1,5 +1,5 @@
 ---
-title: "react video.js 테마, 단축키, 플레이 시간"
+title: "react video.js #2 테마, 단축키, 플레이 시간"
 excerpt: "react에서 video.js를 이용한 플레이어 테마, 단축키, 플레이 시간 기록"
 
 categories:
@@ -22,21 +22,21 @@ last_modified_at: 2022-07-05
   - theme 적용하는데는 3가지 방법으로 해볼 수 있다.
   - 테마 데모는 [video.js 공식문서](https://videojs.com)에서 확인해볼 수 있으며 안내되어있는 대로 따라하면 된다.
     ###### 1) link tags 사용하기
-      ```js
+      ```tsx
       <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet">
       ```
     ###### 2) theme install
-      ```js
+      ```tsx
       npm install --save video.js @videojs/themes
       ``` 
 
       ```tsx
-      // app.tsx
+      // Page.tsx
 
       import '@videojs/themes/dist/sea/index.css';
       ```
       ```tsx
-      // player.tsx
+      // Player.tsx
       
       export const Player = (props) => {
 
@@ -52,12 +52,12 @@ last_modified_at: 2022-07-05
     ###### 2) theme download
     ![image](https://user-images.githubusercontent.com/65106740/178009895-177b477b-3b7a-4346-b0b3-3e804352d3b7.png)
     ```tsx
-    // app.tsx
+    // Page.tsx
 
     import '@styles/sea/index.css';
     ```
     ```tsx
-    // player.tsx
+    // Player.tsx
     
     export const Player = (props) => {
 
@@ -77,7 +77,7 @@ last_modified_at: 2022-07-05
   - 단축키는 `videojs-hotkeys`를 사용
     ###### 적용 예시
     ```tsx
-    // app.tsx
+    // Page.tsx
     
     const handlePlayerReady = (player) => {
       player.hotkeys({
@@ -90,7 +90,7 @@ last_modified_at: 2022-07-05
 
     ###### custom hotkey
     ```tsx
-    // app.tsx
+    // Page.tsx
     
     const handlePlayerReady = (player) => {
       player.hotkeys({
@@ -138,7 +138,7 @@ last_modified_at: 2022-07-05
   - 플레이중에 일어나는 이벤트는 `player.on`함수 안에 작성한다.
     ###### 적용 예시
     ```tsx
-    // app.tsx
+    // Page.tsx
 
     player.on("play", () => {
       // 5초마다 데이터 업데이트
