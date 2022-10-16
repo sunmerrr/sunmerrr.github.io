@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "summer.github.io",
+			"path": "../.."
+		},
+		{
+			"name": "scripts",
+			"path": "../../../grownbetter/grownbetter-web/scripts"
+		}
+	],
+  "settings": {
+    "liveServer.settings.port": 5501
+  }
+}
