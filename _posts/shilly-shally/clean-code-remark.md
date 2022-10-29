@@ -1,11 +1,11 @@
 ---
 title: "주석"
-excerpt: "clean code study #3"
+excerpt: "clean code study #2-2"
 
 categories:
   - Developer
 tags:
-  - [Software, web, Developer, Software Developer]
+  - [Software, web, Developer, Software Developer, Clean Code]
 
 toc: true
 toc_sticky: true
