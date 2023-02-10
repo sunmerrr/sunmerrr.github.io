@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2022-10-25
-last_modified_at: 2022-10-29
+last_modified_at: 2022-10-25
 ---
 
 
@@ -67,10 +67,9 @@ last_modified_at: 2022-10-29
         );
       };
       ``` 
-      if 문은 간단해서 들여쓰기를 무시하는 것이 가독성에 더 좋을지도 모르겠다.<br/>
+      if 문은 간단해서 들여쓰기를 무시하는 것이 가독성에 더 좋을지 모르겠다.<br/>
       하지만 이런식으로 `return` 을 생략하며 버릇처럼 들여쓰기를 무시하기도 하는 것 같다.<br/>
-      위 예시는 return 생략 + 삼항 연산자의 사용으로 가로 길이가 너무 길어져서 오히려 가독성을 해치게 되어서 들고 왔다.
-
+      위 예시는 return 생략 + 삼항 연산자의 사용으로 가로 길이가 너무 길어져서 오히려 가독성을 해치는 것 같다.
       ```tsx
       const attachmentId = Number(attachment_id)
 
@@ -95,8 +94,8 @@ last_modified_at: 2022-10-29
 #### 4. 밥아저씨의 형식 규칙
   - 코드 자체가 최고의 구현 표준 문서가 되도록 한다.
 
-#### 5. 예제
 
+#### 5. 예제
   ```tsx
   const { attachments, isValid } = useDownloadBySchedule(productId, Number(duration));
 
@@ -124,12 +123,10 @@ last_modified_at: 2022-10-29
     });
   };
   ```
-
   1. 고차원 -> 저차원
   2. 빈 행
   3. 들여쓰기
   4. 이름 수정
-
   ```tsx
   const { attachments, isValid } = useDownloadBySchedule(productId, Number(duration));
   const attachmentId = Number(attachment_id);
