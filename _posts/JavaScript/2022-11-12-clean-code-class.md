@@ -51,13 +51,5 @@ last_modified_at: 2022-11-12
 
 
 
-
-
-
-----
-----
-----
-
-javascript class
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
+[javascript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)
 
