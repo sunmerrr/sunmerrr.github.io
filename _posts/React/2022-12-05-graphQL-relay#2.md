@@ -72,3 +72,4 @@ last_modified_at: 2022-01-12
     )
   }
   ```
+[relay 공식문서 fragment](https://relay.dev/docs/tutorial/fragments-1/)
