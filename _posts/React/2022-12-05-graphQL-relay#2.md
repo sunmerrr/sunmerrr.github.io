@@ -1,5 +1,5 @@
 ---
-title: "React Relay, Fragment#2"
+title: "React Relay, Fragment #2"
 excerpt: "relay로 자식 컴포넌트에게 데이터 내려주기"
 
 categories:
