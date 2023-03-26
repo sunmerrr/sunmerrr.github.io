@@ -4,6 +4,8 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "Developer"
+    url: /categories/developer/
   - title: "JavaScript"
     url: /categories/javascript/
   - title: "React"
