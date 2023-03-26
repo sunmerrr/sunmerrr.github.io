@@ -1,5 +1,5 @@
 ---
-title: "Frontend GraphQL Relay 사용 #1"
+title: "Frontend GraphQL React Relay 사용 #1"
 excerpt: "react relay로 상품 data 불러오기"
 
 categories:
