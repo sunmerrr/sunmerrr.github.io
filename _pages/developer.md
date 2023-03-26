@@ -1,6 +1,6 @@
 ---
 title: "Developer"
-permalink: /categories/Developer/
+permalink: /categories/developer/
 layout: category
 author_profile: true
 taxonomy: Developer
