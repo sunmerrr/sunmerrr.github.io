@@ -1,6 +1,6 @@
 ---
-title: "GraphQL React Relay fragment와 mutate #3"
-excerpt: "fragment로 물려준 자식 mutation 하기"
+title: "GraphQL React Relay mutate 후 refetch #3"
+excerpt: "사용자 인터렉션에 따른 데이터 패칭하기"
 
 categories:
   - React
@@ -16,14 +16,15 @@ last_modified_at: 2022-01-12
 
 ###### 내가 이것을 적용했던 방식과 약간 달라졌더라..
 
-## React-Relay mutation
+## React-Relay refetch
 
-### 조건을 포함한 data fetching
+### 유저 인터렉션에 따른 데이터 패칭
 - fragment를 통해서 자식에게 필요한 데이터를 부모가 알 필요가 없어졌다.    
-  하지만 때때로 자식에게 특정한 조건을 걸어줘야 할 때가 있거나, 자식이 데이터를 갱신시켜야 할 경우가 생길 수 있다.
-- 내용은 fragment 포스팅의 예시와 이어진다.    
+  하지만 유저의 어떠한 행동으로 인해서 데이터가 바뀌어 하는 경우에는 어떤 식으로 작성해야할까.
+- 내용은 fragment 포스팅의 예시와 이어진다.
   [참고: fragment통해서 데이터 내려주기](https://sunmerrr.github.io/react/graphQL-relay-2/#react-relay-fregment)
-- 나는 부모 컴포넌트에서 자식에게 조건을 걸어주었다.
+- 나는 relay hooks에 포함되어 있는 `useRefetchable`을 사용했는데 `useFragment`, `useRefetchableFragment`, `useMutation` 으로도 가능하다. 상황에 맞는 것을 선택하여 사용하기를 바란다.(실제로 useRefetchable은 2년 전 문서에 포함되어 있던 hook이고, 공식문서에 나와있지 않으니 공식문서에 나와있는 `useRefetchableFragment`를 사용하는 것이 더 좋은 방법일 것 같다.)
+- **부모 컴포넌트에서 자식에게 걸어준 조건값이 유저에게서 받아오는 값이라고 가정했다.**
   ```tsx
   // 부모 컴포넌트
   import { graphql, useQuery } from "relay-hooks";
@@ -35,7 +36,7 @@ last_modified_at: 2022-01-12
   `;
 
   export const Products = () => {
-    const { ref } = useQuery<any>(query); // 데이터 이름은 아무거나로 지어도 상관 없다.
+    const { ref } = useQuery<any>(query);
 
     return (
       <PruductContainer fragmentRef={ref} category={"apple"} />
@@ -45,37 +46,43 @@ last_modified_at: 2022-01-12
   }
   ```
 
-- 자식은 부모에게 넘겨받은 카테고리를 통해서 같은 컴포넌트 내의 데이터만 변경해줄 수 있다.
-- 나는 relay hooks에 포함되어 있는 `useRefetchable`을 사용했다.
+  - 
   ```tsx
   // 자식 컴포넌트
-  import { useFragment } from 'react-relay';
+  import { graphql, useRefetchable } from 'react-relay';
 
-  const fragment ProductFragment on Query {
-    total
-    hasNext
-    nodes {
-      id
-        title
-        description
-        image
-        tags {
+  const fragment = graphql`
+    fragment ProductFragmentQuery on Query
+    @refetchable(queryName: "ProductFragmentRefetchQuery")
+    @argumentDefinitions(
+      category: { type: "Category", defaultValue: apple }
+    ) {
+      products(input: { category: $category }) {
+        total
+        hasNext
+        nodes {
           id
-          text
-        category
+            title
+            description
+            image
+            tags {
+              id
+              text
+            category
+          }
+        }
       }
     }
-  }
+  `;
+  
 
-  export const PruductContainer = ({ fragmentRef }) => {
-    const { total, hasNext, nodes } = useFragment(
-      ProductFragment,
-      fragmentRef
-    );
+  export const ProductFragmentQuery = ({ fragmentRef, category }) => {
+    const { data: { products }, error, refetch } = useRefetchable(fragment, fragmentRef);
 
+    // 갑자기 설명 쓰기가 너무 귀찮다.......
     return (
       ... // return product component with fragment datas
     )
   }
   ```
-[relay 공식문서 fragment](https://relay.dev/docs/tutorial/fragments-1/) 
+[react-relay useRefetchable](https://github.com/relay-tools/relay-hooks/blob/master/docs/useRefetchable.md) 
