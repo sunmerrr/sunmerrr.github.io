@@ -14,7 +14,7 @@ date: 2022-12-05
 last_modified_at: 2022-01-12
 ---
 
-###### 내가 이것을 적용했던 방식과 약간 달라졌더라..
+###### 추천하지 않는 방식이지만 내가 했던 방식도 도움이 될 수 있으니..
 
 ## React-Relay refetch
 
@@ -78,8 +78,10 @@ last_modified_at: 2022-01-12
 
   export const ProductFragmentQuery = ({ fragmentRef, category }) => {
     const { data: { products }, error, refetch } = useRefetchable(fragment, fragmentRef);
+    const { total, hasNext, nodes } = products;
 
-    // 갑자기 설명 쓰기가 너무 귀찮다.......
+    const handleCategoryChange = (category) => refetch({ category }); // 해당 데이터에 대해 백엔드와 이야기해서 조정해야 한다.
+
     return (
       ... // return product component with fragment datas
     )
