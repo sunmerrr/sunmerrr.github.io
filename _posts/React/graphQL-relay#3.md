@@ -53,8 +53,8 @@ last_modified_at: 2022-01-12
 
   const fragment = graphql`
     fragment ProductFragmentQuery on Query
-    @refetchable(queryName: "ProductFragmentRefetchQuery")
-    @argumentDefinitions(
+    @refetchable(queryName: "ProductFragmentRefetchQuery")  // refetchable 의 queryName에 query를 붙여서 이름을 붙여준다.
+    @argumentDefinitions(  // 조건으로 전달해줘야 하는 인수 값의 타입을 정의하고 기본 값을 정의한다.
       category: { type: "Category", defaultValue: apple }
     ) {
       products(input: { category: $category }) {
