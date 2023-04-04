@@ -23,6 +23,21 @@ last_modified_at: 2022-01-12
   하지만 유저의 어떠한 행동으로 인해서 데이터가 바뀌어 하는 경우에는 어떤 식으로 작성해야할까.
 - 내용은 fragment 포스팅의 예시와 이어진다.
   [참고: fragment통해서 데이터 내려주기](https://sunmerrr.github.io/react/graphQL-relay-2/#react-relay-fregment)
+- 먼저 조건을 전달받기 위한 schema를 수정해줘야 한다.([schema 정의 참고](https://sunmerrr.github.io/react/graphQL-relay-1/#1-schema-%EC%A0%95%EC%9D%98))
+  ```tsx
+  // schema.gql
+  type Query {
+    products(input: ProductInput!): ProductNode!
+  } 
+
+  ...
+
+  // 전달받아야 하는 값은 input으로 나타내고 type은 ProductInputd라는 이름으로 정의했다.
+  input ProductInput {
+    category: String!
+  }
+  ```
+
 - 나는 relay hooks에 포함되어 있는 `useRefetchable`을 사용했는데 `useFragment`, `useRefetchableFragment`, `useMutation` 으로도 가능하다. 상황에 맞는 것을 선택하여 사용하기를 바란다.(실제로 useRefetchable은 2년 전 문서에 포함되어 있던 hook이고, 공식문서에 나와있지 않으니 공식문서에 나와있는 `useRefetchableFragment`를 사용하는 것이 더 좋은 방법일 것 같다.)
 - **부모 컴포넌트에서 자식에게 걸어준 조건값이 유저에게서 받아오는 값이라고 가정했다.**
   ```tsx
@@ -80,7 +95,7 @@ last_modified_at: 2022-01-12
     const { data: { products }, error, refetch } = useRefetchable(fragment, fragmentRef);
     const { total, hasNext, nodes } = products;
 
-    const handleCategoryChange = (category) => refetch({ category }); // 해당 데이터에 대해 백엔드와 이야기해서 조정해야 한다.
+    const handleCategoryChange = (category) => refetch({ category }); // 전달 받는 category에 대해서는 백엔드와 이야기해서 조정해야 한다.
 
     return (
       ... // return product component with fragment datas
