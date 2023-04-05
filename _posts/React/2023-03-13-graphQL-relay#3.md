@@ -1,5 +1,5 @@
 ---
-title: "GraphQL React Relay mutate 후 refetch #3"
+title: "GraphQL React Relay, refetch 하기 #3"
 excerpt: "사용자 인터렉션에 따른 데이터 패칭하기"
 
 categories:
