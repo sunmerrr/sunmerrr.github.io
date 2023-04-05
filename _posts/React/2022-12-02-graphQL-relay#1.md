@@ -85,6 +85,7 @@ last_modified_at: 2022-01-02
           tags {
             id
             text
+          }
           category
         }
       }
