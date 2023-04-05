@@ -56,6 +56,7 @@ last_modified_at: 2022-01-12
         tags {
           id
           text
+        }
         category
       }
     }
