@@ -26,6 +26,67 @@ last_modified_at: 2023-04-07
 - 컴포넌트 속성을 설정할때 사용하는 요소
 - 컴포넌트가 사용되는 과정에서 부모 컴포넌트가 설정하는 값
 - 컴포넌트 스스로는 props를 읽기 전용으로만 사용 가능
+[PropTypes와 함께 하는 타입 검사](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
+- class형 컴포넌트 props예시
+  ```jsx
+  import React, { Component } from 'react';
+  import PropTypes from 'prop-types';
+
+  export class ClassComponent extends Component {
+    // class형 컴포넌트에서는 defaultProps와 propTypes를 클래스 내부에서 설정할 수도 있다.
+    static defaultProps = {
+      name: 'React Class Component',
+    };
+
+    static propTypes = {
+      name: PropTypes.string,
+      unsetNumber: PropTypes.number.isRequired,
+      favoriteNumber: PropTypes.number.isRequired,
+    };
+
+    render() {
+      const { name, unsetNumber, favoriteNumber, children } = this.props;
+      return (
+        <div>
+          <strong>{name} 공부하기</strong>
+          <br />
+          클래스형 컴포넌트의 children : {children}
+          <br />
+          가장 좋아하는 숫자 : {unsetNumber}(숫자가 없을때 에러 표시를 위함 - console창 확인)
+          <br />
+          가장 좋아하는 숫자 : {favoriteNumber}
+          <br />
+          <br />
+          <br />
+        </div>
+      );
+    }
+  }
+
+  export default ClassComponent;
+  ```
+
+- function형 컴포넌트 예시
+  ```jsx
+  import PropTypes from 'prop-types'; // react v15.5부터 외부 라이브러리로 이동
+
+  export const FunctionComponent = ({ name, unsetNumber, favoriteNumber, children }) => {
+    return (
+      <div>
+        <strong>{name} 공부하기</strong>
+        <br />
+        함수형 컴포넌트의 children : {children}
+        <br />
+        가장 좋아하는 숫자 : {unsetNumber}(숫자가 없을때 에러 표시를 위함 - console창 확인)
+        <br />
+        가장 좋아하는 숫자 : {favoriteNumber}
+        <br />
+        <br />
+        <br />
+      </div>
+    );
+  };
+  ```
 
 #### state
 
