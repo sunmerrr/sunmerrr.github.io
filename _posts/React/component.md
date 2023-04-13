@@ -133,6 +133,22 @@ last_modified_at: 2023-04-07
       favoriteNumber: PropTypes.number.isRequired, // 필수로 받아와야 하는 값으로 지정
     };
     ```
+  - class형은 타입 검사도 class 내부에 선언해줄 수 있다.
+    ```jsx
+    export class ClassComponent extends Component {
+    static propTypes = {
+      name: PropTypes.string,
+      unsetNumber: PropTypes.number.isRequired,
+      favoriteNumber: PropTypes.number.isRequired,
+    };
+
+      render(
+        (...)
+      )
+    };
+
+    export default ClassComponent;
+    ```
 
 #### state
 
