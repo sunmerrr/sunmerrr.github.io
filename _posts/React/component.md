@@ -19,8 +19,8 @@ last_modified_at: 2023-04-07
 
 ##### 단축키 
 *Extentions에서 ES7+ React/Redux/React-Native snippets 설치하면 사용가능*
-- `rafce`: arrow function component를 export default로 생성
-- `rce` : class component를 export default로 생성
+- `rafce`: arrow function component를 export default로 기본 틀 생성
+- `rce` : class component를 export default로 기본 틀 생성
 
 #### props
 - 컴포넌트 속성을 설정할때 사용하는 요소
@@ -28,7 +28,6 @@ last_modified_at: 2023-04-07
 - 컴포넌트 스스로는 props를 읽기 전용으로만 사용 가능
 - 부모 컴포넌트 설정
   ```jsx
-  // rca시 생성되어있는 App 컴포넌트 사용
   // 자식 컴포넌트는 name, favoriteNumber, children 이라는 props를 넘겨받게 됨
 
   import './App.css';
@@ -47,57 +46,59 @@ last_modified_at: 2023-04-07
   export default App;
   ```
 
+- ##### props 예시
+  - class형 컴포넌트 props예시
+    ```jsx
+    import { Component } from 'react';
 
-- class형 컴포넌트 props예시
-  ```jsx
-  import { Component } from 'react';
+    export class ClassComponent extends Component {
+      render() {
+        const { name, favoriteNumber, children } = this.props;  // 비구조화 할당으로 보기 편하게 해줌
+        return (
+          <div>
+            <strong>{name} 공부하기</strong> <br />
+            클래스형 컴포넌트의 children : {children} <br />
+            가장 좋아하는 숫자 : {favoriteNumber} <br />
+          </div>
+        );
+      }
+    }
 
-  export class ClassComponent extends Component {
-    render() {
-      const { name, favoriteNumber, children } = this.props;  // 비구조화 할당으로 보기 편하게 해줌
+    export default ClassComponent;
+    ```
+
+  - function형 컴포넌트 예시
+    ```jsx
+    const FunctionComponent = ({ name, favoriteNumber, children }) => { // 비구조화 할당으로 보기 편하게 해줌
       return (
         <div>
           <strong>{name} 공부하기</strong> <br />
-          클래스형 컴포넌트의 children : {children} <br />
+          함수형 컴포넌트의 children : {children} <br />
           가장 좋아하는 숫자 : {favoriteNumber} <br />
         </div>
       );
-    }
-  }
+    };
 
-  export default ClassComponent;
-  ```
-
-- function형 컴포넌트 예시
-  ```jsx
-  const FunctionComponent = ({ name, favoriteNumber, children }) => { // 비구조화 할당으로 보기 편하게 해줌
-    return (
-      <div>
-        <strong>{name} 공부하기</strong> <br />
-        함수형 컴포넌트의 children : {children} <br />
-        가장 좋아하는 숫자 : {favoriteNumber} <br />
-      </div>
-    );
-  };
-
-  export default FunctionComponent;
-  ```
+    export default FunctionComponent;
+    ```
   - 결과값은 두 컴포넌트가 동일하다
     <img width="530" alt="image" src="https://user-images.githubusercontent.com/65106740/231062748-104c8770-08e9-48ca-95f8-5ea8d0d3948f.png">
 
-- default props
-  - 컴포넌트 하단에 기본 프롭스 값을 설정해 줄 수 있다.
-  - default props는 부모에서 props를 전달 받지 못했을 경우 기본으로 띄워주는 값이다.
+
+- ##### default props
+  - default props는 부모에서 props를 전달 받지 못했을 경우 기본으로 띄워주는 값
     ```jsx
+    const FunctionComponent = ({ name, favoriteNumber, children }) => {
+      (...)
+    }
+
+    export default FunctionComponent;
+
     // {컴포넌트 이름}.defaultProps = {}
-
-    (...) // 위의 자식 컴포넌트
-
-    ClassComponent.defaultProps = { name: 'React Class Component' }; 
-    // 또는
-    FunctionComponent.defaultProps = { name: 'React Function Component' }; 
+    // class형과 function형 동일
+    FunctionComponent.defaultProps = { name: 'React Function Component' };
     ```
-  - class형 컴포넌트의 경우에는 class 내부에서 작성해 줄 수도 있다.
+  - class형 컴포넌트의 경우에는 class 내부에서 작성해 줄 수도 있음
     ```jsx
     export class ClassComponent extends Component {
       static defaultProps = {
@@ -112,9 +113,26 @@ last_modified_at: 2023-04-07
     export default ClassComponent;
     ```
 
-- 타입 검사
-  - props에 타입을 선정하면 원하는 타입으로만 값을 전달 받을 수 있다.
-  [PropTypes와 함께 하는 타입 검사](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
+- ##### 타입 검사
+  - props에 타입을 선정하면 원하는 타입으로만 값을 전달 받을 수 있으며 사전에 오류 방지 가능
+    [PropTypes와 함께 하는 타입 검사](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
+    ```jsx
+    import propTypes from 'prop-types'; // react v15.5부터 외부 라이브러리로 이동
+
+    const FunctionComponent = ({ name, favoriteNumber, children }) => {
+      (...)
+    }
+
+    export default FunctionComponent;
+
+    // {컴포넌트 이름}.propTypes = {}
+    // class형과 function형 동일
+    FunctionComponent.propTypes = {
+      name: PropTypes.string,
+      unsetNumber: PropTypes.number.isRequired,
+      favoriteNumber: PropTypes.number.isRequired, // 필수로 받아와야 하는 값으로 지정
+    };
+    ```
 
 #### state
 
