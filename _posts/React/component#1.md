@@ -14,7 +14,7 @@ date: 2023-04-07
 last_modified_at: 2023-04-07
 ---
 
-### 리액트 props의 class형 컴포넌트 vs function형
+### 리액트 props의 class형 컴포넌트 vs function형 컴포넌트
 - class형 컴포넌트와 function형 컴포넌트를 생성하며 차이점을 보려고 한다.
 
 ##### 단축키 
@@ -129,8 +129,7 @@ last_modified_at: 2023-04-07
     // class형과 function형 동일
     FunctionComponent.propTypes = {
       name: PropTypes.string,
-      unsetNumber: PropTypes.number.isRequired,
-      favoriteNumber: PropTypes.number.isRequired, // 필수로 받아와야 하는 값으로 지정
+      favoriteNumber: PropTypes.number.isRequired,
     };
     ```
   - class형은 타입 검사도 class 내부에 선언해줄 수 있다.
@@ -138,8 +137,7 @@ last_modified_at: 2023-04-07
     export class ClassComponent extends Component {
     static propTypes = {
       name: PropTypes.string,
-      unsetNumber: PropTypes.number.isRequired,
-      favoriteNumber: PropTypes.number.isRequired,
+      favoriteNumber: PropTypes.number,
     };
 
       render(
@@ -149,3 +147,22 @@ last_modified_at: 2023-04-07
 
     export default ClassComponent;
     ```
+  - 부모에게 필수로 받아와야 하는 props를 지정해 줄 수 있다.
+    ```jsx
+    import propTypes from 'prop-types'; // react v15.5부터 외부 라이브러리로 이동
+
+    const FunctionComponent = ({ name, favoriteNumber, children }) => {
+      (...)
+    }
+
+    export default FunctionComponent;
+
+    // type을 정해주고 뒤에 .isRequired를 붙여준다.
+    FunctionComponent.propTypes = {
+      name: PropTypes.string,
+      favoriteNumber: PropTypes.number.isRequired,
+    };
+    ```
+    - 필수 값을 지정행 주었을때 그 값을 부모에게서 전달받지 못하면 console창에 오류를 띄워서 알려준다.
+      <img width="802" alt="image" src="https://user-images.githubusercontent.com/65106740/232031909-82c0cb8e-b78f-4737-bf6d-ee6f3d34ba94.png">
+
