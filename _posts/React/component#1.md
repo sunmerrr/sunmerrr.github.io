@@ -1,6 +1,6 @@
 ---
-title: "리액트의 컴포넌트"
-excerpt: "리액트를 다루는 기술 스터디 #2 - 컴포넌트"
+title: "리액트의 컴포넌트와 props"
+excerpt: "리액트를 다루는 기술 스터디 #2-1 - 컴포넌트"
 
 categories:
   - React
@@ -14,7 +14,7 @@ date: 2023-04-07
 last_modified_at: 2023-04-07
 ---
 
-### 리액트의 class형 컴포넌트 vs function형
+### 리액트 props의 class형 컴포넌트 vs function형
 - class형 컴포넌트와 function형 컴포넌트를 생성하며 차이점을 보려고 한다.
 
 ##### 단축키 
@@ -149,7 +149,3 @@ last_modified_at: 2023-04-07
 
     export default ClassComponent;
     ```
-
-#### state
-
-- 리액트에서 state는 컴포넌트 내부에서 바뀔 수 있는 값을 의미
