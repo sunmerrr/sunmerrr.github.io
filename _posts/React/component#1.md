@@ -24,9 +24,9 @@ last_modified_at: 2023-04-07
 
 #### props
 - 컴포넌트 속성을 설정할때 사용하는 요소
-- 부모가 자식 컴포넌트를 가져와 사용하는 과정에서 부모에서 props를 설정하고 자식 컴포넌트에게 넘겨주는 식
-- 컴포넌트 스스로는 props를 읽기 전용으로만 사용 가능
-- 부모 컴포넌트 설정
+- 부모가 자식 컴포넌트를 가져와 사용하는 과정에서 부모 쪽에서 props를 설정하고 자식 컴포넌트에게 넘겨주는 식
+- 자식 컴포넌트에서는 props를 읽기 전용으로만 사용 가능
+- ##### 부모 컴포넌트 설정
   ```jsx
   // 자식 컴포넌트는 name, favoriteNumber, children 이라는 props를 넘겨받게 됨
 
@@ -88,15 +88,15 @@ last_modified_at: 2023-04-07
 - ##### default props
   - default props는 부모에서 props를 전달 받지 못했을 경우 기본으로 띄워주는 값
     ```jsx
+    // {컴포넌트 이름}.defaultProps = {}
+    // class형과 function형 동일
+    FunctionComponent.defaultProps = { name: 'React Function Component' };
+
     const FunctionComponent = ({ name, favoriteNumber, children }) => {
       (...)
     }
 
     export default FunctionComponent;
-
-    // {컴포넌트 이름}.defaultProps = {}
-    // class형과 function형 동일
-    FunctionComponent.defaultProps = { name: 'React Function Component' };
     ```
   - class형 컴포넌트의 경우에는 class 내부에서 작성해 줄 수도 있음
     ```jsx
@@ -114,31 +114,31 @@ last_modified_at: 2023-04-07
     ```
 
 - ##### 타입 검사
-  - props에 타입을 선정하면 원하는 타입으로만 값을 전달 받을 수 있으며 사전에 오류 방지 가능
-    [PropTypes와 함께 하는 타입 검사](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
+  - props에 타입을 선정하면 원하는 타입으로 값을 전달 받을 수 있으며 사전에 오류 방지 가능    
+    참고: [PropTypes와 함께 하는 타입 검사](https://ko.reactjs.org/docs/typechecking-with-proptypes.html)
     ```jsx
     import propTypes from 'prop-types'; // react v15.5부터 외부 라이브러리로 이동
+
+    // {컴포넌트 이름}.propTypes = {}
+    // class형과 function형 동일
+    FunctionComponent.propTypes = {
+      name: PropTypes.string,
+      favoriteNumber: PropTypes.number,
+    };
 
     const FunctionComponent = ({ name, favoriteNumber, children }) => {
       (...)
     }
 
     export default FunctionComponent;
-
-    // {컴포넌트 이름}.propTypes = {}
-    // class형과 function형 동일
-    FunctionComponent.propTypes = {
-      name: PropTypes.string,
-      favoriteNumber: PropTypes.number.isRequired,
-    };
     ```
   - class형은 타입 검사도 class 내부에 선언해줄 수 있다.
     ```jsx
     export class ClassComponent extends Component {
-    static propTypes = {
-      name: PropTypes.string,
-      favoriteNumber: PropTypes.number,
-    };
+      static propTypes = {
+        name: PropTypes.string,
+        favoriteNumber: PropTypes.number,
+      };
 
       render(
         (...)
@@ -151,17 +151,17 @@ last_modified_at: 2023-04-07
     ```jsx
     import propTypes from 'prop-types'; // react v15.5부터 외부 라이브러리로 이동
 
-    const FunctionComponent = ({ name, favoriteNumber, children }) => {
-      (...)
-    }
-
-    export default FunctionComponent;
-
     // type을 정해주고 뒤에 .isRequired를 붙여준다.
     FunctionComponent.propTypes = {
       name: PropTypes.string,
       favoriteNumber: PropTypes.number.isRequired,
     };
+
+    const FunctionComponent = ({ name, favoriteNumber, children }) => {
+      (...)
+    }
+
+    export default FunctionComponent;
     ```
     - 필수 값을 지정행 주었을때 그 값을 부모에게서 전달받지 못하면 console창에 오류를 띄워서 알려준다.
       <img width="802" alt="image" src="https://user-images.githubusercontent.com/65106740/232031909-82c0cb8e-b78f-4737-bf6d-ee6f3d34ba94.png">
