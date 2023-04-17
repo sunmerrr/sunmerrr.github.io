@@ -154,109 +154,39 @@ last_modified_at: 2023-04-14
 
 ----
 
-- ##### function 컴포넌트에서 여러 state값 갱신하기
-  - class형 컴포넌트에서는 여러 state값 갱신이 어렵지 않았다.
-    ```jsx
-    import { useState } from 'react';
+- ##### function 컴포넌트에서 여러 state값 갱신
+  - class component는 쉬우니까 패스
+  - 뒤에 쓰는 event handling편에서 더 다룰 예정
+  ```jsx
+  import { useState } from 'react';
 
-    export const FunctionComponentSayHi = () => {
-      const [message, setMessage] = useState(''); 
-      const [color, setColor] = useState('black');
+  export const FunctionComponentSayHi = () => {
+    const [message, setMessage] = useState('Hi There!'); 
+    const [color, setColor] = useState('black');
 
-      return (
-        <div>
-          <hr />
-          <h1 style={{ color }}>{message}</h1>
-          <button
-            onClick={() => {
-              setMessage('Hi there!');
-            }}
-          >
-            입장
-          </button>
-          <button
-            onClick={() => {
-              setMessage('Bye Bye');
-            }}
-          >
-            퇴장
-          </button>
-          <h2>인사 메세지 컬러를 바꿉니다.</h2>
-          <button style={{ color: 'green' }} onClick={() => setColor('green')}>
-            green
-          </button>
-          <button style={{ color: 'blue' }} onClick={() => setColor('blue')}>
-            blue
-          </button>
-          <button style={{ color: 'black' }} onClick={() => setColor('black')}>
-            black
-          </button>
-        </div>
-      );
-    };
-    ```
+    return (
+      <div>
+        <h1 style={{ color }}>{message}</h1>
+        // 아래 버튼을 통해서 출력되는 값을 변경
+        <button onClick={() => {setMessage('Hi There!');}}>입장</button>
+        <button onClick={() => {setMessage('Bye Bye');}}>퇴장</button>
+        <h2>버튼을 누르면 인사 메세지 컬러를 바꿉니다.</h2>
+        // 아래 버튼을 통해서 상단의 h1 tag의 컬러 변경
+        <button style={{ color: 'green' }} onClick={() => setColor('green')}>
+          green
+        </button>
+        <button style={{ color: 'blue' }} onClick={() => setColor('blue')}>
+          blue
+        </button>
+        <button style={{ color: 'black' }} onClick={() => setColor('black')}>
+          black
+        </button>
+      </div>
+    );
+  };
+  ```
+  - 결과 화면
+    ![화면-기록-2023-04-16-오후-5 40 00](https://user-images.githubusercontent.com/65106740/232287139-404b3ef4-a9f6-4aa8-bf0e-919dd9ca90d5.gif)
 
 
 
-
-
---- 
-
-
-    ```jsx
-    import { Component } from 'react';
-
-    export class ClassComponentCounter extends Component {
-      // 컴포넌트에 state를 설정할때 constructor에 메서드를 작성하여 설정해야 함
-      constructor(props) {
-        // super() 함수를 통해서 현재 컴포넌트가 상속받고 있는 리액트의 Component 클래스가 지닌 생성자 함수를 호출해줌
-        super(props);
-        // 객체 형식으로 state의 초기값 설정
-        this.state = {
-          number: 0,
-          fixedNumber: 2,
-        };
-      }
-
-      render() {
-        const { number, fixedNumber, plusPrevNumber } = this.state; // state는 this.state로 조회 가능
-        return (
-          <div>
-            <h1>Class Component Example</h1>
-            <h1>{number}</h1>
-            <h2>바뀌지 않는 값: {fixedNumber}</h2>
-            <button
-              // 버튼 클릭시 일어날 이벤트를 설정해줌
-              onClick={() => {
-                // this.setState를 통해서 state값을 변경 가능
-                // 인자로 전달된 객체 안에 들어있는 값만 바꿔 줌
-                this.setState(
-                  { number: number + 1 },
-                  // setState의 두번째 파라미터로 콜백함수를 등록하여 setState작업이 끝난 후의 동작을 처리할 수 있음
-                  () => {
-                    console.log('이런식으로 setState 호출 이후 특정 작업 실행');
-                    console.log(this.state);
-                  },
-                );
-              }}
-            >
-              +1
-            </button>
-
-            <h1>{plusPrevNumber}</h1>
-            <button
-              onClick={() => {
-                // 객체 대신에 함수인자를 전달하여 클릭 이벤트를 설정할 수 있음
-                this.setState((prevState) => ({ plusPrevNumber: prevState.plusPrevNumber + 1 }));
-              }}
-            >
-              plus using previous number +1
-            </button>
-          </div>
-        );
-      }
-    }
-    ```
-
-
-- ##### 여러 state 핸들링
