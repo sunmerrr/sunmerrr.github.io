@@ -1,0 +1,165 @@
+---
+title: "리액트 ref"
+excerpt: "리액트를 다루는 기술 스터디 #4 - ref"
+
+categories:
+  - React
+tags:
+  - [react, javascript, library, ref, referenct]
+
+toc: true
+toc_sticky: true
+ 
+date: 2023-04-14
+last_modified_at: 2023-04-17
+---
+
+#### ref 설정하기
+1. 콜백함수 사용하기(**Class형**)
+    1. ref라는 콜백함수를 원하는 요소에 props로 전달해줌    
+    2. 콜백함수는 ref값을 파라미터로 받음    
+    3. ref의 이름은 원하는 것으로 자유롭게    
+    ```js
+    <input ref={(ref) => { this.inputText = ref }} />
+    ```
+    - inputText라는 이름을 가진 ref가 생성됨
+    - inputText라는 ref는 input 요소의 DOM을 가리킴
+
+
+1. createRef() 사용하기(**Class형**, React v16.3부터 적용)
+    1. `createRef()`를 통해 변수에 ref를 담아줌
+    1. 선언해준 ref 변수는 필요한 요소에 props로 넣어줌
+    1. `this.{ref name}.current` 를 통해서 ref 조회 가능
+    ```jsx
+    import { Component } from 'react';
+
+    export class ClassRef extends Component {
+      inputRef = React.createRef(); // 변수에 createRef()를 담아준다.
+
+      handleFocus = () => {
+        this.inputRef.current.focus();
+        // ref를 설정해준 DOM에 접근할 수 있다.
+        // this.refName.current로 조회 가능하다.
+      };
+
+      render() {
+        return (
+          <div>
+            // 선언해준 변수를 ref를 달고자 하는 요소에 props로 넣어준다.
+            <input ref={this.inputRef} /> 
+          </div>
+        );
+      }
+    }
+
+    export default ClassRef;
+    ```
+1. useRef() 사용하기(**Fucntion형**)
+  - useRef()는 이후에 Hooks에 더 나올 예정이라서 책에는 나오지 않았지만 혼자 끄적여봄
+    ```jsx
+    import { useRef, useState } from 'react';
+    import './Ref.css';
+
+    const FunctionRef = () => {
+      // useRef hook을 통해서 ref를 변수에 담아준다.
+      const inputRef = useRef();
+      const [password, setPassword] = useState('');
+      const [clickValidate, setClickValidate] = useState({
+        clicked: false,
+        validated: false,
+      });
+
+      const handleChange = (e) => {
+        setPassword(e.target.value);
+      };
+
+      const handleButtonClick = () => {
+        setClickValidate({
+          clicked: true,
+          validated: password === '0000',
+        });
+        // class 함수와 똑같이 ref 속성에 접근하려면 current를 써줘야 한다.
+        inputRef.current.focus();
+      };
+
+      return (
+        <div>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => handleChange(e)}
+            className={clickValidate.clicked ? (clickValidate.validated ? 'success' : 'failure') : ''}
+            ref={inputRef} // ref를 할당해주는 것이 훨씬 간결해졌다. 
+          />
+          <button onClick={handleButtonClick}>검증고고</button>
+        </div>
+      );
+    };
+
+    export default FunctionRef;
+    ```
+  
+
+1. component에 ref사용하기
+  - 컴포넌트 내부의 DOM에 접근해서 컴포넌트 외부에서 사용할때 씀
+  - 적용 방식은 위 방법과 똑같음
+  - 스크롤 이벤트를 주기위해 ref를 사용하는 예시이다
+  - 부모 컴포넌트
+    ```jsx
+    // 부모 컴포넌트에서 자식 컴포넌트를 사용할때 ref를 정의해서 넣어준다.
+    <ClassRef ref={(ref) => (this.scrollBoxRef = ref)} />
+    <button
+      onClick={() => {
+        // 정의 한 ref를 활용한다.
+        this.scrollBoxRef.scrollToBottom();
+      }}
+    >
+      맨 밑으로
+    </button>
+    ```
+
+  - 자식 컴포넌트
+    ```jsx
+    import React, { Component } from 'react';
+    import './Ref.css';
+
+    export class ClassRef extends Component {
+      // ref를 통해서 scroll event 다루기
+      scrollToBottom = () => {
+        const { scrollHeight, clientHeight } = this.scrollRef;
+        this.scrollRef.scrollTop = scrollHeight - clientHeight;
+      };
+
+      render() {
+        const style = {
+          border: '1px solid black',
+          height: '300px',
+          width: '300px',
+          overflow: 'auto',
+          position: 'relative',
+        };
+
+        const innerStyle = {
+          width: '100%',
+          height: '650px',
+          background: 'linear-gradient(white, black)',
+        };
+
+        return (
+          <div>
+            <div
+              style={style}
+              ref={(ref) => {
+                this.scrollRef = ref;
+              }}
+            >
+              <div style={innerStyle}></div>
+            </div>
+          </div>
+        );
+      }
+    }
+
+    export default ClassRef;
+
+    ```
