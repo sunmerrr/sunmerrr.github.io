@@ -39,12 +39,12 @@ last_modified_at: 2023-04-11
 - 화살표 함수로 대체 가능
   ```jsx
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ message: e.target.value });
   };
 
   handleClick = () => {
-    alert('멧돼지: ' + this.state.message + ' 이름:' + this.state.userName);
-    this.setState({ message: '', userName: '' });
+    alert(this.state.message);
+    this.setState({ message: '' });
   };
   ```
 
