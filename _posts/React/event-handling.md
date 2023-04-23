@@ -48,7 +48,7 @@ last_modified_at: 2023-04-11
   };
   ```
 
-- 다룰 state가 한 개 일때
+- 다룰 state가 한개인 경우
   ```jsx
   import { Component } from 'react';
 
@@ -88,7 +88,7 @@ last_modified_at: 2023-04-11
   export default ClassEvent;
   ```
 
-- state가 두개 이상 일때
+- state가 두개 이상인 경우
   ```jsx
   import { Component } from 'react';
 
@@ -143,4 +143,102 @@ last_modified_at: 2023-04-11
 
   export default ClassEvent;
   ```
+
+#### function 컴포넌트 이벤트 핸들링
+- class형 컴포넌트와 같은 기능을 하는 컴포넌트를 생성
+  - state가 한개인 경우
+    ```jsx
+    import { useState } from 'react';
+
+    const FunctionEvent = () => {
+      const [message, setMessage] = useState('');
+
+      const handleChange = (e) => {
+        setMessage(e.target.value);
+      };
+
+      const handleClick = () => {
+        alert(message);
+        setMessage('');
+      };
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+          handleClick();
+        }
+      };
+
+      return (
+        <div>
+          <h2>함수형 이벤트</h2>
+          <input
+            type="text"
+            name="message"
+            placeholder="write something here"
+            value={message}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+          <button onClick={handleClick}>확인</button>
+        </div>
+      );
+    };
+
+    export default FunctionEvent;
+    ```
+    
+  - state가 두개인 경우
+    - 형태가 class형과 똑같아서 오히려 쉬움
+    ```jsx
+    import { useState } from 'react';
+
+    const FunctionEvent = () => {
+      // state를 한 form에 담아서 handleChange 함수를 재사용 할 수 있게 했다.
+      const [form, setForm] = useState({
+        message: '',
+        userName: '',
+      });
+
+      const handleChange = (e) => {
+        // 스프레드 문법을 사용해서 기존의 form안에 있는 데이터를 복사한 후 변경되는 데이터만 새롭게 정의해준다.
+        setForm({ ...form, [e.target.name]: e.target.value });
+      };
+
+      const handleClick = () => {
+        alert(form.userName + ': ' + form.message);
+        setForm({ message: '', userName: '' });
+      };
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+          handleClick();
+        }
+      };
+
+      return (
+        <div>
+          <h2>함수형 이벤트</h2>
+          <input
+            type="text"
+            name="userName"
+            placeholder="write down your name here"
+            value={form.userName}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+          <input
+            type="text"
+            name="message"
+            placeholder="write something here"
+            value={form.message}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+          <button onClick={handleClick}>확인</button>
+        </div>
+      );
+    };
+
+    export default FunctionEvent;
+    ```
 
