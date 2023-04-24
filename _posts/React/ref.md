@@ -161,5 +161,4 @@ last_modified_at: 2023-04-17
     }
 
     export default ClassRef;
-
     ```
