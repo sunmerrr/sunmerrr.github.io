@@ -1,6 +1,6 @@
 ---
 title: "리액트 컴포넌트 반복"
-excerpt: "리액트를 다루는 기술 스터디 #4 - 컴포넌트 반복 [map]"
+excerpt: "리액트를 다루는 기술 스터디 #5 - 컴포넌트 반복 [map]"
 
 categories:
   - React
