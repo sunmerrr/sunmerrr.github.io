@@ -189,6 +189,7 @@ last_modified_at: 2023-04-14
     
   - state가 두개인 경우
     - 형태가 class형과 똑같아서 오히려 쉬움
+    
       ```jsx
       import { useState } from 'react';
 
