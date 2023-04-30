@@ -5,13 +5,13 @@ excerpt: "리액트를 다루는 기술 스터디 #5 - 컴포넌트 반복 [map]
 categories:
   - React
 tags:
-  - [react, javascript, library, ref, referenct]
+  - [react, javascript, library, map]
 
 toc: true
 toc_sticky: true
  
-date: 2023-04-14
-last_modified_at: 2023-04-17
+date: 2023-04-24
+last_modified_at: 2023-04-26
 ---
 
 
@@ -29,7 +29,8 @@ last_modified_at: 2023-04-17
     return num * num;
   });
 
-  console.log(processed) // [1, 4, 9, 16, 25]
+  console.log(processed) // [1, 4, 9, 16, 25] 복사본 반환
+  console.log(numbers) // [1, 2, 3, 4, 5] 기존 배열 값은 변하지 않음
   ```
 
 #### 컴포넌트에 활용해보기
@@ -45,8 +46,11 @@ last_modified_at: 2023-04-17
     return <ul>{nameList}</ul>;
   }
   ```
+  - 결과 화면
+    <img border="1px solid #c4c4db" width="619" alt="image" src="https://user-images.githubusercontent.com/65106740/235340915-349807a0-b8f4-47f9-a24a-332f18cc0ef6.png">
 
-#### 배열에 요소 추가하기
+
+#### 요소 추가하기
 - 배열에 요소를 추가해주는 이벤트를 만들어주고 이벤트를 실행시키면 자동으로 요소가 출력됨
   ```jsx
   import { useState } from 'react';
