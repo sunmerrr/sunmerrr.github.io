@@ -41,7 +41,7 @@ last_modified_at: 2023-04-27
   - 컴포넌트 만들때 처음으로 실행
   - 초기 state 설정 가능
 
-* ##### getDerivedStateFromProps(props, state)
+* ##### getDerivedStateFromProps(props, state) (v16.3 이상)
   - 최초 마운트 시와 갱신 시 render 메서드를 호출하기 직전에 호출됨
   - props로 받아온 값을 state에 동기화시키는 용도
 
@@ -54,4 +54,23 @@ last_modified_at: 2023-04-27
   - boolean 값을 반환하는데 false 반환 시 업데이트 과정 종료 됨
   - 최적화 할때 사용하는 메서드(React.memo와 비슷한 역할)
 
-##### getSnapshotBeforeUpdate
+
+<!-- TODO: 수정 및 편집 필요 -->
+* ##### getSnapshotBeforeUpdate(prevProps, prevState) (v16.3 이상)
+  - render에서 만들어진 결과물이 브라우저에 반영되기 직전에 호출
+  - 반환되는 값은 componentDidUpdate에 snapshot 값으로 전달
+  - 업데이트하기 직전의 값을 참고할 때 활용
+
+* ##### componentDidUpdate(prevProps, prevState, snapshot)
+  - 랜더링을 완료한 이후
+  - DOM관련 처리를 해도 무방하다 함
+
+* ##### componentWillUnMount()
+  - 컴포넌트를 DOM에서 제거할때 실행
+  - componentDidMount에서 등록한 이벤트 등을 제거 작업 해줘야 함
+
+* ##### componentDidCatch(error, info) (v16 이상)
+  - 렌더링 도중에 에러가 발생했을 때 오류 UI를 보여 줄 수 있게 함
+  <!-- TODO: 예제 코드 -->
+
+
