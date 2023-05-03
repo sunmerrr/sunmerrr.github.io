@@ -32,8 +32,8 @@ last_modified_at: 2023-04-27
   - 메서드 중 유일할 필수 메서드 - 없으면 UI안뜸
   - 리액트 요소를 반환
   - 주의:
-    - 이벤트 설정이 아닌곳에서 setState 사용하면 안됨
-    - DOM에 접근하면 안됨
+    - state 설정 안됨 = 이벤트 설정이 아닌곳에서 setState 사용하면 안됨
+    - DOM에 접근하면 안됨 = 브라우저와 직접적으로 상호작용하지 않음
     - 처리: componentDidMount = DOM 정보 가져오기, state 값 변화주기 가능
 
 * ##### construnction()
@@ -46,8 +46,9 @@ last_modified_at: 2023-04-27
   - props로 받아온 값을 state에 동기화시키는 용도
 
 * ##### componentDidMount()
-  - 컴포넌트가 화면에 그려진 직후 실행 = 첫 렌더링을 마친 후 실행
+  - 컴포넌트가 화면에 그려진 직후 실행 = 첫 렌더링을 마친 후 실행 = 처음에 render() 함수가 실행된 직후
   - 여기에 외부 라이브러리 연동, 비동기 요청, DOM 속성 변경 등 작업 처리
+  - 데이터 구독에 대한 설정을 여기서 함 -> 구독 설정 이후에는 componentWillUnmount()에서 해제 해줘야 한다고 함
 
 * ##### shouldComponentUpdate(nextProps, nextState)
   - 컴포넌트가 리랜더링을 할지 말지를 결정함
@@ -67,7 +68,8 @@ last_modified_at: 2023-04-27
 
 * ##### componentWillUnMount()
   - 컴포넌트를 DOM에서 제거할때 실행
-  - componentDidMount에서 등록한 이벤트 등을 제거 작업 해줘야 함
+  - 여기서 타이머나 구독 해제, 네트워크 요청 취소 등을 진행 함
+  - componentDidMount에서 생성한 구독 제거 작업을 여기서 함
 
 * ##### componentDidCatch(error, info) (v16 이상)
   - 렌더링 도중에 에러가 발생했을 때 오류 UI를 보여 줄 수 있게 함
