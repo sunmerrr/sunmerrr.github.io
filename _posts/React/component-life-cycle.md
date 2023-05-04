@@ -55,8 +55,6 @@ last_modified_at: 2023-04-27
   - boolean 값을 반환하는데 false 반환 시 업데이트 과정 종료 됨
   - 최적화 할때 사용하는 메서드(React.memo와 비슷한 역할)
 
-
-<!-- TODO: 수정 및 편집 필요 -->
 * ##### getSnapshotBeforeUpdate(prevProps, prevState) (v16.3 이상)
   - render에서 만들어진 결과물이 브라우저에 반영되기 직전에 호출
   - 반환되는 값은 componentDidUpdate에 snapshot 값으로 전달
@@ -74,5 +72,130 @@ last_modified_at: 2023-04-27
 * ##### componentDidCatch(error, info) (v16 이상)
   - 렌더링 도중에 에러가 발생했을 때 오류 UI를 보여 줄 수 있게 함
   <!-- TODO: 예제 코드 -->
+
+#### 메서드 테스트
+- 실제 메서드들이 어떤식으로 동작하는지 보기 위함
+- 쬐끔 정신 없음
+  - 부모 컴포넌트
+    ```jsx
+    import { Component } from 'react';
+    import ComponentLifeCycle from './ComponentLifeCycle';
+    import ErrorBoundary from './ErrorBoundary';
+
+    function getRandomColor() {
+      // 16777215 값은 hex로 ffffff 값임. 즉, 000000 ~ ffffff 까지 값을 반환하게 됨 (182p)
+      return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+
+    export class LifeCycleContainer extends Component {
+      state = {
+        color: '#000000',
+      };
+
+      handleClick = () => {
+        this.setState({
+          color: getRandomColor(),
+        });
+      };
+
+      render() {
+        return (
+          <div>
+            <button onClick={this.handleClick}>랜덤 색상</button>
+            <ErrorBoundary>
+              <ComponentLifeCycle color={this.state.color} />
+            </ErrorBoundary>
+          </div>
+        );
+      }
+    }
+
+    export default LifeCycleContainer;
+
+    ```
+  - 자식 컴포넌트
+    ```jsx
+    import { Component } from 'react';
+
+    export class ComponentLifeCycle extends Component {
+      state = {
+        number: 0,
+        color: null,
+      };
+
+      myRef = null;
+
+      constructor(props) {
+        super(props);
+        console.log('constructor');
+      }
+
+      static getDerivedStateFromProps(nextProps, prevState) {
+        console.log('getDerivedStateFromProps');
+        if (nextProps !== prevState) {
+          return { color: nextProps.color };
+        }
+        return null;
+      }
+
+      componentDidMount() {
+        console.log('componentDidMount');
+      }
+
+      shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate', nextProps, nextState);
+        return nextState.number % 10 !== 4;
+      }
+
+      componentWillUnmount() {
+        console.log('componentWillUnmount');
+      }
+
+      handleClick = () => {
+        this.setState({
+          number: this.state.number + 1,
+        });
+      };
+
+      getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log('getSnapshotBeforeUpdate');
+        if (prevProps.color !== this.props.color) {
+          return this.myRef.style.color;
+        }
+        return null;
+      }
+
+      componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('componentDidUpdate', prevProps, prevState);
+        if (snapshot) {
+          console.log('color before updated', snapshot);
+        }
+      }
+
+      render() {
+        console.log('----------render----------');
+
+        const style = {
+          color: this.props.color,
+        };
+
+        return (
+          <div>
+            {this.props.missing.value}
+            <h1 style={style} ref={(ref) => (this.myRef = ref)}>
+              {this.state.number}
+            </h1>
+            <p>color: {this.state.color}</p>
+            <button onClick={this.handleClick}>더하기</button>
+          </div>
+        );
+      }
+    }
+
+    export default ComponentLifeCycle;
+    ```
+    - 첫 렌더링 시 console 창
+      <img width="715" alt="image" src="https://user-images.githubusercontent.com/65106740/236151377-aa9eece3-9c1a-4688-8604-3555d4df6499.png">
+      - 왜 componentDidMount가 두 번 뜨는지는 componentWillUnmount의 특성을 보면 될 듯
 
 
