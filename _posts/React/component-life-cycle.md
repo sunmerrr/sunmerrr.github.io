@@ -74,8 +74,11 @@ last_modified_at: 2023-04-27
   <!-- TODO: 예제 코드 -->
 
 #### 메서드 테스트
-- 실제 메서드들이 어떤식으로 동작하는지 보기 위함
+- 앞에서 말한 메서드들이 어떤식으로 동작하는지 보기 위함
 - 쬐끔 정신 없음
+- 표기     
+  -첫 랜더링 순서 표기: (1), (2), ...
+  -업데이트 순서 표기: [1], [2], ...
   - 부모 컴포넌트
     ```jsx
     import { Component } from 'react';
@@ -125,12 +128,12 @@ last_modified_at: 2023-04-27
 
       myRef = null;
 
-      constructor(props) {
+      constructor(props) {  // (1)
         super(props);
         console.log('constructor');
       }
 
-      static getDerivedStateFromProps(nextProps, prevState) {
+      static getDerivedStateFromProps(nextProps, prevState) {  // (2)
         console.log('getDerivedStateFromProps');
         if (nextProps !== prevState) {
           return { color: nextProps.color };
@@ -138,7 +141,7 @@ last_modified_at: 2023-04-27
         return null;
       }
 
-      componentDidMount() {
+      componentDidMount() {  // (4)
         console.log('componentDidMount');
       }
 
@@ -147,7 +150,7 @@ last_modified_at: 2023-04-27
         return nextState.number % 10 !== 4;
       }
 
-      componentWillUnmount() {
+      componentWillUnmount() {  // (5)
         console.log('componentWillUnmount');
       }
 
@@ -172,7 +175,7 @@ last_modified_at: 2023-04-27
         }
       }
 
-      render() {
+      render() {  // (3)
         console.log('----------render----------');
 
         const style = {
