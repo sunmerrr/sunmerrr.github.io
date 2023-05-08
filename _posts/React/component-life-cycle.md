@@ -63,6 +63,7 @@ last_modified_at: 2023-04-27
 * ##### componentDidUpdate(prevProps, prevState, snapshot)
   - 랜더링을 완료한 이후
   - DOM관련 처리를 해도 무방하다 함
+  - snapshot이 있다면 제공함
 
 * ##### componentWillUnMount()
   - 컴포넌트를 DOM에서 제거할때 실행
@@ -96,6 +97,7 @@ last_modified_at: 2023-04-27
       };
 
       handleClick = () => {
+        console.log('click color update button');
         this.setState({
           color: getRandomColor(),
         });
@@ -134,19 +136,19 @@ last_modified_at: 2023-04-27
       }
 
       static getDerivedStateFromProps(nextProps, prevState) {  // (2)
-        console.log('getDerivedStateFromProps');
+        console.log('getDerivedStateFromProps --> ', 'nextProps: ', nextProps, 'prevState: ', prevState );
         if (nextProps !== prevState) {
           return { color: nextProps.color };
         }
         return null;
       }
 
-      componentDidMount() {  // (4)
+      componentDidMount() {  // (4), (6)??
         console.log('componentDidMount');
       }
 
       shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate', nextProps, nextState);
+        console.log('shouldComponentUpdate --> ', 'nextProps: ', nextProps, 'nextState: ', nextState);
         return nextState.number % 10 !== 4;
       }
 
@@ -155,13 +157,14 @@ last_modified_at: 2023-04-27
       }
 
       handleClick = () => {
+        console.log('click number update button');
         this.setState({
           number: this.state.number + 1,
         });
       };
 
       getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log('getSnapshotBeforeUpdate');
+        console.log('getSnapshotBeforeUpdate --> ', 'prevProps: ', prevProps, 'prevState: ', prevState);
         if (prevProps.color !== this.props.color) {
           return this.myRef.style.color;
         }
@@ -169,9 +172,9 @@ last_modified_at: 2023-04-27
       }
 
       componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('componentDidUpdate', prevProps, prevState);
+        console.log('componentDidUpdate --> ', 'prevProps: ', prevProps, 'prevState: ', prevState);
         if (snapshot) {
-          console.log('color before updated', snapshot);
+          console.log('color before updated --> ', 'snapshot: ', snapshot);
         }
       }
 
@@ -197,8 +200,11 @@ last_modified_at: 2023-04-27
 
     export default ComponentLifeCycle;
     ```
-    - 첫 렌더링 시 console 창
+    - 첫 렌더링 시
       <img width="715" alt="image" src="https://user-images.githubusercontent.com/65106740/236151377-aa9eece3-9c1a-4688-8604-3555d4df6499.png">
-      - 왜 componentDidMount가 두 번 뜨는지는 componentWillUnmount의 특성을 보면 될 듯
-
-
+ 
+    - 업데이트 시
+      1. 컬러 버튼
+        <img width="977" alt="image" src="https://user-images.githubusercontent.com/65106740/236663862-793ea1b2-f494-4213-bc05-71b8fa812f68.png">
+      2. 숫자 버튼
+        <img width="977" alt="image" src="https://user-images.githubusercontent.com/65106740/236663961-a4aa0398-06c9-4f42-8c30-5008fc484bfe.png">
