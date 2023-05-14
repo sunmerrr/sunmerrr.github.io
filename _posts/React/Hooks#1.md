@@ -24,12 +24,76 @@ last_modified_at: 2023-05-10
   ```js
   const [state, setState] = useState(initialState);
   ```
-- 상태 설정 함수를 호출하면 컴포넌트는 상태 값을 업데이트하면서 해당 컴포넌트도 새로 리렌더링 함
+- 상태 설정 함수(setState)를 호출하면 컴포넌트는 상태 값을 업데이트하면서 해당 컴포넌트도 새로 리렌더링 함
 - 사용
   - 업데이트 되는 상태값이 필요 할 때
   - 업데이트 이전의 값을 토대로 업데이트 되는 상태값이 필요 할 때
   - 초기값은 첫렌더링 이후 업데이트 되면 무시함
   - 이전에 렌더링에서의 내용을 저장해줌
+  - 상태 설정 함수는 새로운 상태에 대해서 리렌더링 이후에 반영한다. 만약 그 전에 상태 값을 호출하면 새로운 상태 값이 아닌 기존의 상태 값을 반환 받을 것이다. 새로운 상태 값을 보고 싶다면 리렌더링 된 이후(스크린에 그려진 이후)에 상태값을 사용하면 된다.
+
+- TODO: 아래 내용 정리
+  <!-- Updating state based on the previous state 
+  Suppose the age is 42. This handler calls setAge(age + 1) three times:
+
+    ```js
+    function handleClick() {
+      setAge(age + 1); // setAge(42 + 1)
+      setAge(age + 1); // setAge(42 + 1)
+      setAge(age + 1); // setAge(42 + 1)
+    }
+    ```
+  However, after one click, age will only be 43 rather than 45! This is because calling the set function does not update the age state variable in the already running code. So each setAge(age + 1) call becomes setAge(43).
+
+  To solve this problem, you may pass an updater function to setAge instead of the next state:
+    ```js
+    function handleClick() {
+      setAge(a => a + 1); // setAge(42 => 43)
+      setAge(a => a + 1); // setAge(43 => 44)
+      setAge(a => a + 1); // setAge(44 => 45)
+    }
+    ```
+
+  Here, a => a + 1 is your updater function. It takes the pending state and calculates the next state from it.
+
+  React puts your updater functions in a queue. Then, during the next render, it will call them in the same order:
+
+  a => a + 1 will receive 42 as the pending state and return 43 as the next state.
+  a => a + 1 will receive 43 as the pending state and return 44 as the next state.
+  a => a + 1 will receive 44 as the pending state and return 45 as the next state.
+  There are no other queued updates, so React will store 45 as the current state in the end.
+
+  By convention, it’s common to name the pending state argument for the first letter of the state variable name, like a for age. However, you may also call it like prevAge or something else that you find clearer.
+
+  React may call your updaters twice in development to verify that they are pure. -->
+
+- 예제
+  ```jsx
+  import { useState } from 'react';
+
+  const testFuntion = () => {
+    console.log('initialize state');
+  };
+  const State = () => {
+    const [number, setNumber] = useState(0);
+    const [test, setTest] = useState(testFuntion);
+
+    return (
+      <div>
+        <p>
+          현재 숫자: <b>{number}</b>
+        </p>
+        <button onClick={() => setNumber(number + 1)}>+ 1</button>
+        <button onClick={() => setNumber(number - 1)}>- 1</button>
+        <br />
+        <br />
+        <br />
+      </div>
+    );
+  };
+
+  export default State;
+  ```
 
 #### useEffect
 - 랜더링 이후에 실행됨
