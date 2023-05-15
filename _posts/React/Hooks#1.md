@@ -30,7 +30,40 @@ last_modified_at: 2023-05-10
   - 업데이트 이전의 값을 토대로 업데이트 되는 상태값이 필요 할 때
   - 초기값은 첫렌더링 이후 업데이트 되면 무시함
   - 이전에 렌더링에서의 내용을 저장해줌
+- 특징
   - 상태 설정 함수는 새로운 상태에 대해 리렌더링 이후에 반영. 그 전에 상태 값을 호출하면 새로운 상태 값이 아닌 기존의 상태 값을 반환 받음. 새로운 상태 값을 보고 싶다면 리렌더링 된 이후(스크린에 그려진 이후)에 상태값을 사용하면 됨.
+    - 예시
+      ```jsx
+      import { useState } from 'react';
+
+      const testFuntion = () => {
+        console.log('initialize state');
+        return 'state setting';
+      };
+      const State = () => {
+        const [number, setNumber] = useState(0);
+
+        const handleClick = () => {
+          setNumber(number + 1);
+          console.log('state를 스크린에 그려지기 전에 호출함 = 효과 적용 안됨', number);
+        };
+
+        return (
+          <div>
+            <p>
+              현재 숫자: <b>{number}</b>
+            </p>
+            {console.log('state를 스크린에 그려진 이후에 호출함 = 원하는 효과가 적용됨', number)}
+            <button onClick={handleClick}>+ 1</button>
+            <button onClick={() => setNumber(number - 1)}>- 1</button>
+          </div>
+        );
+      };
+
+      export default State;
+      ```
+    - 이렇게 된다는 것
+      ![화면-기록-2023-05-15-오후-7 03 52](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6ef300da-ffe8-41f1-8fcb-66e368e7aff9)
 
 - TODO: 아래 내용 정리
   <!-- Updating state based on the previous state 
@@ -76,7 +109,6 @@ last_modified_at: 2023-05-10
   };
   const State = () => {
     const [number, setNumber] = useState(0);
-    const [test, setTest] = useState(testFuntion);
 
     return (
       <div>
@@ -85,9 +117,6 @@ last_modified_at: 2023-05-10
         </p>
         <button onClick={() => setNumber(number + 1)}>+ 1</button>
         <button onClick={() => setNumber(number - 1)}>- 1</button>
-        <br />
-        <br />
-        <br />
       </div>
     );
   };
