@@ -30,16 +30,12 @@ last_modified_at: 2023-05-10
   - 업데이트 이전의 값을 토대로 업데이트 되는 상태값이 필요 할 때
   - 초기값은 첫렌더링 이후 업데이트 되면 무시함
   - 이전에 렌더링에서의 내용을 저장해줌
-- 특징
-  - 상태 설정 함수는 새로운 상태에 대해 리렌더링 이후에 반영. 그 전에 상태 값을 호출하면 새로운 상태 값이 아닌 기존의 상태 값을 반환 받음. 새로운 상태 값을 보고 싶다면 리렌더링 된 이후(스크린에 그려진 이후)에 상태값을 사용하면 됨.
+- 주의
+  - 상태 설정 함수는 새로운 상태에 대해 리렌더링 이후에 반영됨. 그 전에 상태 값을 호출하면 새로운 상태 값이 아닌 기존의 상태 값을 반환 받음. 새로운 상태 값을 보고 싶다면 리렌더링 된 이후(스크린에 그려진 이후)에 상태값을 사용하면 됨.
     - 예시
       ```jsx
       import { useState } from 'react';
 
-      const testFuntion = () => {
-        console.log('initialize state');
-        return 'state setting';
-      };
       const State = () => {
         const [number, setNumber] = useState(0);
 
@@ -64,6 +60,88 @@ last_modified_at: 2023-05-10
       ```
     - 이렇게 된다는 것
       ![화면-기록-2023-05-15-오후-7 03 52](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6ef300da-ffe8-41f1-8fcb-66e368e7aff9)
+  - 최적화로 인해서 state에 기존에 있던 것과 똑같은 값을 전달해주면 리엑트에서 리렌더링을 스킵함
+    - 위의 코드를 같은 값을 전달해주는 것으로 변경해보았다.
+      ```jsx
+      import { useState } from 'react';
+
+      const State = () => {
+        const [number, setNumber] = useState(0);
+
+        const handleClick = () => {
+          setNumber(1);
+          console.log('sset 함수를 호출 시 함께 호출되는 콘솔 로그', number);
+        };
+
+        return (
+          <div>
+            <p>
+              현재 숫자: <b>{number}</b>
+            </p>
+            {console.log('초기 렌더링과 리렌더링 시 함께 호출되는 콘솔 로그', number)}
+            <button onClick={handleClick}>1</button>
+          </div>
+        );
+      };
+
+      export default State;
+      ```
+    - 2번 까지는 리렌더링을 해주지만 그 이후로는 해주지 않음
+      ![화면-기록-2023-05-16-오후-8 32 21](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f016860a-1ca6-494e-bcaf-a5aee2139e74)
+  - 이벤트를 통해서 여러 state의 set 함수가 호출되더라도 한번의 리렌더링만 발생함
+    - 버튼을 누르면 각기 다른 state를 업데이트해주는 함수를 호출함
+      ```jsx
+      import { useState } from 'react';
+
+      const State = () => {
+        const [number, setNumber] = useState(0);
+        const [name, setName] = useState('');
+        const [date, setDate] = useState(Date());
+
+        const handleNumber = () => {
+          setNumber(1);
+          console.log('number set 함수를 호출', number);
+        };
+
+        const handleName = () => {
+          setName('여름');
+          console.log('name set 함수를 호출', name);
+        };
+
+        const handleDate = () => {
+          setDate(Date());
+          console.log('date set 함수를 호출', date);
+        };
+
+        return (
+          <div>
+            <p>
+              현재 숫자: <b>{number}</b>
+              <br />
+              이름: <b>{name}</b>
+              <br />
+              시간: <b>{date}</b>
+            </p>
+            {console.log('초기 렌더링과 리렌더링 시 함께 호출되는 콘솔 로그', number)}
+            <button
+              onClick={() => {
+                handleNumber();
+                handleName();
+                handleDate();
+              }}
+            >
+              적용
+            </button>
+          </div>
+        );
+      };
+
+      export default State;
+      ```
+    - 각 set함수가 호출될때마다 리렌더링 되는 것이 아니라 모든 state가 업데이트 된 이후에 렌더링을 진행함    
+      (중간에 한번 렌더링을 안하는데 그건 숫자, 이름, 시간이 모두 동일한 값으로 들어갔기 때문)
+      ![화면-기록-2023-05-16-오후-8 55 09](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/37d1a9ec-ad99-4f47-b070-6c593b65f622)
+
 
 - TODO: 아래 내용 정리
   <!-- Updating state based on the previous state 
