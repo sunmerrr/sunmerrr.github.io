@@ -60,6 +60,71 @@ last_modified_at: 2023-05-10
       ```
     - 이렇게 된다는 것
       ![화면-기록-2023-05-15-오후-7 03 52](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6ef300da-ffe8-41f1-8fcb-66e368e7aff9)
+    - 만약 이미 함수가 돌아가고 있는데 또 상태 설정 함수를 업데이트 해준다면 그건 반영이 되지 않음
+      ```jsx
+      import { useState } from 'react';
+
+      const State = () => {
+        const [number, setNumber] = useState(0);
+
+        const handleClick = () => {
+          setNumber(number + 1);
+          setNumber(number + 1);
+          setNumber(number + 1);
+          console.log('set 함수를 호출 시 함께 호출되는 콘솔 로그', number);
+        };
+
+        return (
+          <div>
+            <p>
+              현재 숫자: <b>{number}</b>
+            </p>
+            {console.log('초기 렌더링과 리렌더링 시 함께 호출되는 콘솔 로그', number)}
+            <button onClick={handleClick}>+ 1</button>
+          </div>
+        );
+      };
+
+      export default State;
+      ```
+    - 나는 분명 setNumber() 를 세번 콜 해서 버튼을 누를 때 마다 +3이 되도록 설정했는데 누를 때마다 +1만 적용된 것을 볼 수 있음
+      ![화면-기록-2023-05-17-오후-7 34 25 (1)](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/22d3e0de-f245-4b01-9583-ab8f98412ff4)
+    - 그런데 여기서 함수로 전달하게되면 달라짐
+      ```jsx
+      import { useState } from 'react';
+
+      const State = () => {
+        const [number, setNumber] = useState(0);
+
+        const handleClick = () => {
+          setNumber((number) => number + 1);
+          setNumber((number) => number + 1);
+          setNumber((number) => number + 1);
+          console.log('set 함수를 호출 시 함께 호출되는 콘솔 로그', number);
+        };
+
+        return (
+          <div>
+            <p>
+              현재 숫자: <b>{number}</b>
+            </p>
+            {console.log('초기 렌더링과 리렌더링 시 함께 호출되는 콘솔 로그', number)}
+            <button onClick={handleClick}>+ 1</button>
+          </div>
+        );
+      };
+
+      export default State;
+      ```
+      - 상태 설정 함수에 업데이트 값을 함수로 전달하니 내가 원하는대로 나오는 것을 볼 수 있음
+        ![화면-기록-2023-05-17-오후-7 34 25](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/b80d5ace-44a3-4360-bd30-713dd8dc7805)
+      - 이런 특성은 React의 state가 스냅샷과 같이 작동하기 때문   
+        내가 업데이트 하는 내용 스냅샷 처럼 찍어두고 원래 그려져 있던 DOM트리와 비교해서 바꾸는 느낌이라고 생각하면 될 것 같다.    
+        리렌더링 시 리액트가 해당 컴포넌트 호출     
+        -> 컴포넌트가 업데이트된 내용을 스냅샷으로 뽑아서 리액트한테 줌     
+        -> 리액트가 DOM트리를 비교함     
+      - 상태 설정 함수는 다음 렌더링을 위해서 상태를 업데이트 하기 때문    
+        그러니까 함수로 전달해주지 않았을때는 세번 호출됐지만 그 세번의 상태 설정 함수에 들어간 number값을 모두 같았던 것
   - 최적화로 인해서 state에 기존에 있던 것과 똑같은 값을 전달해주면 리엑트에서 리렌더링을 스킵함
     - 위의 코드를 같은 값을 전달해주는 것으로 변경해보았다.
       ```jsx
@@ -141,19 +206,12 @@ last_modified_at: 2023-05-10
     - 각 set함수가 호출될때마다 리렌더링 되는 것이 아니라 모든 state가 업데이트 된 이후에 렌더링을 진행함    
       (중간에 한번 렌더링을 안하는데 그건 숫자, 이름, 시간이 모두 동일한 값으로 들어갔기 때문)
       ![화면-기록-2023-05-16-오후-8 55 09](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/37d1a9ec-ad99-4f47-b070-6c593b65f622)
+  
+
 
 
 - TODO: 아래 내용 정리
-  <!-- Updating state based on the previous state 
-  Suppose the age is 42. This handler calls setAge(age + 1) three times:
-
-    ```js
-    function handleClick() {
-      setAge(age + 1); // setAge(42 + 1)
-      setAge(age + 1); // setAge(42 + 1)
-      setAge(age + 1); // setAge(42 + 1)
-    }
-    ```
+  <!-- 
   However, after one click, age will only be 43 rather than 45! This is because calling the set function does not update the age state variable in the already running code. So each setAge(age + 1) call becomes setAge(43).
 
   To solve this problem, you may pass an updater function to setAge instead of the next state:
@@ -169,9 +227,6 @@ last_modified_at: 2023-05-10
 
   React puts your updater functions in a queue. Then, during the next render, it will call them in the same order:
 
-  a => a + 1 will receive 42 as the pending state and return 43 as the next state.
-  a => a + 1 will receive 43 as the pending state and return 44 as the next state.
-  a => a + 1 will receive 44 as the pending state and return 45 as the next state.
   There are no other queued updates, so React will store 45 as the current state in the end.
 
   By convention, it’s common to name the pending state argument for the first letter of the state variable name, like a for age. However, you may also call it like prevAge or something else that you find clearer.
