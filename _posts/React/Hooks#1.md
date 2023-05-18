@@ -89,7 +89,16 @@ last_modified_at: 2023-05-10
       ```
     - 나는 분명 setNumber() 를 세번 콜 해서 버튼을 누를 때 마다 +3이 되도록 설정했는데 누를 때마다 +1만 적용된 것을 볼 수 있음
       ![화면-기록-2023-05-17-오후-7 34 25 (1)](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/22d3e0de-f245-4b01-9583-ab8f98412ff4)
-    - 그런데 여기서 함수로 전달하게되면 달라짐
+      - 이런 특성은 
+        1. React의 state가 스냅샷과 같이 작동하기 때문   
+          내가 업데이트 하는 내용을 스냅샷 처럼 찍어두고 원래 그려져 있던 DOM트리와 비교해서 바꾸는 느낌이라고 생각하면 될 것 같다. 
+            - 대충 이런 느낌    
+              리렌더링 시 리액트가 해당 컴포넌트 호출     
+              -> 컴포넌트가 업데이트된 내용을 스냅샷으로 뽑아서 리액트한테 줌     
+              -> 리액트가 DOM트리를 비교함     
+        1. 상태 설정 함수는 다음 렌더링을 위해서 상태를 업데이트 하기 때문    
+          그러니까 함수로 전달해주지 않았을때는 세번 호출됐지만 그 세번의 상태 설정 함수에 들어간 number값을 모두 같았던 것
+    - 이 문제는 함수로 전달하게되면 달라짐
       ```jsx
       import { useState } from 'react';
 
@@ -116,15 +125,13 @@ last_modified_at: 2023-05-10
 
       export default State;
       ```
-      - 상태 설정 함수에 업데이트 값을 함수로 전달하니 내가 원하는대로 나오는 것을 볼 수 있음
-        ![화면-기록-2023-05-17-오후-7 34 25](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/b80d5ace-44a3-4360-bd30-713dd8dc7805)
-      - 이런 특성은 React의 state가 스냅샷과 같이 작동하기 때문   
-        내가 업데이트 하는 내용 스냅샷 처럼 찍어두고 원래 그려져 있던 DOM트리와 비교해서 바꾸는 느낌이라고 생각하면 될 것 같다.    
-        리렌더링 시 리액트가 해당 컴포넌트 호출     
-        -> 컴포넌트가 업데이트된 내용을 스냅샷으로 뽑아서 리액트한테 줌     
-        -> 리액트가 DOM트리를 비교함     
-      - 상태 설정 함수는 다음 렌더링을 위해서 상태를 업데이트 하기 때문    
-        그러니까 함수로 전달해주지 않았을때는 세번 호출됐지만 그 세번의 상태 설정 함수에 들어간 number값을 모두 같았던 것
+      - 상태 설정 함수에 업데이트 값을 함수로 전달하니 내가 원하는대로 나오는 것을 볼 수 있음 [state updater function 참고](https://react.dev/learn/queueing-a-series-of-state-updates#updating-the-same-state-multiple-times-before-the-next-render)
+        ![화면-기록-2023-05-17-오후-7 33 43_1](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/bb66b2a7-60bf-41d2-84d4-4d191b11ed70)
+        - 대충 이렇게 동작하는 듯     
+          함수로 전달하게 될 경우 리액트 큐에 해당 함수를 넣게됨     
+          -> 이벤트 핸들러 내부의 코드가 모두 수행 됨     
+          -> 다음 렌더링이 실행되는 동안 리엑트는 큐에 남아있는 작업을 수행함     
+        
   - 최적화로 인해서 state에 기존에 있던 것과 똑같은 값을 전달해주면 리엑트에서 리렌더링을 스킵함
     - 위의 코드를 같은 값을 전달해주는 것으로 변경해보았다.
       ```jsx
@@ -153,6 +160,7 @@ last_modified_at: 2023-05-10
       ```
     - 2번 까지는 리렌더링을 해주지만 그 이후로는 해주지 않음
       ![화면-기록-2023-05-16-오후-8 32 21](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f016860a-1ca6-494e-bcaf-a5aee2139e74)
+      
   - 이벤트를 통해서 여러 state의 set 함수가 호출되더라도 한번의 리렌더링만 발생함
     - 버튼을 누르면 각기 다른 state를 업데이트해주는 함수를 호출함
       ```jsx
@@ -207,31 +215,6 @@ last_modified_at: 2023-05-10
       (중간에 한번 렌더링을 안하는데 그건 숫자, 이름, 시간이 모두 동일한 값으로 들어갔기 때문)
       ![화면-기록-2023-05-16-오후-8 55 09](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/37d1a9ec-ad99-4f47-b070-6c593b65f622)
   
-
-
-
-- TODO: 아래 내용 정리
-  <!-- 
-  However, after one click, age will only be 43 rather than 45! This is because calling the set function does not update the age state variable in the already running code. So each setAge(age + 1) call becomes setAge(43).
-
-  To solve this problem, you may pass an updater function to setAge instead of the next state:
-    ```js
-    function handleClick() {
-      setAge(a => a + 1); // setAge(42 => 43)
-      setAge(a => a + 1); // setAge(43 => 44)
-      setAge(a => a + 1); // setAge(44 => 45)
-    }
-    ```
-
-  Here, a => a + 1 is your updater function. It takes the pending state and calculates the next state from it.
-
-  React puts your updater functions in a queue. Then, during the next render, it will call them in the same order:
-
-  There are no other queued updates, so React will store 45 as the current state in the end.
-
-  By convention, it’s common to name the pending state argument for the first letter of the state variable name, like a for age. However, you may also call it like prevAge or something else that you find clearer.
-
-  React may call your updaters twice in development to verify that they are pure. -->
 
 - 예제
   ```jsx
