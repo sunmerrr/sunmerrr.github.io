@@ -15,9 +15,9 @@ last_modified_at: 2023-05-18
 ---
 
 ###### 가장 자주 사용하고, 가장 친숙한 state를 사용할때 주의해야하는 점 위주로 작성함
+###### 리액트 블로그를 보고 작성하는데 생각보다 내용이 너무 많아서 다 적지는 못했음
 
 ### useState
-- Hooks는 리액트 v16.8부터 도입됨
 - 함수 컴포넌트에서도 가변적인 상태를 지닐 수 있게 해줘서 상태 관리를 가능하게 해줌
 - 기본 형태
   ```js
@@ -29,9 +29,9 @@ last_modified_at: 2023-05-18
   - 업데이트 이전의 값을 토대로 업데이트 되는 상태값이 필요 할 때
   - 이전 렌더링에서의 내용을 저장해야 할 때
 - 특징
-  - 상태 설정 함수(setState)를 통해서 상태(state)를 업데이트 하면 리렌더링이 일어남
+  - 상태 설정 함수를 통해서 상태를 업데이트 하면 해당 컴포넌트와 자식 컴포넌트 들에게 리렌더링 일어남
   - 초기값(inisialState)은 첫렌더링 이후 상태가 업데이트 되면 무시함
-  - 상태 설정 함수를 통해서 업데이트 하지 않는 상태는 렌더링 되어도 이전 상태가 유지됨
+  - 상태 설정 함수를 통해서 업데이트 하지 않는 상태는 렌더링 되어도 이전 상태를 유지함
   - 여러개의 상태를 사용할 수 있고, 배열, 객체 등의 다양한 형태의 값을 넣어줄 수 있음
   - 상태 설정 함수를 통하지 않고 직접 상태를 업데이트 하면 안됨
 
@@ -41,15 +41,15 @@ last_modified_at: 2023-05-18
     import { useState } from 'react';
 
     const State = () => {
-      const [number, setNumber] = useState(0);
+      const [number, setNumber] = useState(0); // 상태와 상태 설정 함수의 이름은 편하게 지어주면 된다.
 
       return (
         <div>
           <p>
             현재 숫자: <b>{number}</b>
           </p>
-          <button onClick={() => setNumber(number + 1)}>+ 1</button>
-          <button onClick={() => setNumber(number - 1)}>- 1</button>
+          <button onClick={() => setNumber(number + 1)}>+ 1</button> // 버튼을 누르면 +1 해주는 이벤트를 걸었다.
+          <button onClick={() => setNumber(number - 1)}>- 1</button> // 버튼을 누르면 -1 해주는 이벤트를 걸었다.
         </div>
       );
     };
@@ -79,7 +79,7 @@ last_modified_at: 2023-05-18
         setTodos([
           ...todos,
           {
-            id: nextId++,
+            id: ++nextId,
             title: title,
             done: false,
           },
