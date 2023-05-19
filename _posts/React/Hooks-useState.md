@@ -36,7 +36,7 @@ last_modified_at: 2023-05-18
   - 상태 설정 함수를 통하지 않고 직접 상태를 업데이트 하면 안됨
 
 - 예제
-  - 숫자 업데이트
+  - 숫자, 문자 등 업데이트
     ```jsx
     import { useState } from 'react';
 
@@ -59,7 +59,89 @@ last_modified_at: 2023-05-18
 
     - 결과 화면
       ![화면-기록-2023-05-18-오후-8 28 17](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/fb33a578-15da-4eb2-a6ad-37cacf90e866)
+
   - 배열 업데이트
+    ```jsx
+    import { useState } from 'react';
+
+    let nextId = 3;
+    const initialTodos = [
+      { id: 1, title: '블로그 쓰기', done: false },
+      { id: 2, title: '요가 하기', done: false },
+      { id: 3, title: '도시락 만들기', done: false },
+    ];
+
+    const TodoList = () => {
+      const [todos, setTodos] = useState(initialTodos);
+      const [title, setTitle] = useState('');
+
+      function handleAdd(title) {
+        setTodos([
+          ...todos,
+          {
+            id: nextId++,
+            title: title,
+            done: false,
+          },
+        ]);
+      }
+
+      function handleChange(nextTodo) {
+        setTodos(
+          todos.map((t) => {
+            if (t.id === nextTodo.id) {
+              return nextTodo;
+            } else {
+              return t;
+            }
+          }),
+        );
+      }
+
+      function handleDelete(todoId) {
+        setTodos(todos.filter((t) => t.id !== todoId));
+      }
+
+      return (
+        <div>
+          <input placeholder="Add Todo" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <button
+            onClick={() => {
+              setTitle('');
+              handleAdd(title);
+            }}
+          >
+            추가
+          </button>
+          <ul style={{ padding: '0' }}>
+            {todos.map((todo) => (
+              <li key={todo.id} style={{ listStyleType: 'none' }}>
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={todo.done}
+                    onChange={(e) => {
+                      handleChange({
+                        ...todo,
+                        done: e.target.checked,
+                      });
+                    }}
+                  />
+                  {todo.title}
+                  <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    };
+
+    export default TodoList;
+    ```
+    - 결과 화면
+      ![state-array](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/ada5f40d-f1a4-44c8-83c3-24a591424ac6)
+
     
   - 객체 업데이트
     ```jsx
