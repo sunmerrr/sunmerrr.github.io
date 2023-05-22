@@ -393,8 +393,8 @@ last_modified_at: 2023-05-18
 
     - 각 set함수가 호출될때마다 리렌더링 되는 것이 아니라 모든 state가 업데이트 된 이후에 렌더링을 진행함    
       (중간에 한번 리렌더링을 안하는데 그건 숫자, 이름, 시간이 모두 동일한 값으로 들어갔기 때문)
-      ![화면-기록-2023-05-16-오후-8 55 09](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/37d1a9ec-ad99-4f47-b070-6c593b65f622)
+      ![화면-기록-2023-05-16-오후-8 55 09](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/37d1a9ec-ad99-4f47-b070-6c593b65f622)     
 
 
-###### 출처 1: 리액트를 다루는 기술(개정판) - 김민준 저
-###### [출처 2: react.dev](https://react.dev/reference/react/useState)
+    ###### 출처 1: 리액트를 다루는 기술(개정판) - 김민준 저
+    ###### [출처 2: react.dev](https://react.dev/reference/react/useState)
