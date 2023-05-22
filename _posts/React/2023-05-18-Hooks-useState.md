@@ -339,7 +339,7 @@ last_modified_at: 2023-05-18
       export default State;
       ```
 
-    - 2번 까지는 리렌더링을 해주지만 그 이후로는 해주지 않음
+    - 두 번 까지는 리렌더링을 해주지만 그 이후로는 해주지 않음
       ![화면-기록-2023-05-16-오후-8 32 21](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f016860a-1ca6-494e-bcaf-a5aee2139e74)
 
   - 이벤트를 통해서 여러 state의 set 함수가 호출되더라도 한번의 리렌더링만 발생함
