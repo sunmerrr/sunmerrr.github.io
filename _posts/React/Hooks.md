@@ -15,23 +15,43 @@ last_modified_at: 2023-05-20
 ---
 
 #### useEffect
-- 랜더링 이후에 실행됨
+- 외부 시스템과 동기적으로 작동할 수 있도록 해줌 
 - 클래스형에서 componentDidMount와 componentDidUpdate를 합친 형태
+
 - 기본 형태
   ```js
   useEffect(() => {
-    {렌더링 완료}
-    return {뒷정리}
-  }, [의존 배열])
+    {setup}
+    return {clean up}
+  }, [dependencies])
   ```
-  - 렌더링 이후    
+  - setup    
     렌더링 이후에 실행할 내용을 작성
-  - 뒷정리(clean up)     
-    언마운트 또는 업데이트 되기 직전에 실행할 내용을 return 뒤에 작성
-  - 의존 배열(dependency array)    
+  - clean up(뒷정리)     
+    필요 시 언마운트 또는 업데이트 되기 직전에 실행할 내용을 return 뒤에 작성
+  - dependencies(의존 배열)    
     첫 렌더링 시에만 실행되게 하고 싶다면 빈 배열로 둠
     특정 값이 변할때마다 실행하고 싶다면 의존 배열에 해당 특정 값을 넣음
     배열 이라서 특정 값이 여러개여도 상관 없음
+##### 사용
+- 외부 시스템과 연결
+- 커스텀 훅을 감쌀 때
+- 리액트에 포함되지 않은 프로그램을 제어할 때
+- 데이터를 가져올 때
+- 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
+- 어떠한 결과로 인해서 기존의 상태를 베이스로 상태를 업데이트 할 때
+- 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
+- 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
+<!-- TODO: 번역이 조금 이상한듯 -->
+
+
+Updating state based on previous state from an Effect
+Reading the latest props and state from an Effect
+Displaying different content on the server and the client
+
+##### 주의
+- 너무 남발하지 말 것     
+
 
 #### useReducer
 - 다양한 상태를 다양한 상황에 따라서 다른 값으로 업데이트 해줄 수 있는 hook
