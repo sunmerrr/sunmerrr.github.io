@@ -34,7 +34,7 @@ last_modified_at: 2023-05-20
     특정 값이 변할때마다 실행하고 싶다면 의존 배열에 해당 특정 값을 넣음
     배열 이라서 특정 값이 여러개여도 상관 없음
 ##### 사용
-- 외부 시스템과 연결
+- 외부 시스템과 연결을 위해
 - 커스텀 훅을 감쌀 때
 - 리액트에 포함되지 않은 프로그램을 제어할 때
 - 데이터를 가져올 때
@@ -57,6 +57,18 @@ Displaying different content on the server and the client
 
 ##### 주의
 - 너무 남발하지 말 것  
+- useEffect는 훅이라서 컴포넌트의 상위 수준에서 또는 커스텀 Hooks내에서만 호출해야함. 반복문이나 조건문 안에서는 useEffect를 호출할 수 없음. 필요하다면 컴포넌트를 새로 만들어서 그 안에 state를 옮겨서 사용하는 것을 추천함
+- 다른 외부 시스템과 동기적으로 연결하는 동작을 위한것이 아니면 굳이 사용하지 않는게 좋음
+- 스트릭 모드에서 리액트는 첫번째 설정 이전에 development에서만 setup + cleanup 을 한번 추가적으로 실행함. setup에서 설정한 로짓을 cleanup에서 제대로 처리하는지 확인하기위한 스트레스 테스트임.
+- 의존성 배열이 객체거나 함수를 사용할 경우 우리가 필요로 한 것보다 리렌더링을 자주 발생 시킬 수 있으므로 사용하지 않는 것이 좋음. 쓸데업는 state 업데이트도 Effect 밖에서 해주는 것이 좋음.
+- 
+
+If your Effect wasn’t caused by an interaction (like a click), React will let the browser paint the updated screen first before running your Effect. If your Effect is doing something visual (for example, positioning a tooltip), and the delay is noticeable (for example, it flickers), replace useEffect with useLayoutEffect.
+
+If some of your dependencies are objects or functions defined inside the component, there is a risk that they will cause the Effect to re-run more often than needed. To fix this, remove unnecessary object and function dependencies. You can also extract state updates and non-reactive logic outside of your Effect.
+
+
+
 
 #### useReducer
 - 다양한 상태를 다양한 상황에 따라서 다른 값으로 업데이트 해줄 수 있는 hook
