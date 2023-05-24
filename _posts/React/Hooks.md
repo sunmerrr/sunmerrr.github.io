@@ -44,14 +44,19 @@ last_modified_at: 2023-05-20
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
 
-
 Updating state based on previous state from an Effect
 Reading the latest props and state from an Effect
 Displaying different content on the server and the client
 
-##### 주의
-- 너무 남발하지 말 것     
+##### 참고
+- 마운트 시 이펙트 코드가 두 번 실행됨
+- 매 리렌더링 시 이펙트 코드가 실행됨
+- 무한으로 리렌더링 시킴
+- 언마운트가 되지 않았는데 clean up 코드가 실행됨
+- 이펙트 코드가 있는데 실행되기 전에 종료되는 것 같음
 
+##### 주의
+- 너무 남발하지 말 것  
 
 #### useReducer
 - 다양한 상태를 다양한 상황에 따라서 다른 값으로 업데이트 해줄 수 있는 hook
