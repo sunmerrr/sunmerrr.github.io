@@ -61,14 +61,9 @@ Displaying different content on the server and the client
 - 다른 외부 시스템과 동기적으로 연결하는 동작을 위한것이 아니면 굳이 사용하지 않는게 좋음
 - 스트릭 모드에서 리액트는 첫번째 설정 이전에 development에서만 setup + cleanup 을 한번 추가적으로 실행함. setup에서 설정한 로짓을 cleanup에서 제대로 처리하는지 확인하기위한 스트레스 테스트임.
 - 의존성 배열이 객체거나 함수를 사용할 경우 우리가 필요로 한 것보다 리렌더링을 자주 발생 시킬 수 있으므로 사용하지 않는 것이 좋음. 쓸데업는 state 업데이트도 Effect 밖에서 해주는 것이 좋음.
-- 
-
-If your Effect wasn’t caused by an interaction (like a click), React will let the browser paint the updated screen first before running your Effect. If your Effect is doing something visual (for example, positioning a tooltip), and the delay is noticeable (for example, it flickers), replace useEffect with useLayoutEffect.
-
-If some of your dependencies are objects or functions defined inside the component, there is a risk that they will cause the Effect to re-run more often than needed. To fix this, remove unnecessary object and function dependencies. You can also extract state updates and non-reactive logic outside of your Effect.
-
-
-
+- Effect가 어떠한 인터렉션을 통해서 동작하지 않는다면, 리액트는 Effect를 실행하기 전에 스크린을 먼저 업데이트 함. useEffect때문에 지연되는게 너무 보이거나, 화면에 다른 효과를 주고 싶다면 useLayoutEffect를 사용하는 것이 좋음
+- 브라우저에서도 Effect로 state를 업데이트 하기 전에 스크린을 그릴 수 있음. 만약 스크린이 그려지기 전에 Effect에 들어있는 state를 업데이트 하거나 효과를 주고 싶다면 useLayoutEffect를 쓰는 것이 좋음
+- Effect는 서버 렌더링 시에는 수행되지 않음
 
 #### useReducer
 - 다양한 상태를 다양한 상황에 따라서 다른 값으로 업데이트 해줄 수 있는 hook
