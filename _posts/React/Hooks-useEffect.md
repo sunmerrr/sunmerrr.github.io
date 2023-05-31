@@ -17,7 +17,7 @@ last_modified_at: 2023-05-20
 #### useEffect
 - 외부 시스템과 동기적으로 작동할 수 있도록 해줌 
 - 클래스형에서 componentDidMount와 componentDidUpdate를 합친 형태
-
+- 컴포넌트가 돔에 모두 추가 된 이후에 실행되며, dependencies의 변화에 따라서 리렌더링 시 마다 clean up 함수를 먼저 실행 하여 오래된 값을 없애고 새로운 값으로 setup 함수를 실행 함
 - 기본 형태
   ```js
   useEffect(() => {
@@ -33,6 +33,7 @@ last_modified_at: 2023-05-20
     첫 렌더링 시에만 실행되게 하고 싶다면 빈 배열로 둠
     특정 값이 변할때마다 실행하고 싶다면 의존 배열에 해당 특정 값을 넣음
     배열 이라서 특정 값이 여러개여도 상관 없음
+
 ##### 사용
 - 외부 시스템과 연결을 위해
 - 커스텀 훅을 감쌀 때
@@ -43,7 +44,6 @@ last_modified_at: 2023-05-20
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
-
 Updating state based on previous state from an Effect
 Reading the latest props and state from an Effect
 Displaying different content on the server and the client
@@ -54,6 +54,7 @@ Displaying different content on the server and the client
 - 무한으로 리렌더링 시킴
 - 언마운트가 되지 않았는데 clean up 코드가 실행됨
 - 이펙트 코드가 있는데 실행되기 전에 종료되는 것 같음
+- useEffect는 항상 undefined를 return 함
 
 ##### 주의
 - 너무 남발하지 말 것  
