@@ -397,3 +397,12 @@ last_modified_at: 2023-05-18
 
     ###### 출처 1: 리액트를 다루는 기술(개정판) - 김민준 저
     ###### [출처 2: react.dev](https://react.dev/reference/react/useState)
+
+
+    #### useState와 useRef
+    | useState | useRef |
+    | --- | --- |
+    |return: `current: initialValue`|return: `[value, setValue]`|
+    |변경 시 리렌더링 발생하지 않음|변경 시 리렌더링 발생|
+    |렌더링과 관계없이 current의 value를 수정 및 업데이트 가능|'불변 객체', 렌더링 순서에 맞춰서 변경해야하며 setting 함수로만 state 수정 가능|
+    |렌더링 되는 동안 current 값을 읽거나 사용할 수 없음|아무때나 state를 읽어올 수 있음(매 렌더링마다 state의 값을 스냅샷으로 가지고 있으며, 해당 값을 가져올 수 있음)|
