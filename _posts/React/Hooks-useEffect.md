@@ -35,8 +35,52 @@ last_modified_at: 2023-05-20
     배열 이라서 특정 값이 여러개여도 상관 없음
 
 ##### 사용
-- 외부 시스템과 연결을 위해
-- 커스텀 훅을 감쌀 때
+- 외부 API 연결을 위해
+  - 라이브 서버, 브라우저 이벤트 리스너, 애니메이션 트리거, 모달 컨트롤, 컨디션에 따른 UI 변경 등
+  - 예시 1 - 브라우저 이벤트 리스너    
+    포인터를 따라다니는 이쁜 원 그리기
+    ```jsx
+    import { useState, useEffect } from 'react';
+
+    const Effect = () => {
+      const [position, setPosition] = useState({ x: 0, y: 0 });
+
+      useEffect(() => {
+        const handlemove = (e) => {
+          setPosition({ x: e.clientX, y: e.clientY });
+          console.log('e.clientX: ', e.clientX, 'e.clientY: ', e.clientY);
+        };
+
+        window.addEventListener('pointermove', handlemove);
+        return () => {
+          window.removeEventListener('pointermove', handlemove);
+        };
+      }, []);
+
+      return (
+        <div
+          style={{
+            position: 'absolute',
+            backgroundColor: 'pink',
+            borderRadius: '50%',
+            opacity: 0.6,
+            transform: `translate(${position.x}px, ${position.y}px)`,
+            pointerEvents: 'none',
+            left: -20,
+            top: -20,
+            width: 40,
+            height: 40,
+          }}
+        ></div>
+      );
+    };
+
+    export default Effect;
+    ```
+    ![Listening to a global event](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/1eeb9070-ba7b-4622-bb9a-b5b2938f8d4a)
+
+
+- 커스텀 훅에서
 - 리액트에 포함되지 않은 프로그램을 제어할 때
 - 데이터를 가져올 때
 - 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
