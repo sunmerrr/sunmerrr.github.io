@@ -141,8 +141,8 @@ last_modified_at: 2023-05-20
     ```
     ![Controlling a modal dialog](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3ec54e04-6411-45a0-9c93-5dea410c742f)
 
-
-- 커스텀 훅에서
+- 커스텀 훅에서(이렇게도 쓰는구나..)
+  - useEffect 속 구현 내용이 너무 길어지면 따로 커스텀 훅으로 빼서 사용하는 개념
 - 리액트에 포함되지 않은 프로그램을 제어할 때
 - 데이터를 가져올 때
 - 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
