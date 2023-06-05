@@ -79,6 +79,68 @@ last_modified_at: 2023-05-20
     ```
     ![Listening to a global event](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/1eeb9070-ba7b-4622-bb9a-b5b2938f8d4a)
 
+  - 예시 2 - 모달 제어
+    ```jsx
+    // App.js
+    import { useState } from 'react';
+    import ModalDialog from './ModalDialog';
+
+    const Effect = () => {
+      const [show, setShow] = useState(false);
+
+      return (
+        <div>
+          <button
+            onClick={() => {
+              setShow(true);
+            }}
+          >
+            Open dialog
+          </button>
+          <ModalDialog isOpen={show}>
+            Hi There!
+            <br />
+            <button
+              onClick={() => {
+                setShow(false);
+              }}
+            >
+              Close dialog
+            </button>
+          </ModalDialog>
+        </div>
+      );
+    };
+
+    export default Effect;
+    ```
+
+    ```jsx
+    // ModalDialog.js
+    import { useEffect, useRef } from 'react';
+
+    const ModalDialog = ({ isOpen, children }) => {
+      const ref = useRef();
+
+      useEffect(() => {
+        if (!isOpen) return;
+
+        console.log('dialog is opened');
+
+        const dialog = ref.current;
+        dialog.showModal();
+
+        return () => {
+          dialog.close();
+        };
+      }, [isOpen]);
+      return <dialog ref={ref}>{children}</dialog>;
+    };
+
+    export default ModalDialog;
+    ```
+    ![Controlling a modal dialog](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3ec54e04-6411-45a0-9c93-5dea410c742f)
+
 
 - 커스텀 훅에서
 - 리액트에 포함되지 않은 프로그램을 제어할 때
