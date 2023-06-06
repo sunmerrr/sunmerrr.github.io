@@ -141,9 +141,86 @@ last_modified_at: 2023-05-20
     ```
     ![Controlling a modal dialog](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3ec54e04-6411-45a0-9c93-5dea410c742f)
 
-- 커스텀 훅에서(이렇게도 쓰는구나..)
+- 커스텀 훅에서
   - useEffect 속 구현 내용이 너무 길어지면 따로 커스텀 훅으로 빼서 사용하는 개념
 - 리액트에 포함되지 않은 프로그램을 제어할 때
+  - 구글 맵 api 이용하기 - 프로젝트에 사용했던 코드라 지저분...
+    ```jsx
+    import React, { useState, useEffect, useRef } from 'react';
+    import { Loader } from '@googlemaps/js-api-loader';
+    import styled from 'styled-components';
+
+    const Map = () => {
+      const [locations, setLocations] = useState([]);
+
+      const loader = useRef(null);
+      const map = useRef(null);
+      const marker = useRef(null);
+      const infoWindow = useRef(null);
+      const mapBoxRef = useRef();
+
+      const mapOptions = {
+        center: { lat: 41.3954, lng: 2.162 },
+        zoom: 12,
+      };
+
+      useEffect(() => {
+        loader.current = new Loader({
+          apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+          version: 'weekly',
+        });
+
+        fetch('/data/Locations.json')
+          .then(res => res.json())
+          .then(data => setLocations(data));
+
+        loader.current.load().then(() => {
+          map.current = new google.maps.Map(mapBoxRef.current, mapOptions);
+          infoWindow.current = new google.maps.InfoWindow();
+          marker.current = locations.map(item => {
+            const { lat, lng, name } = item.location;
+            return new google.maps.Marker({
+              position: { lat: lat, lng: lng },
+              map: map.current,
+              title: `${name}`,
+              label: `${name}`,
+              optimized: false,
+            });
+          });
+          return marker;
+        });
+
+        const script = document.createElement('script');
+        script.src = { loader };
+        script.async = true;
+        document.body.appendChild(script);
+        return () => {
+          document.body.removeChild(script);
+        };
+      }, []);
+
+      return (
+        <MapLoad>
+          <Box
+            ref={mapBoxRef}
+            id="map"
+            onClick={() => {
+              infoWindow.current.close();
+              infoWindow.current.setContent(
+                marker.current.map(marker && (marker => marker.getTitle()))
+              );
+              infoWindow.current.open(
+                marker.current.map(marker && (marker => marker.getMap())),
+                marker.current
+              );
+            }}
+          />
+        </MapLoad>
+      );
+    };
+
+    export default Map;
+    ```
 - 데이터를 가져올 때
 - 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
 - 어떠한 결과로 인해서 기존의 상태를 베이스로 상태를 업데이트 할 때
