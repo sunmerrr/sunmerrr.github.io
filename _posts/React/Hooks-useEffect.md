@@ -141,8 +141,49 @@ last_modified_at: 2023-05-20
     ```
     ![Controlling a modal dialog](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3ec54e04-6411-45a0-9c93-5dea410c742f)
 
-- 커스텀 훅에서
-  - useEffect 속 구현 내용이 너무 길어지면 따로 커스텀 훅으로 빼서 사용하는 개념
+- Effect를 커스텀 훅으로 감쌈
+  - useEffect 속 구현 내용을 따로 커스텀 훅으로 빼서 사용하는 개념
+  - 위 예시 1을 수정해보면 아래와 같아짐
+    ```jsx
+    // app.js
+    import { useState } from 'react';
+    import { useEventListener } from './useEventListener';
+
+    const Effect = () => {
+      const [position, setPosition] = useState({ x: 0, y: 0 });
+
+      useEventListener('pointermove', (e) => {
+        setPosition({ x: e.clientX, y: e.clientY });
+        console.log('e.clientX: ', e.clientX, 'e.clientY: ', e.clientY);
+      });
+
+      return (
+        <div
+          style={{
+            ...
+          }}
+        ></div>
+      );
+    };
+
+    export default Effect;
+    ```
+
+    ```jsx
+    // useEventListener.js
+    import { useEffect } from 'react';
+
+    export const useEventListener = (eventType, listener) => {
+      useEffect(() => {
+        window.addEventListener(eventType, listener);
+        return () => {
+          window.removeEventListener(eventType, listener);
+        };
+      }, [eventType, listener]);
+    };
+    ```
+
+
 - 리액트에 포함되지 않은 프로그램을 제어할 때
   - 구글 맵 api 이용하기 - 프로젝트에 사용했던 코드라 지저분...
     ```jsx
