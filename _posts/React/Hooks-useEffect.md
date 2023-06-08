@@ -183,7 +183,6 @@ last_modified_at: 2023-05-20
     };
     ```
 
-
 - 리액트에 포함되지 않은 프로그램을 제어할 때
   - 구글 맵 api 이용하기 - 프로젝트에 사용했던 코드라 지저분...
     ```jsx
@@ -262,7 +261,11 @@ last_modified_at: 2023-05-20
 
     export default Map;
     ```
+
 - 데이터를 가져올 때
+  - 내 코드가 아니라서 이미지로 가져옴
+    ![fetch ingdata with Effects](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/32f45686-2d7f-43c4-91d2-6b081c08ee7a)
+
 - 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
 - 어떠한 결과로 인해서 기존의 상태를 베이스로 상태를 업데이트 할 때
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
