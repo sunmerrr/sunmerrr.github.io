@@ -266,7 +266,9 @@ last_modified_at: 2023-05-20
   - 내 코드가 아니라서 이미지로 가져옴
     ![fetch ingdata with Effects](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/32f45686-2d7f-43c4-91d2-6b081c08ee7a)
 
-- 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때
+- 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때     
+  [관련된 eslint 참고 문서](https://github.com/facebook/react/issues/14920)
+  - 의존성 배열은 내가 선택해서 넣는 것이 아니라 Effect에서 사용되는 동적인 값이면 반드시 의존성 배열에 넣어주어야 함
 - 어떠한 결과로 인해서 기존의 상태를 베이스로 상태를 업데이트 할 때
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
