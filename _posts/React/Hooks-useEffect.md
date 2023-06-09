@@ -134,6 +134,7 @@ last_modified_at: 2023-05-20
           dialog.close();
         };
       }, [isOpen]);
+
       return <dialog ref={ref}>{children}</dialog>;
     };
 
@@ -269,7 +270,22 @@ last_modified_at: 2023-05-20
 - 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때     
   [관련된 eslint 참고 문서](https://github.com/facebook/react/issues/14920)
   - 의존성 배열은 내가 선택해서 넣는 것이 아니라 Effect에서 사용되는 동적인 값이면 반드시 의존성 배열에 넣어주어야 함
-- 어떠한 결과로 인해서 기존의 상태를 베이스로 상태를 업데이트 할 때
+    ```jsx
+    useEffect(() => {
+      if (!isOpen) return;
+
+      console.log('dialog is opened');
+
+      const dialog = ref.current;
+      dialog.showModal();
+
+      return () => {
+        dialog.close();
+      };
+    }, [isOpen]);
+    ```
+    - 위 예제에서 dependencies에 isOpen이 없으면 isOpen의 값의 변화와 상관 없이 첫 렌더링에서만 useEffect가 실행되게 되므로 기대한 동작이 나오지 않게 됨
+- 기존의 상태를 베이스로 하여 상태를 업데이트 할 때
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
