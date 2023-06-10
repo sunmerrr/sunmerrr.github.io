@@ -286,6 +286,57 @@ last_modified_at: 2023-05-20
     ```
     - 위 예제에서 dependencies에 isOpen이 없으면 isOpen의 값의 변화와 상관 없이 첫 렌더링에서만 useEffect가 실행되게 되므로 기대한 동작이 나오지 않게 됨
 - 기존의 상태를 베이스로 하여 상태를 업데이트 할 때
+  ```jsx
+  import { useState, useEffect } from 'react';
+
+  const Effect = () => {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+      const invervalId = setInterval(() => {
+        setCount((prev) => prev + 1); // prev 라는 기존 상태 값을 통해서 count 값을 업데이트 해준다
+      }, 500);
+      return () => clearInterval(invervalId);
+    }, []);
+
+    return (
+      <div>
+        {count}
+      </div>
+    );
+  };
+
+  export default Effect;
+  ```
+
+    ![Updating state based on previous state from an Effect](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/d247eaa9-8307-43d9-af89-35b6c15c744c)
+    - 만약 count를 기존 값을 통해서 없데이트 해주지 않는다면 원하는대로 동작하지 않는다.
+      ```jsx
+      import { useState, useEffect } from 'react';
+
+      const Effect = () => {
+        const [count, setCount] = useState(0);
+
+        useEffect(() => {
+          const invervalId = setInterval(() => {
+            setCount(count + 1);
+            console.log(count);
+          }, 500);
+          return () => clearInterval(invervalId);
+        }, []);
+
+        return (
+          <div>
+            {count}
+          </div>
+        );
+      };
+
+      export default Effect;
+      ```
+      
+      ![Updating state based on previous state from an Effect2](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f4f9cf6a-67b7-4e9b-8d40-dbb5432b77b8)
+
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
