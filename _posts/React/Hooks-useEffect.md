@@ -334,10 +334,47 @@ last_modified_at: 2023-05-20
 
       export default Effect;
       ```
-      
+
       ![Updating state based on previous state from an Effect2](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f4f9cf6a-67b7-4e9b-8d40-dbb5432b77b8)
 
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
+  - 객체
+
+    ```jsx
+    const options = { // 컴포넌트가 리렌더링 될때마다 options는 새로 생성 된다
+      serverUrl,
+      roomId,
+    };
+
+    useEffect(() => {
+      const connection = createConnection(options);
+      connection.connect();
+      return () => {
+        connection.disconnect();
+      };
+    }, [options]); // 여기서 dependencies에 넣어준 options는 매 리렌더링 시 다른 값으로 적용 될 수 있다
+    ```
+    - options는 Effect 내부로 옮겨주어서 에러를 줄 수 있는 상황을 줄일 수 있음
+    - 여기서 우리에게 실제적으로 필요한 dependencies는 부모로 부터 내려받는 roomId 임
+      ```jsx
+      useEffect(() => {
+        const options = {
+          serverUrl,
+          roomId,
+        };
+
+        const connection = createConnection(options);
+        connection.connect();
+        return () => {
+          connection.disconnect();
+        };
+      }, [roomId]);
+      ```
+
+      ![Removing unnecessary object dependencies](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/fd464d7d-55e4-40d6-97c3-64083af6c7d9)
+
+      [전체 예시 코드](https://codesandbox.io/s/effect-removing-unnecessary-object-dependencies-lq8w22)
+
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
 Updating state based on previous state from an Effect
