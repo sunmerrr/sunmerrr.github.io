@@ -338,8 +338,8 @@ last_modified_at: 2023-05-20
       ![Updating state based on previous state from an Effect2](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f4f9cf6a-67b7-4e9b-8d40-dbb5432b77b8)
 
 - 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
+  - 객체(또는 함수)를 읜존성 배열에 전달하는 것보다는 해당 객체(또는 함수)를 Effect 안에서 선언해주는 것이 더 좋음 
   - 객체
-
     ```jsx
     const options = { // 컴포넌트가 리렌더링 될때마다 options는 새로 생성 된다
       serverUrl,
@@ -374,6 +374,25 @@ last_modified_at: 2023-05-20
       ![Removing unnecessary object dependencies](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/fd464d7d-55e4-40d6-97c3-64083af6c7d9)
 
       [전체 예시 코드](https://codesandbox.io/s/effect-removing-unnecessary-object-dependencies-lq8w22)
+
+  - 함수(객체 예시와 동일하여 수정한 결과물만 써둠)
+    ```jsx
+      useEffect(() => {
+        const options = () => {
+          return {
+            serverUrl,
+            roomId,
+          };
+        };
+
+        const connection = createConnection(options);
+        connection.connect();
+        return () => {
+          connection.disconnect();
+        };
+      }, [roomId]);
+      ```
+
 
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
