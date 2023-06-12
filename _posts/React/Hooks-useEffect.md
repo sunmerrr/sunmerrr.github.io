@@ -354,6 +354,7 @@ last_modified_at: 2023-05-20
       };
     }, [options]); // 여기서 dependencies에 넣어준 options는 매 리렌더링 시 다른 값으로 적용 될 수 있다
     ```
+    - 위와 같이 쓸 경우 다른 state의 변화로 인한 리렌더링에서도 options가 새로 생성되며 useEffect가 작동 하게 됨 -> [상세 내용](https://react.dev/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
     - options는 Effect 내부로 옮겨주어서 에러를 줄 수 있는 상황을 줄일 수 있음
     - 여기서 우리에게 실제적으로 필요한 dependencies는 부모로 부터 내려받는 roomId 임
       ```jsx
@@ -393,10 +394,11 @@ last_modified_at: 2023-05-20
       }, [roomId]);
       ```
 
+- Effect로 부터 최신 props와 state를 읽어올때
+
 
 - 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
 <!-- TODO: 번역이 조금 이상한듯 -->
-Updating state based on previous state from an Effect
 Reading the latest props and state from an Effect
 Displaying different content on the server and the client
 
