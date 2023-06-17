@@ -1,5 +1,5 @@
 ---
-title: "함수 컴포넌트의 Hooks #1"
+title: "함수 컴포넌트의 Hooks - useEffect #1"
 excerpt: "리액트를 다루는 기술 스터디 #7-2 - Hooks"
 
 categories:
@@ -17,7 +17,7 @@ last_modified_at: 2023-06-13
 #### useEffect
 - 외부 시스템과 동기적으로 작동할 수 있도록 해줌 
 - 클래스형에서 componentDidMount와 componentDidUpdate를 합친 형태
-- 컴포넌트가 돔에 모두 추가 된 이후에 실행되며, dependencies의 변화에 따라서 리렌더링 시 마다 clean up 함수를 먼저 실행 하여 오래된 값을 없애고 새로운 값으로 setup 함수를 실행 함
+- 컴포넌트가 돔에 모두 추가 된 이후에 실행되며, dependencies의 변화에 따라서 매 리렌더링 마다 clean up 함수를 먼저 실행 하여 오래된 값을 없애고 새로운 값으로 setup 함수를 실행 함
 - 기본 형태
   ```js
   useEffect(() => {
@@ -28,7 +28,7 @@ last_modified_at: 2023-06-13
   - setup    
     렌더링 이후에 실행할 내용을 작성
   - clean up(뒷정리)     
-    필요 시 언마운트 또는 업데이트 되기 직전에 실행할 내용을 return 뒤에 작성
+    필요 시 언마운트 또는 업데이트 되기 직전에 실행할 내용을 return 뒤에 함수로 작성
   - dependencies(의존 배열)    
     첫 렌더링 시에만 실행되게 하고 싶다면 빈 배열로 둠
     특정 값이 변할때마다 실행하고 싶다면 의존 배열에 해당 특정 값을 넣음
