@@ -5,7 +5,7 @@ excerpt: "라이브러리 react-google-map/api을 사용한 구글 맵 api 연�
 categories:
   - React
 tags:
-  - [react, api, library, google-map]
+  - [react, api, library, google-map, react-google-map]
 
 toc: true
 toc_sticky: true
