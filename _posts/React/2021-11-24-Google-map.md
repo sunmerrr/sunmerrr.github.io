@@ -1,5 +1,5 @@
 ---
-title: "리액트 react-google-map api 연동 #1"
+title: "react google map API 연동 #1"
 excerpt: "라이브러리 react-google-map/api을 사용한 구글 맵 api 연동"
 
 categories:
@@ -14,9 +14,9 @@ date: 2021-11-24
 last_modified_at: 2021-11-24
 ---
 
-## 구글 맵 API를 이용하여 내 사이트에 지도를 심어주기
+## react에서 google map API를 이용하여 내 사이트에 지도 심어주기
   - 사용 API [`react-google-map/api`](https://www.npmjs.com/package/@react-google-maps/api)
-  - 팀 프로젝트에서 사용한 라이브러리의 실패와 성공에 대한 기록
+  - react 팀 프로젝트에서 사용한 google map API 연동 실패와 성공에 대한 기록
   - 배운점
     - 급하더라도 공식문서를 샅샅히 보자. 
     - 대부분 공식문서에 답이 다 나와있다.
@@ -123,7 +123,7 @@ last_modified_at: 2021-11-24
       <MapComponent isMarkerShown />;
       ```
       - [참고 블로그](https://tomchentw.github.io/react-google-maps/#usage--configuration)
-      - 새롭게 함수형 컴포넌트로 프로젝트를 진행중이지만 위 블로그는 class형 컴포넌트를 사용해야 함. 이게 정확한 이유가 될수는 없었지만 구동이 되지 않았음..ㅠ
+      - 새롭게 함수형 컴포넌트로 프로젝트를 진행중이지만 위 블로그는 react class형 컴포넌트로 google map API 연동을 진행함. 이게 정확한 이유가 될수는 없었지만 구동이 되지 않았음..ㅠ
       <br>
 
   2.  ```jsx
