@@ -1,16 +1,16 @@
 ---
-title: "함수 컴포넌트의 Hooks"
-excerpt: "리액트를 다루는 기술 스터디 #7-2 - Hooks"
+title: "함수 컴포넌트의 Hooks - useEffect 톺아보기 #2"
+excerpt: "리액트를 다루는 기술 스터디 #7-3 - Hooks: useEffect"
 
 categories:
   - React
 tags:
-  - [react, javascript, library, function component, hooks]
+  - [react, javascript, library, function component, hooks, useEffect]
 
 toc: true
 toc_sticky: true
  
-date: 2023-05-20
+date: 2023-07-12
 last_modified_at: 2023-07-15
 ---
 
