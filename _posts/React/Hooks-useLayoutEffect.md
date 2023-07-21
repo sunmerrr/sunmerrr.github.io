@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-07-18
-last_modified_at: 2023-07-20
+last_modified_at: 2023-07-21
 ---
 
 #### useLayoutEffect
@@ -71,7 +71,16 @@ last_modified_at: 2023-07-20
       );
     }
     ```
-    [테스트 해보러 가기](https://codesandbox.io/s/distracted-ramanujan-lk3rcf?file=/src/App.js)
+
+    - 실행 순서
+      ![useLayoutEffect Performance](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/380b215a-bc90-417c-a65e-7c3a6a3d160e)
+      1. LayoutEffectComponent.js 마운트
+      1. useState 정의
+      1. useLayoutEffect 실행
+      1. react JSX element 객체 생성
+      1. static mode 설정
+      1. useEffect 실행
+    - [테스트 해보러가기](https://codesandbox.io/s/distracted-ramanujan-lk3rcf?file=/src/App.js)
 
 ##### 주의사항
 - useLayoutEffect는 동기적으로 실행되기 때문에 성능에 영향을 미칠 수 있음
