@@ -24,7 +24,7 @@ last_modified_at: 2023-07-21
   ```
 - useEffect와 같이 컴포넌트 내에서 Effect를 처리하는데 사용 됨
 
-##### 차이점
+##### useEffect와 차이점
   | useEffect | useLayoutEffect |
   | --- | --- |
   |화면이 업데이트된 이후에 **비동기적으로** 실행|브라우저가 화면을 그리기 직전에 **동기적으로** 실행|
@@ -35,11 +35,12 @@ last_modified_at: 2023-07-21
     ```jsx
     import { useState, useEffect, useLayoutEffect } from "react";
 
-    function useLayoutEffectComponent() {
+    function LayoutEffectComponent() {
       const [widthWithLayout, setWidthWithLayout] = useState(window.innerWidth);
       const [widthWithEffect, setWidthWithEffect] = useState(window.innerWidth);
 
       useLayoutEffect(() => {
+        // 윈도우의 너비 값을 widthWithLayout state에 넣어주는 함수 
         function handleResize() setWidthWithLayout(window.innerWidth);
 
         console.log("useLayoutEffect 이벤트 셋업");
@@ -52,6 +53,7 @@ last_modified_at: 2023-07-21
       }, []);
 
       useEffect(() => {
+        // 윈도우의 너비 값을 widthWithEffect state에 넣어주는 함수
         function handleResize() setWidthWithEffect(window.innerWidth);
 
         console.log("useEffect 이벤트 셋업");
