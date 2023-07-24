@@ -14,9 +14,9 @@ date: 2023-07-12
 last_modified_at: 2023-07-15
 ---
 
-#### useEffect
+## useEffect
 
-##### 참고
+## 참고
 - 마운트 시 이펙트 코드가 두 번 실행됨    
   development 에서 StaticMode를 켜두면 useEffect를 실제로 두 번 실행함(내부의 setup 함수와 clean up 함수가 두 번 실행되는 것) 
 - 매 리렌더링 시 이펙트 코드가 실행됨    
@@ -42,7 +42,7 @@ last_modified_at: 2023-07-15
   - 시각적 작업은 [useLayoutEffect](https://react.dev/reference/react/useLayoutEffect)에서 수행해주는 것을 권장함
 - useEffect는 항상 undefined를 return 함
 
-##### 주의
+## 주의
 - 너무 남발하지 말 것  
 - useEffect는 훅이라서 컴포넌트의 상위 수준에서 또는 커스텀 Hooks내에서만 호출해야함. 
 - 반복문이나 조건문 안에서는 useEffect를 호출할 수 없음. 필요하다면 컴포넌트를 새로 만들고, 그 안에 state를 옮겨서 사용하는 것을 추천함
