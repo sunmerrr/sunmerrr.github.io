@@ -14,12 +14,12 @@ date: 2023-07-11
 last_modified_at: 2023-07-14
 ---
 
-#### 특징
+## useRef 특징
 - DOM 요소나 다른 값을 저장하고 관리하는데 사용됨
 - 컴포넌트의 생명주기와 상관 없이 값을 유지하기 때문에 컴포넌트 리렌더링이 일어나도 값을 유지함
 - `current` 프로퍼티를 이용하지 않으면 useRef 안에 들어있는 값에 접근 할 수 없음
 
-#### 사용
+## 사용
 - 예시
   ```jsx
   const {ref name} = useRef({initialValue})
@@ -33,3 +33,57 @@ last_modified_at: 2023-07-14
   - useRef가 return 하는 값
   - 초기에 넣어준 initialValue를 가지고 있으며, 추후에 value값을 변경 가능함
   - JSX node에 ref를 사용하면 React는 해당 node를 current에 넣음
+
+##### 1. DOM 요소에 접근
+- 예시
+  ```jsx
+  import React, { useRef } from "react";
+
+  const FocusInputExample = () => {
+    const inputRef = useRef(null);
+
+    const handleButtonClick = () => {
+      inputRef.current.focus();
+      console.log('set focus to the input field')
+    };
+
+    return (
+      <div>
+        <input ref={inputRef} type="text" />
+        <button onClick={handleButtonClick}>Focus Input</button>
+      </div>
+    );
+  };
+  ```
+
+  - 결과 화면
+    ![DOM example](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/bc72e03c-3229-4fab-b678-2b2abc3fded4)
+
+##### 2. 값의 저장과 변경
+- DOM 상태 변화에 따른 리렌더링이 필요 없을때 사용
+- 예시
+  ```jsx
+  import React, { useRef } from "react";
+
+  export const RefExample = () => {
+    const inputRef = useRef(null);
+
+    const handleInputChange = () => {
+      const inputValue = inputRef.current.value;
+      console.log("Input Value:", inputValue);
+    };
+
+    return (
+      <div>
+        <input
+          ref={inputRef}
+          type="text"
+          onChange={handleInputChange}
+          placeholder="Type something..."
+        />
+      </div>
+    );
+  };
+  ```
+  - 결과 화면
+    ![DOM example](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/43d7367d-b2a3-47ec-afc9-17a9b64b4e7c)
