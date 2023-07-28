@@ -44,7 +44,7 @@ last_modified_at: 2023-07-14
 
     const handleButtonClick = () => {
       inputRef.current.focus();
-      console.log('set focus to the input field')
+      console.log('set focus to the input field');
     };
 
     return (
@@ -85,5 +85,40 @@ last_modified_at: 2023-07-14
     );
   };
   ```
+  
   - 결과 화면
     ![DOM example](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/43d7367d-b2a3-47ec-afc9-17a9b64b4e7c)
+
+##### 3. 외부 라이브러리와의 통합
+- useRef를 사용하여 외부 라이브러리와 상호작용
+- 예시
+  ```jsx
+  import React, { useRef } from "react";
+  import Select from "react-select";
+
+  export const ExternalLibraryExample = () => {
+    const selectRef = useRef(null);
+
+    const options = [
+      { value: "apple", label: "Apple" },
+      { value: "banana", label: "Banana" },
+      { value: "orange", label: "Orange" }
+    ];
+
+    const handleButtonClick = () => {
+      // 외부 라이브러리와의 상호작용
+      console.log('set focus to the select field');
+      if (selectRef.current) selectRef.current.focus();
+    };
+
+    return (
+      <div>
+        <Select ref={selectRef} options={options} />
+        <button onClick={handleButtonClick}>Set Focus to Select</button>
+      </div>
+    );
+  };
+  ```
+
+  - 결과 화면
+    ![External with useRef](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/592f3d4a-a9a4-4624-91fb-ff762384ade3)
