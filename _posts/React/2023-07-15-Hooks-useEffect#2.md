@@ -1,5 +1,5 @@
 ---
-title: "함수 컴포넌트의 Hooks - useEffect 톺아보기 #2"
+title: "React useEffect 톺아보기 #2"
 excerpt: "리액트를 다루는 기술 스터디 #7-3 - Hooks: useEffect"
 
 categories:
