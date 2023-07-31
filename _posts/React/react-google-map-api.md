@@ -22,14 +22,6 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { setMapClose } from '../../Store/OpenSlice';
 
-// TODO: 
-// type error 해결
-// 1. 발전소 위치 표시
-// 2. robot 정보 불러와서 표시
-// 3. 위성 화면으로 보이기 - mayTypes
-
-
-
 function GoogleMapComponent() {
   const dispatch = useDispatch();
 
@@ -67,7 +59,7 @@ function GoogleMapComponent() {
           }}
           mapTypeId='satellite'
         >
-          <Marker position={{ lat: 36.959484, lng: 126.780659 }} title="GS-EPS 당진" />
+          <Marker position={{ lat: 36.959484, lng: 126.780659 }} />
         </GoogleMap>
       </GoogleMapContainer>
       <ComponentBackground onClick={closeMapModal} />
