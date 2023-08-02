@@ -21,6 +21,8 @@ last_modified_at: 2023-08-01
 - Google Maps Platform에 [react-wrapper](https://www.npmjs.com/package/@googlemaps/react-wrapper)이 나와있긴 하지만 react-google-map/api 보다 사용량이 적다.
 
 ## 적용
+- google maps api key를 받아와야 한다.   
+  유료는 아니지만 카드를 등록해야 프로젝트를 등록하고 KEY를 받을 수 있다.
 - install    
   `npm i -S @react-google-maps/api`
 - 코드
@@ -48,6 +50,7 @@ last_modified_at: 2023-08-01
       // isLoaded, loadError를 return 한다.
       const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
+        // google maps 에서 받은 api key를 전달한다..
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
       })
 
