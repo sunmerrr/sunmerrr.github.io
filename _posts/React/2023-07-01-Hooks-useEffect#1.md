@@ -1,5 +1,5 @@
 ---
-title: "React useEffect 톺아보기 #1"
+title: "React useEffect 톺아보기 #1 사용법과 예시"
 excerpt: "리액트를 다루는 기술 스터디 #7-2 - Hooks: useEffect"
 
 categories:
