@@ -1,6 +1,6 @@
 ---
-title: "함수 컴포넌트의 Hooks - useLayoutEffect"
-excerpt: "리액트를 다루는 기술 스터디 #7-4 - Hooks: useLayoutEffect"
+title: "React useLayoutEffect"
+excerpt: "리액트를 다루는 기술 스터디 #번외 - Hooks: useLayoutEffect"
 
 categories:
   - React
@@ -14,7 +14,7 @@ date: 2023-07-18
 last_modified_at: 2023-07-21
 ---
 
-#### useLayoutEffect
+## useLayoutEffect
 - 동작 방식 자체는 useEffect와 동일
   ```jsx
   useLayoutEffect(() => {
@@ -24,7 +24,7 @@ last_modified_at: 2023-07-21
   ```
 - useEffect와 같이 컴포넌트 내에서 Effect를 처리하는데 사용 됨
 
-##### useEffect와 차이점
+### useEffect와 차이점
 
   | useEffect | useLayoutEffect |
   | --- | --- |
@@ -86,7 +86,7 @@ last_modified_at: 2023-07-21
       1. useEffect 실행
     - [테스트 해보러가기](https://codesandbox.io/s/distracted-ramanujan-lk3rcf?file=/src/App.js)
 
-##### 주의사항
+### 주의사항
 - useLayoutEffect는 동기적으로 실행되기 때문에 성능에 영향을 미칠 수 있음
 - DOM 조작이 많거나 복잡한 경우에는 불필요한 리플로우가 발생할 수 있음
 - 렌더링 이후에 처리해도 문제가 없는 경우에는 useEffect를 사용하는 것을 권장
