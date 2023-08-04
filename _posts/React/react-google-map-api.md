@@ -1,5 +1,5 @@
 ---
-title: "react google map API 연동 #1"
+title: "react google map API 연동 #2 with 설명"
 excerpt: "라이브러리 react-google-map/api을 사용한 구글 맵 api 연동"
 
 categories:
@@ -14,7 +14,8 @@ date: 2023-07-27
 last_modified_at: 2023-08-01
 ---
 
-# React Google Map API
+# React 에서 Google Map API 사용하여 지도 띄워주기 + 설명
+- 이미 [Google Map API 포스팅](https://sunmerrr.github.io/react/Google-map/)이 있지만 제대로 된 설명이 있지 않고, 이번에 Google Map을 또 사용할 일이 생겨서 겸사겸사 또 쓴다.
 - 기본적으로 [Google Maps Platform](https://developers.google.com/maps?hl=ko) 공식문서에는 TS, JS로 된 예제밖에 나와있지 않기 때문에 React에 적용하는데 살짝 번거로움이 있었다.     
   그래서 따로 라이브러리를 설치해서 사용하였으며, 해당 라이브러리를 적용하는 글이 되겠다.    
   [react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)     
@@ -28,7 +29,7 @@ last_modified_at: 2023-08-01
 - 코드
   - 기본적으로 위도(latitude)와 경도(longitude)로 위치 정보를 불러온다.
   - 예시
-    - react 18+ 의 경우에는 MarkerF 등 F가 붙은 컴포넌트를 사용해야한다.
+    - *react 18+ 의 경우에는 MarkerF 등 F가 붙은 컴포넌트를 사용해야한다.*
     ```jsx
     import React, { useState, useCallback } from 'react';
     import styled from 'styled-components';
@@ -43,7 +44,7 @@ last_modified_at: 2023-08-01
 
       const options = {
         zoom: 16,
-        mapTypeId='satellite' // 위성 뷰로 지정 
+        mapTypeId: 'satellite' // 위성 뷰로 지정 
       }
 
       // 지도를 불러오는 함수
@@ -54,6 +55,7 @@ last_modified_at: 2023-08-01
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
       })
 
+      // 지도를 그릴때 동작하는 함수
       // center 값이나 옵션이 리렌더링에 영향을 받지 않게 하기 위해 useCallback으로 감싸준다.
       // google map의 instance를 사용할 수 있다.
       const onLoad = useCallback(map => {
@@ -62,16 +64,15 @@ last_modified_at: 2023-08-01
         map.setHeading(90)
       }, [])
 
-      // 지도 컴포넌트가 언마운트 되기 전에 동작한다.
+      // 지도 컴포넌트가 언마운트 되기 전에 해야하는 동작을 아래 함수에 넣는다.
       const  onUnmount={map => {
-        // do your stuff before map is unmounted
       }}
 
       return isLoaded && (
         <GoogleMapContainer>
           <GoogleMap
-            id="gs-eps"
-            mapContainerStyle={GoogleMapStyle} // 지도 스타일 width와 height 는 반드시 지정해줘야 지도가 뜬다
+            id="google-map-test"
+            mapContainerStyle={GoogleMapStyle} // width와 height 는 반드시 지정해줘야 한다.
           >
             <MarkerF
               position={{ lat: 37.5511694, lng: 126.9882266 }} title="marker title1" 
@@ -81,7 +82,6 @@ last_modified_at: 2023-08-01
       )
     }
 
-    import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
     export default React.memo(GoogleMapComponent);
 
     const GoogleMapStyle = {
@@ -90,11 +90,10 @@ last_modified_at: 2023-08-01
     }
 
     const GoogleMapContainer = styled.div`
-      position: absolute;
-      cursor: pointer;
-      width: 40%;
-      height: 90%; 
-      overflow: hidden;
-      z-index: 12;
+      width: 100%;
+      height: 100%; 
     `
     ```
+
+    - 결과 화면
+      
