@@ -16,7 +16,7 @@ last_modified_at: 2023-08-05
 
 ## 리액트 에서 Google Maps API 사용과 설명
 - 이미 [Google Map API 포스팅](https://sunmerrr.github.io/react/Google-map/)이 있지만 제대로 된 설명을 하지 못했었다.      
-해당 포스팅에서도 똑같은 라이브러리를 사용해서 google maps를 적용 했었는데, 시간도 얼마 없고 적용도 잘 안돼서 다양한 라이브러리를 시도 했었다. 이번에는 라이브러리 선정부터 조금 더 차근히 할 수 있는 기회가 되어서 조금 더 살펴보면서 적용한 점이 다르다고 할 수 있을 것 같다.
+해당 포스팅에서도 똑같은 라이브러리를 사용해서 google maps를 적용 했었는데, 시간도 얼마 없고 적용도 잘 안돼서 다양한 라이브러리를 시도 했었다. 이번에는 라이브러리 선정부터 차근히 할 수 있는 기회가 되어서 조금 더 살펴보면서 적용한 점이 다르다고 할 수 있을 것 같다.
 - 기본적으로 [Google Maps Platform](https://developers.google.com/maps?hl=ko) 공식문서를 보고도 적용할 수 있지만 TS, JS로 된 예제밖에 나와있지 않기 때문에 React에 적용하는데 살짝 번거로움이 있었다.     
   그래서 따로 라이브러리를 설치해서 사용하였으며, 해당 라이브러리를 적용하는 글이 되겠다.    
   [react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api)     
@@ -31,6 +31,7 @@ last_modified_at: 2023-08-05
   - 기본적으로 위도(latitude)와 경도(longitude)로 위치 정보를 불러온다.
   - 예시
     - *react 18+ 의 경우에는 MarkerF 등 F가 붙은 컴포넌트를 사용해야한다.*
+
     ```jsx
     import React, { useCallback } from 'react';
     import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
