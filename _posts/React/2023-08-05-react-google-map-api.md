@@ -1,5 +1,5 @@
 ---
-title: "react google map API 연동 #2 with 설명"
+title: "React Google Maps API 연동 #2 with 설명"
 excerpt: "라이브러리 react-google-map/api을 사용한 구글 맵 api 연동"
 
 categories:
@@ -10,7 +10,7 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2023-07-27
+date: 2023-07-29
 last_modified_at: 2023-08-05
 ---
 
