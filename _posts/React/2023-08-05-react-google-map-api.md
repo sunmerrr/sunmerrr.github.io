@@ -1,11 +1,11 @@
 ---
 title: "React Google Maps API 연동 #2 with 설명"
-excerpt: "라이브러리 react-google-map/api을 사용한 구글 맵 api 연동"
+excerpt: "react-google-map/api 사용 예시와 설명"
 
 categories:
   - React
 tags:
-  - [react, api, library, google map, react-google-map/api, react google map]
+  - [react, api, library, google-map, react-google-map/api, react-google-map]
 
 toc: true
 toc_sticky: true
