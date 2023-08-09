@@ -1,5 +1,5 @@
 ---
-title: "Google Maps API - map props와 instance"
+title: "Google Maps API 연동 #3 - map props와 instance"
 excerpt: "map instance 설명"
 
 categories:
