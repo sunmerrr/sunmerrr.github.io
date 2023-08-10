@@ -31,8 +31,8 @@ last_modified_at: 2023-08-05
     - `terrain`: 일반 거리 지도 위에 물리적인 지형지물 함께 출력 
     - `satellite`: 위성 지도 출력
     - `hybrid`: 위성 지도 위에 라벨 함께 출력
-  - `heading`: 
-  - `tilt`: 
+  - `heading`: 지도가 보여지는 방위를 조절(위성 지도에서 가능하다고 하지만 나는 실패함)
+  - `tilt`: 지도가 보여지는 각도를 조절. 특정 zoom 수준에서만 지원됨
     ```jsx
     <GoogleMap
       mapContainerStyle={ GoogleMapStyle } 
