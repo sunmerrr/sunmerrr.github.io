@@ -27,12 +27,13 @@ last_modified_at: 2023-08-05
 
 ## 구글 지도 API map props
   - `mapTypeId`: 타입은 총 4가지로 구성되어있으며 loadmap이 기본이다.
-    - `loadmap`: 일반 거리 지도 출력
-    - `terrain`: 일반 거리 지도 위에 물리적인 지형지물 함께 출력 
-    - `satellite`: 위성 지도 출력
-    - `hybrid`: 위성 지도 위에 라벨 함께 출력
+  - `loadmap`: 일반 거리 지도 출력
+  - `terrain`: 일반 거리 지도 위에 물리적인 지형지물 함께 출력 
+  - `satellite`: 위성 지도 출력
+  - `hybrid`: 위성 지도 위에 라벨 함께 출력
   - `heading`: 지도가 보여지는 방위를 조절(위성 지도에서 가능하다고 하지만 나는 실패함)
-  - `tilt`: 지도가 보여지는 각도를 조절. 특정 zoom 수준에서만 지원됨
+  - `tilt`: 지도가 보여지는 각도를 조절. 특정 zoom 수준에서만 지원되며 0~45 까지만 지원됨(근데 난 왜 안됨?)
+  - 예시
     ```jsx
     <GoogleMap
       mapContainerStyle={ GoogleMapStyle } 
@@ -40,7 +41,7 @@ last_modified_at: 2023-08-05
       zoom={16}
       mapTypeId={'satellite'}
       heading={90}
-      tilt={}
+      tilt={45}
     />
     ```
 
