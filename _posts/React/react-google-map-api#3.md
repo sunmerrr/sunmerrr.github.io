@@ -199,25 +199,60 @@ map instance를 사용해서 지도를 업데이트 해주기 전에 props로 �
     />
     ```
 
-```jsx
-const updaterMap = {
-  extraMapTypes(map: google.maps.Map, extra: google.maps.MapType[]): void {
-    extra.forEach(function forEachExtra(it, i) {
-      map.mapTypes.set(String(i), it)
-    })
-  },
-  clickableIcons(map: google.maps.Map, clickable: boolean): void {
-    map.setClickableIcons(clickable)
-  },
-  options(map: google.maps.Map, options: google.maps.MapOptions): void {
-    map.(options)
-  },
-  streetView(map: google.maps.Map, streetView: google.maps.StreetViewPanorama): void {
-    map.setStreetView(streetView)
-  },
-}
-```
+#### clickableIcons: 지도 아이콘 클릭 가능 여부 지정 및 정보 가져오기
+  - 아이콘 클릭 가능 여부 지정
 
+    ```jsx
+    <GoogleMap
+      id="google-map-test"
+      mapContainerStyle={ GoogleMapStyle } 
+      onLoad={( map ) => {
+        map.setClickableIcons(value)
+        // value: boolean
+      }}
+    />
+    ```
+
+  - 아이콘 클릭 가능 여부 정보 가져오기
+  
+    ```jsx
+    <GoogleMap
+      id="google-map-test"
+      mapContainerStyle={ GoogleMapStyle } 
+      onLoad={( map ) => {
+        map.getTilt()
+      }}
+    />
+    ```
+
+#### streetView: 스트릿 뷰 지정 및 정보 가져오기
+  - 지도가 지도 외부 파노라마에 바인딩 되도록 해준다고 한다.
+  - 스트릿 뷰 지정
+
+    ```jsx
+    <GoogleMap
+      id="google-map-test"
+      mapContainerStyle={ GoogleMapStyle } 
+      onLoad={( map ) => {
+        map.setStreetView(panorama)
+        // panorama: [스트릿 뷰 파노라마](https://developers.google.com/maps/documentation/javascript/reference/street-view?hl=ko#StreetViewPanorama)
+        // null로 설정 시 기본 파노라마 스트릿 뷰가 보여짐
+      }}
+    />
+    ```
+
+  - 스트릿 뷰 정보 가져오기
+  
+    ```jsx
+    <GoogleMap
+      id="google-map-test"
+      mapContainerStyle={ GoogleMapStyle } 
+      onLoad={( map ) => {
+        map.getStreetView()
+      }}
+    />
+    ```
 
 #### 참고
+- [Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/reference/map?hl=ko)
 - [react-google-maps/api](https://www.npmjs.com/package/@react-google-maps/api?activeTab=readme)
