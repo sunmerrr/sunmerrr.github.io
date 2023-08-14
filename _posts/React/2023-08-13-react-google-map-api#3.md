@@ -17,6 +17,7 @@ last_modified_at: 2023-08-13
 ## 구글 지도 필수 옵션
   - `center`: lat, lng 값을 객체로 전달해 주는 것으로 지도 첫 화면을 셋팅 할 수 있다.
   - `zoom`: 0부터 20사이의 숫자로 지정 가능하며, 지도의 확대/축소 수준을 표시한다.
+  - 예시
     ```jsx
     <GoogleMap
       mapContainerStyle={ GoogleMapStyle } 
