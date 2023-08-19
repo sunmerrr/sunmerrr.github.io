@@ -25,9 +25,9 @@ chatGPT랑 같이 코드 짰던거라 대화 대용을 토대로 블로그 글�
 이제 custom hook과 컴포넌트 디자인을 아주 깔끔하게 분리할 수 있어. 한 번에 묶어서 쓸 수 있어서 매번 컴포넌트에 로직 넣는 거 걱정 안 해도 돼.
 
 #### 코드 한 번 볼까?
-- 제일 많이 만드는 TODO List로 예시를 짜봤다.
-  1. 바인딩 해주는 함수를 추상화 해준다.
- 
+제일 많이 만드는 TODO List로 예시를 짜봤다.
+1. 바인딩 해주는 함수를 추상화 해준다.
+
     ```jsx
     // Bind Function
     function Bind<T, P>(hookFn: () => T, Component: React.ComponentType<T & P>) {
@@ -37,9 +37,9 @@ chatGPT랑 같이 코드 짰던거라 대화 대용을 토대로 블로그 글�
       };
     }
     ```
-    
-  2. 커스텀 훅에 로직을 작성한다.
-     
+  
+2. 커스텀 훅에 로직을 작성한다.
+   
     ```jsx
     // Custom Hook
     function useTodoLogic() {
@@ -51,8 +51,8 @@ chatGPT랑 같이 코드 짰던거라 대화 대용을 토대로 블로그 글�
     }
     ```
 
-  3. 자식 함수에 로직이 들어갈 수 있도록 바인딩 해준다.
-     나는 이런식으로 바인딩을 했는데 다른 방식으로 해도 괜찮을 것 같다
+3. 자식 함수에 로직이 들어갈 수 있도록 바인딩 해준다.
+   나는 이런식으로 바인딩을 했는데 다른 방식으로 해도 괜찮을 것 같다
 
     ```jsx
     // Child Component
@@ -67,8 +67,8 @@ chatGPT랑 같이 코드 짰던거라 대화 대용을 토대로 블로그 글�
     export default Bind(useTodoLogic, TodoList);
     ```
 
-  4. 부모 컴포넌트에 자식을 import 해서 사용한다.
-     
+4. 부모 컴포넌트에 자식을 import 해서 사용한다.
+   
     ```jsx
     // Parent Component
     ```
