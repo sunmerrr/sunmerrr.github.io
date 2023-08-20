@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-08-17
-last_modified_at: 2023-08-18
+last_modified_at: 2023-08-19
 ---
 
 chatGPT랑 같이 코드 짰던거라 대화 대용을 토대로 블로그 글로 써달라고 부탁해봤다, 아래 내용은 모두 GPT가 작성한 초안을 검토해서 올린 글이다.
