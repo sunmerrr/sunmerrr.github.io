@@ -14,9 +14,9 @@ date: 2023-08-24
 last_modified_at: 2023-08-26
 ---
 
-- Effect로 부터 최신 props와 state를 읽어올때
-  - 보통은 우리가 Effect한테 원하는 것은 dependencies에 들어있는 값이 변경될 때마다 Effect를 동작 시키는 것이다.     
-    하지만, 우리는 종종 Effect에게 '동작'을 원하는 것이 아니라 최신 데이터만 원할때가 있다. 이럴때는 Evnets와 Effects를 분리시켜야 하는데, 리액트에서 useEffectEvent Hook을 통해서 가능하게 한 것이다.[Separating Events from Effects](https://react.dev/learn/separating-events-from-effects)
+Effect로 부터 최신 props와 state를 읽어올때 보통은 useEffect한테 원하는 것은 dependencies에 들어있는 값이 변경될 때마다 Effect를 동작 시키는 것이다.     
+하지만, 우리는 종종 Effect에게 '동작'을 원하는 것이 아니라 최신 데이터만 원할때가 있다. 이럴때는 Evnets와 Effects를 분리시켜야 하는데, 리액트에서 useEffectEvent Hook을 통해서 가능하게 한 것이다.[Separating Events from Effects](https://react.dev/learn/separating-events-from-effects)
+
 
 
   https://www.youtube.com/watch?v=NZJUEzn10FI
