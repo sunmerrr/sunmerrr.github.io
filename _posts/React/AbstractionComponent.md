@@ -51,6 +51,37 @@ last_modified_at: 2023-08-26
     ```
 
   - 사용
+    ```tsx
+    import React, { useState } from 'react';
+    import SelectComponent from './SelectComponent';
+
+    function LanguageSelection() {
+      // 선택할 옵션 배열
+      const languageOptions = [
+        { value: 'en', label: '영어' },
+        { value: 'es', label: '스페인어' },
+        { value: 'fr', label: '프랑스어' },
+      ];
+
+      // value 값으로 전달해줄 state
+      const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[0].value);
+
+      // onChange로 전달해줄 event 정의
+      const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedLanguage(event.target.value);
+      };
+
+      return (
+        <div>
+          <h2>언어 선택</h2>
+          <SelectComponent options={languageOptions} value={selectedLanguage} onChange={handleLanguageChange} />
+          <p>선택한 언어: {selectedLanguage}</p>
+        </div>
+      );
+    }
+
+    export default LanguageSelection;
+    ```
 
 2. 추상화 장단점
 3. 타입 지정시 주의할 점
