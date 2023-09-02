@@ -14,7 +14,6 @@ date: 2023-08-20
 last_modified_at: 2023-08-26
 ---
 
-## 컴포넌트 추상화
 이번에 회사에서 내부 서비스를 개발하던 중에 select, input, button 등의 기능을 반복적으로 사용을 해야 했다. 기능은 같은데 스타일이 조금씩 달라서 따로 컴포넌트로 만들어두고 재사용하기가 애매해서 그냥 쓰고 있었다.     
 그런데 코드를 새로 짜고, 유지보수 하다보니 생각보다 유지보수가 어렵고 비슷하게 생겼지만 조금씩 다른 컴포넌트 때문에 헷갈리는 문제가 발생했다. 이번에 추상화를 통해서 이런 문제도 해결하고, 어짜피 다른 곳에서도 잘 사용할 기능이라고 생각해서 추상화를 공부하며 공용 컴포넌트로 빼보았다.
 
@@ -32,12 +31,17 @@ last_modified_at: 2023-08-26
     interface SelectProps {
       options: Option[]; // 선택 가능한 옵션 배열
       value: string; // 현재 선택된 값
-      onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void; // 값이 변경될 때 호출되는 콜백 함수
+      handleChange: (value: string) => void; // 값이 변경될 때 호출되는 콜백 함수
+      styles?: object; // 스타일 객체
     }
 
-    function SelectComponent({ options, value, onChange }: SelectProps) {
+    function SelectComponent({ options, value, handleChange, styles }: SelectProps) {
+      const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+       handleChange(e.target.value)
+      }
+
       return (
-        <select value={value} onChange={onChange}>
+        <select value={value} onChange={onChange} style={{...styles}}>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -48,7 +52,9 @@ last_modified_at: 2023-08-26
     }
 
     export default SelectComponent;
-    ```
+    ```    
+
+    *select component 안에 onChnage 함수를 따로 만든것은 혹시 select component 안에서 따로 value state를 관리해주는 것이 좋을까 고민의 흔적이다. 없어도 되는 아이인데;;*
 
   - 사용
     ```tsx
@@ -74,7 +80,7 @@ last_modified_at: 2023-08-26
       return (
         <div>
           <h2>언어 선택</h2>
-          <SelectComponent options={languageOptions} value={selectedLanguage} onChange={handleLanguageChange} />
+          <SelectComponent options={languageOptions} value={selectedLanguage} handleChange={handleLanguageChange} />
           <p>선택한 언어: {selectedLanguage}</p>
         </div>
       );
