@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-08-20
-last_modified_at: 2023-08-23
+last_modified_at: 2023-08-26
 ---
 
 이번에 회사에서 내부 서비스를 개발하던 중에 select, input, button 등의 기능을 반복적으로 사용을 해야 했다. 기능은 같은데 스타일이 조금씩 달라서 따로 컴포넌트로 만들어두고 재사용하기가 애매해서 그냥 쓰고 있었다.     
