@@ -14,3 +14,6 @@ date: 2023-09-02
 last_modified_at: 2023-09-05
 ---
 
+1. Chrome driver
+1. 클롤링 코드 작성
+1. 스프레드 시트와 연결
