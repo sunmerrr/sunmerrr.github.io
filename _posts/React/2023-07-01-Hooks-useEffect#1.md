@@ -1,5 +1,5 @@
 ---
-title: "함수 컴포넌트의 Hooks - useEffect 톺아보기 #1"
+title: "React useEffect 톺아보기 #1 사용법과 예시"
 excerpt: "리액트를 다루는 기술 스터디 #7-2 - Hooks: useEffect"
 
 categories:
@@ -11,10 +11,10 @@ toc: true
 toc_sticky: true
  
 date: 2023-05-10
-last_modified_at: 2023-06-13
+last_modified_at: 2023-07-01
 ---
 
-#### useEffect
+## useEffect
 - 외부 시스템과 동기적으로 작동할 수 있도록 해줌 
 - 클래스형에서 componentDidMount와 componentDidUpdate를 합친 형태
 - 컴포넌트가 돔에 모두 추가 된 이후에 실행되며, dependencies의 변화에 따라서 매 리렌더링 마다 clean up 함수를 먼저 실행 하여 오래된 값을 없애고 새로운 값으로 setup 함수를 실행 함
@@ -34,8 +34,8 @@ last_modified_at: 2023-06-13
     특정 값이 변할때마다 실행하고 싶다면 의존 배열에 해당 특정 값을 넣음
     배열 이라서 특정 값이 여러개여도 상관 없음
 
-##### 사용
-- 외부 API 연결을 위해
+## 사용
+### 외부 API 연결을 위해
   - 라이브 서버, 브라우저 이벤트 리스너, 애니메이션 트리거, 모달 컨트롤, 컨디션에 따른 UI 변경 등
   - 예시 1 - 브라우저 이벤트 리스너    
     포인터를 따라다니는 이쁜 원 그리기
@@ -133,7 +133,7 @@ last_modified_at: 2023-06-13
     ```
     ![Controlling a modal dialog](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3ec54e04-6411-45a0-9c93-5dea410c742f)
 
-- Effect를 커스텀 훅으로 감쌈
+### Effect를 커스텀 훅으로 감쌈
   - useEffect 속 구현 내용을 따로 커스텀 훅으로 빼서 사용하는 개념
   - 위 예시 1을 수정해보면 아래와 같아짐
     ```jsx
@@ -175,7 +175,7 @@ last_modified_at: 2023-06-13
     };
     ```
 
-- 리액트에 포함되지 않은 프로그램을 제어할 때
+### 리액트에 포함되지 않은 프로그램을 제어할 때
   - 구글 맵 api 이용하기 - 프로젝트에 사용했던 코드라 지저분...
     ```jsx
     import React, { useState, useEffect, useRef } from 'react';
@@ -254,11 +254,11 @@ last_modified_at: 2023-06-13
     export default Map;
     ```
 
-- 데이터를 가져올 때
+### 데이터를 가져올 때
   - 내 코드가 아니라서 이미지로 가져옴
     ![fetch ingdata with Effects](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/32f45686-2d7f-43c4-91d2-6b081c08ee7a)
 
-- 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때     
+### 의존성 배열에 들어가는 의존 상태가 명확하게 동적일 때     
   [관련된 eslint 참고 문서](https://github.com/facebook/react/issues/14920)
   - 의존성 배열은 내가 선택해서 넣는 것이 아니라 Effect에서 사용되는 동적인 값이면 반드시 의존성 배열에 넣어주어야 함
     ```jsx
@@ -276,7 +276,7 @@ last_modified_at: 2023-06-13
     }, [isOpen]);
     ```
     - 위 예제에서 dependencies에 isOpen이 없으면 isOpen의 값의 변화와 상관 없이 첫 렌더링에서만 useEffect가 실행되게 되므로 기대한 동작이 나오지 않게 됨
-- 기존의 상태를 베이스로 하여 상태를 업데이트 할 때
+### 기존의 상태를 베이스로 하여 상태를 업데이트 할 때
   ```jsx
   import { useState, useEffect } from 'react';
 
@@ -328,7 +328,7 @@ last_modified_at: 2023-06-13
 
       ![Updating state based on previous state from an Effect2](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f4f9cf6a-67b7-4e9b-8d40-dbb5432b77b8)
 
-- 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
+### 읜존성 배열에서 필요하지 않은 객체/함수를 지울 때  
   - 객체(또는 함수)를 읜존성 배열에 전달하는 것보다는 해당 객체(또는 함수)를 Effect 안에서 선언해주는 것이 더 좋음 
   - 객체
     ```jsx
@@ -385,10 +385,10 @@ last_modified_at: 2023-06-13
       }, [roomId]);
       ```
 
-- Effect로 부터 최신 props와 state를 읽어올때
+### Effect로 부터 최신 props와 state를 읽어올때
   - 보통은 우리가 Effect한테 원하는 것은 dependencies에 들어있는 값이 변경될 때마다 Effect를 동작 시키는 것임. 하지만, 우리는 종종 Effect에게 '동작'을 원하는 것이 아니라 최신 데이터만 원할때가 있음. 이럴때는 Evnets와 Effects를 분리시켜야 하는데, 리액트에서 useEffectEvent Hook을 통해서 가능하게 함 [Separating Events from Effects](https://react.dev/learn/separating-events-from-effects)
 
-- 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
+### 서버와 클라이언트 측에 다른 컨텐츠를 보여야 할때
   - 보통은 서버와 클라이언트의 데이터는 일치하지만 로컬 스토리지에서 데이터를 읽어오는 경우에는 달라야 할 수도 있음
     ```jsx
     function MyComponent() {
