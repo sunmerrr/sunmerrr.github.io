@@ -1,6 +1,18 @@
+---
+title: "Next Mobility 태크 컨퍼런스 후기"
+excerpt: "카카오 모빌리티에서 추최한 넥스트 모빌리티 후기"
 
+categories:
+  - React
+tags:
+  - [Developer, Software Developer, tech confernece, next mobility]
 
-
+toc: true
+toc_sticky: true
+ 
+date: 2023-09-08
+last_modified_at: 2023-09-10
+---
 
 
 
