@@ -1,5 +1,5 @@
 ---
-title: "Next Mobility 테크 컨퍼런스 후기"
+title: "Next Mobility 2023 테크 컨퍼런스 후기"
 excerpt: "카카오 모빌리티에서 추최한 넥스트 모빌리티 후기"
 
 categories:
@@ -16,7 +16,7 @@ last_modified_at: 2023-09-14
 
 ![NEMO](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/79123cab-8a6e-44d9-9ac9-d78f2845f2c0)
 
-## 카카오 모빌리티 컨퍼런스
+## 카카오 모빌리티 2023(NEMO 2023) 컨퍼런스
 모든 내용을 다 적기에는 좀 많아서 내가 느끼기에 재미있다고 느꼈던 세션만 요약해보려고 한다.    
 애초에 나는 이 컨퍼런스에서 관심 있는 세션이 명확했기 때문에 그부분 중점으로 요약 및 메모 했다.
 몇몇 세션은 영어로 진행되었기 때문에 내가 잘못 알아들은 부분도 있을 것 같다.
