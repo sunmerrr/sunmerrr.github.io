@@ -53,3 +53,36 @@ last_modified_at: 2023-08-28
   나는 오늘의 집 사이트를 좋아해서 망설임 없이 오늘의 집 사이트의 콘텐츠의 사진과 제목을 긁어오는 코드로 작성해달라고 요청해봤다.
   <img width="736" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/cd08f8c5-5303-4126-ad83-97207a0f311e">
 
+- 코드 작성
+  ```python
+  from selenium import webdriver
+  from selenium.webdriver.chrome.service import Service
+
+  service = Service(executable_path='/Users/summerkim/Desktop/Development/selenium/chromedriver')
+  options = webdriver.ChromeOptions()
+  driver = webdriver.Chrome(service=service, options=options)
+
+  driver.get('https://ohou.se/contents/card_collections')
+
+  results = []
+
+  # 각 콘텐츠의 링크를 크롤링
+  content_links = [element.get_attribute('href') for element in driver.find_elements_by_css_selector('.content-card a')]
+
+  # 각 링크를 방문하여 사진과 콘텐츠 제목 크롤링
+  for link in content_links:
+      print(link)
+      driver.get(link)
+      title = driver.find_element_by_css_selector('.content-header-title').text
+      image_url = driver.find_element_by_css_selector('.content-image img').get_attribute('src')
+      results.append((title, image_url))
+
+  print(results)
+  driver.quit()
+  ```
+
+  - 위 코드를 실행하면 에러가 뜬다.
+    <img width="996" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/677aedac-14d6-4cb5-b3cc-4b5d4d47cd11">
+
+
+
