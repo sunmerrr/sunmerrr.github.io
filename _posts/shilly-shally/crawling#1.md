@@ -73,7 +73,7 @@ last_modified_at: 2023-08-28
   for link in content_links:
       print(link)
       driver.get(link)
-      title = driver.find_element_by_css_selector('.content-header-title').text
+      title = driver.find_elements(By.CSS_SELECTOR,'h1').text
       image_url = driver.find_element_by_css_selector('.content-image img').get_attribute('src')
       results.append((title, image_url))
 
@@ -82,11 +82,10 @@ last_modified_at: 2023-08-28
   ```
 
   - 위 코드를 실행하면 세 개의 에러가 뜬다.
+  // h1 태그는 하나인데 왜 리스트라고 할까..
     1. 오래된 코드
       <img width="996" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/677aedac-14d6-4cb5-b3cc-4b5d4d47cd11">    
       해당 에러도 `find_elements_by_css_selector` 가 오래된 코드라서 그렇다. `find_elements(By.CSS_SELECTOR, ...)` 으로 변경해주면 에러 없이 잘 돌아간다.
-    1. title 없음
-
     1. image_url 이 배열    
       아래와 같이 변경해줘 보자
       ```python
