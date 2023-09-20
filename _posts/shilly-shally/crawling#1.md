@@ -35,12 +35,18 @@ last_modified_at: 2023-08-28
   사이트 - [구글 크롬 개발자 사이트](https://sites.google.com/chromium.org/driver/) 또는 [Selenium 공식 웹사이트](https://www.selenium.dev/downloads/)
 
 3. driver 설정
-    ```py
+    ```python
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
 
     service = Service(executable_path='{다운로드 받은 경로}')
     ```
+    - 원래 GPT가 알려준 코드는 아래와 같았는데 오래된 코드라고 했던가.. 암튼 에러가 떠서 위와 같이 변경했다.
+      ```python
+      from selenium import webdriver
+
+      driver = webdriver.Chrome(executable_path='{다운로드 받은 경로}')
+      ```
 
 #### 크롤링 하기
 - 사이트 선정     
