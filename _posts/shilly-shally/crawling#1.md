@@ -41,7 +41,7 @@ last_modified_at: 2023-08-28
 
     service = Service(executable_path='{다운로드 받은 경로}')
     ```
-    - 원래 GPT가 알려준 코드는 아래와 같았는데 오래된 코드라고 했던가.. 암튼 에러가 떠서 위와 같이 변경했다.
+    - 원래 GPT가 알려준 코드는 아래와 같았는데 find_element_by_xpath가 예전 코드라 에러가 떠서 위와 같이 변경했다.(이 에러는 내가 따로 검색해서 해결하고 GPT한테 알려줬다.)
       ```python
       from selenium import webdriver
 
