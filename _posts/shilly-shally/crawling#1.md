@@ -62,12 +62,12 @@ last_modified_at: 2023-08-28
   options = webdriver.ChromeOptions()
   driver = webdriver.Chrome(service=service, options=options)
 
-  driver.get('https://ohou.se/contents/card_collections')
+  driver.get('https://ohou.se/projects?writer=self')
 
   results = []
 
   # 각 콘텐츠의 링크를 크롤링
-  content_links = [element.get_attribute('href') for element in driver.find_elements_by_css_selector('.content-card a')]
+  content_links = [element.get_attribute('href') for element in driver.find_elements_by_css_selector('.project-feed__item a')]
 
   # 각 링크를 방문하여 사진과 콘텐츠 제목 크롤링
   for link in content_links:
@@ -81,8 +81,22 @@ last_modified_at: 2023-08-28
   driver.quit()
   ```
 
-  - 위 코드를 실행하면 에러가 뜬다.
-    <img width="996" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/677aedac-14d6-4cb5-b3cc-4b5d4d47cd11">
+  - 위 코드를 실행하면 세 개의 에러가 뜬다.
+    1. 오래된 코드
+      <img width="996" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/677aedac-14d6-4cb5-b3cc-4b5d4d47cd11">    
+      해당 에러도 `find_elements_by_css_selector` 가 오래된 코드라서 그렇다. `find_elements(By.CSS_SELECTOR, ...)` 으로 변경해주면 에러 없이 잘 돌아간다.
+    1. title 없음
+
+    1. image_url 이 배열    
+      아래와 같이 변경해줘 보자
+      ```python
+      image_elements = driver.find_elements(By.CSS_SELECTOR,'.emaw3ja2 img')
+      if image_elements:  # 이미지 엘리먼트가 존재할 때
+        first_image_url = image_elements[0].get_attribute('src')
+      else:
+        first_image_url = "No Image"  # 이미지가 없을 때 처리 방법
+      ```
+
 
 
 
