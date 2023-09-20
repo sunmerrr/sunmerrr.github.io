@@ -23,23 +23,27 @@ last_modified_at: 2023-08-28
 <img width="734" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/a4e28277-fac9-4d26-b40a-28b050b4dc15">
 
 
-- Selenium 설치    
+#### Selenium 설치    
   `pip install selenium`
 
-- Chrome WebDriver 설정    
-  1. 사용중인 크롬 버젼 확인     
-    크롬 버젼은 [chrome://settings/help](chrome://settings/help) 으로 접속하면 확인 가능하다.
-    
-  2. 버전에 맞춰서 다운로드     
-    다운로드 페이지에서 크롬 웹 드라이버의 버전을 선택하여 다운로드    
-    사이트 - [구글 크롬 개발자 사이트](https://sites.google.com/chromium.org/driver/) 또는 [Selenium 공식 웹사이트](https://www.selenium.dev/downloads/)
+#### Chrome WebDriver 설정    
+1. 사용중인 크롬 버젼 확인     
+  크롬 버젼은 [chrome://settings/help](chrome://settings/help) 으로 접속하면 확인 가능하다.
+  
+2. 버전에 맞춰서 다운로드     
+  다운로드 페이지에서 크롬 웹 드라이버의 버전을 선택하여 다운로드    
+  사이트 - [구글 크롬 개발자 사이트](https://sites.google.com/chromium.org/driver/) 또는 [Selenium 공식 웹사이트](https://www.selenium.dev/downloads/)
 
-  3. driver 설정
-      ```py
-      from selenium import webdriver
+3. driver 설정
+    ```py
+    from selenium import webdriver
+    from selenium.webdriver.chrome.service import Service
 
-      driver = webdriver.Chrome(executable_path='{다운로드 받은 경로}')  
-      ```
+    service = Service(executable_path='{다운로드 받은 경로}')
+    ```
 
-- 
+#### 크롤링 하기
+- 사이트 선정     
+  나는 오늘의 집 사이트를 좋아해서 망설임 없이 오늘의 집 사이트의 콘텐츠의 사진과 제목을 긁어오는 코드로 작성해달라고 요청해봤다.
+  <img width="736" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/cd08f8c5-5303-4126-ad83-97207a0f311e">
 
