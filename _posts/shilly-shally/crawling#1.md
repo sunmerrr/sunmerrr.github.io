@@ -11,10 +11,10 @@ toc: true
 toc_sticky: true
  
 date: 2023-08-21
-last_modified_at: 2023-08-28
+last_modified_at: 2023-09-01
 ---
 
-**python을 기본 언어로 하여 크롤링한 정보를 google spreadsheet에 연동을 해보는 프로젝트 이다.**     
+**python을 기본 언어로 하여 크롤링한 정보를 google spreadsheet에 연동을 해보는 프로젝트 이며, 해당 포스팅에서는 크롤링을 만드는 과정을 정리했다.**     
 *GPT가 알려준다고해도 오래된 정보나 잘못된 정보를 알려줄 수 있기 때문에 중간중간 내가 따로 검색해서 해결하는 것이 좋다.*
 
 ## 1. selenium을 이용하여 크롤링 하기
@@ -148,3 +148,5 @@ GPT가 알려준 방식은 아래와 같다.
   ```
   - 결과
     ![crawling gif](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/a57b315f-6b5f-41c4-bf8b-554728434bbf)
+
+**google streadsheet에 연동하는 것은 다음 포스팅에 작성해야할 것 같다**
