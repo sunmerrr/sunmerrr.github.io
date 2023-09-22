@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-09-04
-last_modified_at: 2023-09-04
+last_modified_at: 2023-09-07
 ---
 
 **python을 기본 언어로 하여 크롤링한 정보를 google spreadsheet에 연동을 해보는 프로젝트 이며, 해당 포스팅에서는 크롤링을 만들기 전 selenium으로 크롤러를 진행하게 된 이유를 정리해보았다.**     
@@ -44,6 +44,7 @@ last_modified_at: 2023-09-04
   title = soup.title.string
   print("Title:", title)
   ```
+[참고-BeautifulSoup 공식문서](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
 
 ### 2. Selenium
 예전에 셀레니움으로 가벼운 크롤러를 만들어본 경험이 있어서 나에게 허들이 좀 낮았다. 무엇보다 다양한 웹 페이지를 크롤링 할 수 있고, 스크립트 실행도 가능하다는 점이 매우 마음에 든다.    
@@ -65,10 +66,26 @@ last_modified_at: 2023-09-04
 
   driver.quit()
   ```
+[참고-Selenium 공식 문서](https://www.selenium.dev/documentation/webdriver/)
 
 ### 3. Scrapy
-스크래피는 
+스크래피는 초보자인 나한테는 조금 어려워보였다. 게다가 라이브러리보다는 프레임워크라서 러닝커브도 다른 것들에 비해서 클 수 있을 것 같다. 스크래피는 어려울 수는 있지만 적용해두면 대규모 웹 크롤링 작업을 수행 할 수 있고, 데이터 저장도 쉽게 할 수 있다고 한다.    
+다만, 동적 웹 페이지를 크롤링 하기 위해서는 추가적인 작업이나 설정이 필요 할 수 있다고 한다.
+- 간단 예시      
+  프로젝트 생성: `scrapy startproject myproject`      
+  ```python
+  import scrapy
+
+  class MySpider(scrapy.Spider):
+      name = 'myspider'
+      start_urls = ['https://example.com']
+
+      def parse(self, response):
+          title = response.css('title::text').get()
+          yield {'title': title}
+  ``` 
+[참고-Scrapy 공식 문서](https://docs.scrapy.org/en/latest/intro/examples.html)
 
 ## 결론
-**크롤러를 만들려고 했던 이유가 처음 렌더링 시 HTML로 이루어져 있지 않고 JavaScript로 이루어져 있는 사이트의 경우에는 구글 스프레드시트에서 요소를 읽어오기 어렵기 때문이었다.**    
-**결국 뷰티풀숲은 JavaScript로 된 웹페이지를 읽지 못하고, 스크래피는 초기 설정이 복잡하다는 말에 셀레니움으로 개발했다.**
+**크롤러를 만들려고 했던 이유가 처음 렌더링 시 HTML로 이루어져 있지 않고 JavaScript로 이루어져 있는 사이트의 경우에는 구글 스프레드시트에서 요소를 읽어오기가 어렵기 때문이었다. JavaScript로된 동적 웹 페이지를 크롤링 한다는 기능만 보면 결국 뷰티풀숲은 JavaScript로 된 동적인 웹 페이지를 읽지 못하고, 스크래피는 초기 설정의 복잡도, 동적 웹페이지 크롤링 시에는 추가 작업이 있을 수 있다는 점을 고려하면 셀레니움이 가장 적합하다고 생각했다.**      
+**위에 비교한 오픈소스 프레임워크 외에도 다른 것이 있을 수 있지만 가장 많이 사용되는 오픈소스라고 해서 위 3개만 비교했다.**
