@@ -1,5 +1,5 @@
 ---
-title: "GPT가 알려주는데로 크롤링 만들기 (with python, selenium)"
+title: "GPT가 알려주는데로 크롤링 만들기 (Google spreadsheet에 데이터 저장하기)"
 excerpt: "python, selenium으로 크롤링한 정보를 google spreadsheet에 연동"
 
 categories:
@@ -10,9 +10,16 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2023-09-04
-last_modified_at: 2023-09-04
+date: 2023-09-16
+last_modified_at: 2023-09-24
 ---
 
-**python을 기본 언어로 하여 크롤링한 정보를 google spreadsheet에 연동을 해보는 프로젝트 이며, 해당 포스팅에서는 크롤링을 만드는 과정을 정리했다.**     
+**python을 기본 언어로 하여 크롤링한 정보를 google spreadsheet에 연동을 해보는 프로젝트 이며, 해당 포스팅에서는 크롤링의 데이터를 구글 스프레드 시트에 저장보는 과정을 적었다.**     
 *GPT가 알려준다고해도 오래된 정보나 잘못된 정보를 알려줄 수 있기 때문에 중간중간 내가 따로 검색해서 해결하는 것이 좋다.*
+
+## 1. Spreadsheet에 데이터 저장하기
+이번에도 하고 싶은 것을 GPT한테 말해준다.
+아무렇게나 말해도 되지만 되도록이면 상세한게 원하는 답을 얻을 수 있다.
+<img width="774" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/0b7f0a91-c8df-46d4-b8f6-22475ea6bd25">
+     
+
