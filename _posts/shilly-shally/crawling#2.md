@@ -22,4 +22,8 @@ last_modified_at: 2023-09-24
 아무렇게나 말해도 되지만 되도록이면 상세한게 원하는 답을 얻을 수 있다.
 <img width="774" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/0b7f0a91-c8df-46d4-b8f6-22475ea6bd25">
      
+[첫 번째 포스팅](https://sunmerrr.github.io/react/crawling-1/)에서 크롤링 과정에 대해 설명을 이미 해서 google spread sheet 연동하는 과정만 적었다.
 
+1. google auth 설정
+2. 구글 스프레드시트 공유
+3. 인증 및 스프레드시트 연결
