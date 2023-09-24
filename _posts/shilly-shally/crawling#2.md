@@ -32,4 +32,24 @@ last_modified_at: 2023-09-24
 1. Google Cloud Console 프로젝트 생성
 [Google Cloud Console](https://console.cloud.google.com/)에서 새로운 프로젝트를 생성한다.
 이름은 원하는 것으로 한다.
-  <img width="774" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/67e290e3-2d0e-4085-9050-811a3a9ad5c0">
+  <img width="774" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/67e290e3-2d0e-4085-9050-811a3a9ad5c0">    
+
+1. API 활성화
+API 서비스 -> API 라이브러리로 가서 'google sheets API'를 검색    
+'사용' 버튼 눌러서 활성화    
+
+1. auth 정보 받기 
+    1. 'OAuth 동의 화면' 만들기    
+        - 'OAuth 동의 화면'으로 이동하여 email, 앱 이름, 테스트 사용자 추가 유무 등 필요한 내용 입력
+    1. '사용자 인증 정보' 받기    
+        1. '사용자 인증 정보'로 이동
+        1. '+ 사용자 인증 정보 만들기'에서 'OAuth 클라이언트 ID'를 선택
+        1. 어플리케이션 유형을  `데스크톱 앱` 으로 설정하고 이름 입력
+        1. 만들기 클릭
+    1. '서비스 계정' 만들기
+        1. '사용자 인증 정보' 화면에서 '사용자 계정 관리'로 이동
+        1. '+ 사용자 계정 만들기'에서 'OAuth 클라이언트 ID'를 선택
+        1. 계정 아이디, 서비스 계정 역할 등을 입력하여 계정 생성
+    1. '키' 만들기
+        1. 계정 확인 후 오른쪽 ⋮버튼 클릭하여 '키 관리'로 이동
+        1. '키 추가' -> '새 키 만들기' -> 'JSON' 선택하여 만들기
