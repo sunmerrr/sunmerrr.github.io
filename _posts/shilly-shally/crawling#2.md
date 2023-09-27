@@ -63,3 +63,4 @@ API 서비스 -> API 라이브러리로 가서 'google sheets API'를 검색
 
 ## 에러 로그
 - **gspread.exceptions.APIError: {'code': 403, 'message': 'Google Drive API has not been used in project 987016676141 before or it is disabled.**    
+  GPT가 나한테 알려준 방식에서 Google Drive API도 활성화 시켜야 한다. GPT는 이런 중요한 부분 빼먹고 내가 다시 물어보면 아무렇지 않다는 듯이 물어보는 것에 답해준다. 이런 부분이 좀 답답하다.
