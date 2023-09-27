@@ -35,8 +35,10 @@ last_modified_at: 2023-09-24
   <img width="774" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/67e290e3-2d0e-4085-9050-811a3a9ad5c0">    
 
 1. API 활성화
-API 서비스 -> API 라이브러리로 가서 'google sheets API'를 검색    
-'사용' 버튼 눌러서 활성화    
+    - API 서비스 -> API 라이브러리로 가서 **'google sheets API'**를 검색    
+    '사용' 버튼 눌러서 활성화    
+    - API 서비스 -> API 라이브러리로 가서 **'google drive API'**를 검색    
+    '사용' 버튼 눌러서 활성화    
 
 1. auth 정보 받기 
     1. 'OAuth 동의 화면' 만들기    
