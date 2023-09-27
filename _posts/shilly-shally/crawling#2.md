@@ -59,7 +59,23 @@ API 서비스 -> API 라이브러리로 가서 'google sheets API'를 검색
     1. 공유하기 버튼 클릭
     1. `auth 정보 받기`에서 받은 JSON에 들어있는 이메일 추가
 
-#### 2. 데이터 저장하기
+#### 2. 데이터 저장하기 
+- 코드 초안 작성    
+  아래 코드를 크롤러 아래에 추가해준다.
+  ```python
+  def save_to_google_sheet(data):
+    # Google Sheets API 인증
+    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
+    creds = ServiceAccountCredentials.from_json_keyfile_name('key/crawler-400005-20fb77bb43cb.json', scope)
+    client = gspread.authorize(creds)
+
+    # 스프레드시트 및 워크시트 연결
+    sheet = client.open('ohou_crawling').sheet1
+
+    for item in data:
+      sheet.append_row([item[0], item[1]])
+  ```
 
 ## 에러 로그
 - **gspread.exceptions.APIError: {'code': 403, 'message': 'Google Drive API has not been used in project 987016676141 before or it is disabled.**    
