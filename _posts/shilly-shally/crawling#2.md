@@ -78,6 +78,8 @@ last_modified_at: 2023-09-24
     for item in data:
       sheet.append_row([item[0], item[1]])
   ```
+  - 결과 화면     
+    <img width="976" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/97388809-74cc-4249-8762-d211926a91f9">    
 
 - 더 보기
   - 이미지가 안들어온다..
