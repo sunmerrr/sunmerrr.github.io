@@ -80,10 +80,9 @@ last_modified_at: 2023-09-24
   ```
   - 결과 화면     
     <img width="976" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/97388809-74cc-4249-8762-d211926a91f9">    
-
-- 더 보기
-  - 이미지가 안들어온다..
-  - 콘텐츠만 보면 되는데 콘텐츠를 작성한 사람의 피드를 가서 또 제목과 이미지를 가져오려고 한다..
+    근데 뭔가 이상하다
+    - 이미지가 안들어온다
+    - 콘텐츠만 보면 되는데 콘텐츠를 작성한 사람의 피드를 가서 또 제목과 이미지를 가져오려고 한다..
 
 ## 에러 로그
 - **gspread.exceptions.APIError: {'code': 403, 'message': 'Google Drive API has not been used in project 987016676141 before or it is disabled.**    
