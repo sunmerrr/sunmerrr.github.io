@@ -3,7 +3,7 @@ title: "Next Mobility 2023 테크 컨퍼런스 후기"
 excerpt: "카카오 모빌리티에서 추최한 넥스트 모빌리티 후기"
 
 categories:
-  - React
+  - Developer
 tags:
   - [Developer, Software Developer, tech confernece, next mobility]
 
