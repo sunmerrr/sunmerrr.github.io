@@ -14,8 +14,7 @@ date: 2023-09-27
 last_modified_at: 2023-09-29
 ---
 
-**node.js와 express, javascript로 만들어보는 채팅 앱**
-**서버쪽은 잘 모르기 때문에 **
+**node.js와 express, javascript로 만들어보는 채팅 앱**    
 
 ## 1. 서버 만들기
 #### 1. node.js 설치
