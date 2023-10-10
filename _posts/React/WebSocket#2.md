@@ -32,3 +32,24 @@ last_modified_at: 2023-09-29
 - 초기 작성     
   <!DOCTYPE html> 이거부터 다 써주기 귀찮으니까 검색해서 가져오자    
   또는, 빈 index.html에 `html:5`라고 쳐보자(ES7+ React/Redux/React-Native snippets 사용)
+
+  그리고 메세지를 작성하는 input과 발송하는 button 태그를 만들어 준다.
+  ```js
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+  </head>
+  <body>
+    <h4>채팅 페이지</h4>
+    <div id="message-container"></div>
+    <form id="send-container">
+      <input type="text" id="message-input">
+      <button type="submit" id="send-button" onclick="socket.send('hello')">메세지 발송</button>
+    </form>
+  </body>
+  </html>
+  ```
