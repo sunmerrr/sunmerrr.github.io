@@ -48,8 +48,22 @@ last_modified_at: 2023-09-29
     <div id="message-container"></div>
     <form id="send-container">
       <input type="text" id="message-input">
-      <button type="submit" id="send-button" onclick="socket.send('hello')">메세지 발송</button>
+      <button type="submit" id="send-button">메세지 발송</button>
     </form>
   </body>
   </html>
+  ```
+
+- socket 연결    
+  위 코드에 스크립트 태그를 추가해준다.
+  ```js
+  <script>
+    // socket 연결 - 소켓은 http://가 아닌 ws://~ 으로 작성
+    let socket = new WebSocket("ws://localhost:8080");
+
+    socket.onopen = (event) => {
+      // socket 이 성공적으로 연결되었을때 콘솔에 나타냄
+      console.log("Socket connected sucessfully")
+    }
+  </script>
   ```
