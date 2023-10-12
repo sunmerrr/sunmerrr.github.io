@@ -55,7 +55,7 @@ last_modified_at: 2023-09-29
   ```
 
 - socket 연결    
-  위 코드에 스크립트 태그를 추가해준다.
+  스크립트 태그를 추가해준다.
   ```js
   <script>
     // socket 연결 - 소켓은 http://가 아닌 ws://~ 으로 작성
@@ -66,4 +66,11 @@ last_modified_at: 2023-09-29
       console.log("Socket connected sucessfully")
     }
   </script>
+  ```
+
+- 버튼 활성화
+  메세지 발송 버튼을 누르면 메세지가 갈 수 있도록 셋팅해보자.
+  일단 버튼을 누르면 고정된 메세지를 보내는 onclick 이벤트를 추가한다.
+  ```js
+  <button type="submit" id="send-button" onclick="socket.send('hello')">메세지 발송</button>
   ```
