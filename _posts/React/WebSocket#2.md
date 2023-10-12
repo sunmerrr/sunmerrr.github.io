@@ -74,3 +74,8 @@ last_modified_at: 2023-09-29
   ```js
   <button type="submit" id="send-button" onclick="socket.send('hello')">메세지 발송</button>
   ```
+
+todo
+1. 인풋 이벤트 받기
+2. 버튼 이벤트를 스크립트 태그 안에 작성하기
+3. 서버에서 보내주는 메세지 받기
