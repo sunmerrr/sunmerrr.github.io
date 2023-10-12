@@ -68,9 +68,9 @@ last_modified_at: 2023-09-29
   </script>
   ```
 
-- 버튼 활성화
-  메세지 발송 버튼을 누르면 메세지가 갈 수 있도록 셋팅해보자.
-  일단 버튼을 누르면 고정된 메세지를 보내는 onclick 이벤트를 추가한다.
+- 버튼 활성화    
+  메세지 발송 버튼을 누르면 메세지가 갈 수 있도록 셋팅해보자.    
+  일단 버튼을 누르면 고정된 메세지를 보내는 onclick 이벤트를 추가한다.    
   ```js
   <button type="submit" id="send-button" onclick="socket.send('hello')">메세지 발송</button>
   ```
