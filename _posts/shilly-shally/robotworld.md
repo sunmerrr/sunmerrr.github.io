@@ -5,7 +5,7 @@ excerpt: "일산 킨텍스에서 진행된 로보월드"
 categories:
   - Developer
 tags:
-  - [Developer, Software Developer, tech confernece, next mobility]
+  - [Developer, Software Developer, tech confernece, robot world]
 
 toc: true
 toc_sticky: true
