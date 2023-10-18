@@ -61,4 +61,4 @@ last_modified_at: 2023-10-13
 그와중에 손바닥 보다 작은 드론을 조종해봤는데 조종이 너무 쉬워서 그 자리에서 살뻔했다. 같이 갔던 사람들이 멀리 있어서 드론을 조종하는 간지나는 나의 모습을 카메라에 담지는 못했다.
 
 마지막으로 로봇이 찍어준 나의 모습 보고 가시라 (부끄러우니 작게..)   
-  <img width="480" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f920e056-52ad-4092-9683-eb933ae86715">    
+  <img width="360" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f920e056-52ad-4092-9683-eb933ae86715">    
