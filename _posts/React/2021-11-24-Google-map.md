@@ -14,6 +14,13 @@ date: 2021-11-24
 last_modified_at: 2021-11-24
 ---
 
+## react-google-maps/api 최신 글 보러가기
+  - [React Google Maps API 연동 #2 with 설명](https://sunmerrr.github.io/react/
+  react-google-map-api/)
+  - [Google Maps API 연동 #3 - 필수 옵션과 props + instance](https://sunmerrr.github.io/react/react-google-map-api-3/)
+---
+
+
 ## react에서 google map API를 이용하여 내 사이트에 지도 심어주기
   - 사용 API [`react-google-map/api`](https://www.npmjs.com/package/@react-google-maps/api)
   - react 팀 프로젝트에서 사용한 google map API 연동 실패와 성공에 대한 기록
