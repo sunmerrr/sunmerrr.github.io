@@ -15,8 +15,7 @@ last_modified_at: 2021-11-24
 ---
 
 ## react-google-maps/api 최신 글 보러가기
-  - [React Google Maps API 연동 #2 with 설명](https://sunmerrr.github.io/react/
-  react-google-map-api/)
+  - [React Google Maps API 연동 #2 with 설명](https://sunmerrr.github.io/react/react-google-map-api-3/)
   - [Google Maps API 연동 #3 - 필수 옵션과 props + instance](https://sunmerrr.github.io/react/react-google-map-api-3/)
 ---
 
