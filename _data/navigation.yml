@@ -10,6 +10,8 @@ main:
     url: /categories/javascript/
   - title: "React"
     url: /categories/react/
+  - title: "Other"
+    url: /categories/other/
   # - title: "Categories"
   #   url: /categories/
   # - title: "Sitemap"
