@@ -1,6 +1,6 @@
 ---
-title: "Google Maps API 연동 #3 - 필수 옵션과 props + instance"
-excerpt: "map instance 설명"
+title: "React Google Maps API #3 - 필수 옵션과 props + instance"
+excerpt: "react-google-maps/api map instance 설명"
 
 categories:
   - React
@@ -14,7 +14,7 @@ date: 2023-08-05
 last_modified_at: 2023-08-13
 ---
 
-## 구글 지도 필수 옵션
+## react google maps api 필수 옵션
   - `center`: lat, lng 값을 객체로 전달해 주는 것으로 지도 첫 화면을 셋팅 할 수 있다.
   - `zoom`: 0부터 20사이의 숫자로 지정 가능하며, 지도의 확대/축소 수준을 표시한다.
   - 예시
@@ -26,7 +26,7 @@ last_modified_at: 2023-08-13
     />
     ```
 
-## 구글 지도 API map props
+## react google map API props
   - `mapTypeId`: 타입은 총 4가지로 구성되어있으며 loadmap이 기본이다.
     - `loadmap`: 일반 거리 지도 출력
     - `terrain`: 일반 거리 지도 위에 물리적인 지형지물 함께 출력 
@@ -46,7 +46,7 @@ last_modified_at: 2023-08-13
     />
     ```
 
-## 구글 지도 API map instance
+## react google map API instance
 map instance를 사용해서 지도를 업데이트 해주기 전에 props로 전달하여 설정해 줄 수도 있지만 map instance도 정리해본다
 
 #### center: 센터 지정 및 정보 가져오기
