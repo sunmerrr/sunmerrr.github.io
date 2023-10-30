@@ -31,6 +31,7 @@ last_modified_at: 2023-10-22
 
 ## 적용해보기
 
+
 ## 순수 JavsScript로 만들기
 
 
