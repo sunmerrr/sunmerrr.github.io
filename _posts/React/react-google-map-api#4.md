@@ -14,6 +14,8 @@ date: 2023-10-22
 last_modified_at: 2023-10-22
 ---
 
+#### google map api 기본 셋팅은 [React Google Maps API 연동 #2 with 설명](https://sunmerrr.github.io/react/react-google-map-api/) 포스팅 참고
+
 ## react-google-maps/api 라이브러리의 다각형 Polygon(PolygonF)
 #### PolygonF
   해당 라이브러리는 업데이트되면서 PolygonF 라는 API로 사용해야한다.    
