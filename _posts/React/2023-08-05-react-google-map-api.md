@@ -77,6 +77,7 @@ last_modified_at: 2023-08-05
           <GoogleMap
             id="google-map-test"
             mapContainerStyle={GoogleMapStyle} // width와 height 는 반드시 지정해줘야 한다.
+            onLoad={onLoad}
           >
             <MarkerF
               position={{ lat: 37.5511694, lng: 126.9882266 }} title="marker title1" 
