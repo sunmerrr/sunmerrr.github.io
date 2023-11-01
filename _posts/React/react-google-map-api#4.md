@@ -25,6 +25,7 @@ last_modified_at: 2023-10-22
 ## 적용 가능한 option
 #### PolygonF
 - 다각형 스타일 지정하기
+  - clickable: 클릭 가능 여부
   - strokeColor: 다각형의 테두리 컬러
   - strokeOpacity: 다각형 테두리 컬리의 투명도
   - strokeWeight: 다각형 테두리 컬러의 두께
@@ -39,7 +40,6 @@ last_modified_at: 2023-10-22
     import styled from 'styled-components';
 
     function GoogleMapComponent() {
-      // 맵 로드시 처음으로 띄워줄 지역의 위도(latitude) 경도(longitude) 정보
       const center = {
         lat: 37.5511694,
         lng: 126.9882266
@@ -58,18 +58,22 @@ last_modified_at: 2023-10-22
       ];
 
       // 지도를 불러오는 함수
-      // isLoaded, loadError를 return 한다.
       const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        // google maps 에서 받은 api key를 전달한다..
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
       });
+
+      const onLoad = useCallback(map => {
+        map.setCenter(center);
+        map.setOptions(options);
+      }, []);
 
       return isLoaded && (
         <GoogleMapContainer>
           <GoogleMap
             id="google-map-test"
-            mapContainerStyle={GoogleMapStyle} // width와 height 는 반드시 지정해줘야 한다.
+            mapContainerStyle={GoogleMapStyle}
+            onLoad={onLoad}
           >
             <PolygonF
               paths={polygonCoords}
