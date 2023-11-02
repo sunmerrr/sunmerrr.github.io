@@ -36,7 +36,7 @@ last_modified_at: 2023-10-22
   - 예시
     ```jsx
     import React from 'react';
-    import { GoogleMap, useJsApiLoader, MarkerF } from '@react-google-maps/api';
+    import { GoogleMap, useJsApiLoader, PolygonF } from '@react-google-maps/api';
     import styled from 'styled-components';
 
     function GoogleMapComponent() {
@@ -109,12 +109,57 @@ last_modified_at: 2023-10-22
 
 ## 응용하기
 다각형 안에 다각형을 넣어서 해당 구역을 하이라이트 되도록 해준다.
+  - 예시
+    ```jsx
+    ...
 
+    const outerCoords = [
+      { lat: 48.164947, lng: 112.510463 }, // north west 
+      { lat: 22.643728, lng: 112.510463 }, // south west
+      { lat: 22.643728, lng: 142.489605 }, // south east
+      { lat: 48.164947, lng: 142.489605 }, // north east
+    ];
 
-  - 결과 화면    
-    
-    <img width="914" alt="google map polygon application example" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6a3a97b8-7c30-41c8-9657-28a73240c166">     
-    실패했다.
+    const innerCoords = [
+      { lat: 37.583403, lng: 126.973829 },
+      { lat: 37.576039, lng: 126.974151 },
+      { lat: 37.576056, lng: 126.979300 },
+      { lat: 37.583386, lng: 126.979687 },
+    ]
+
+    ...
+
+    return isLoaded && (
+      <GoogleMapContainer>
+        <GoogleMap
+          id="google-map-test"
+          mapContainerStyle={GoogleMapStyle}
+          onLoad={onLoad}
+        >
+          <PolygonF
+            paths={[outerCoords, innerCoords]}
+            options={{
+              clickable: false,
+              strokeColor: "#f801ffd1",
+              strokeOpacity: 0.8,
+              strokeWeight: 7,
+              fillColor: "#000",
+              fillOpacity: 0.5,
+            }}
+          />
+        </GoogleMap>
+      </GoogleMapContainer>
+    );
+
+    ...
+
+    ```
+  
+
+    - 결과 화면    
+      
+      <img width="914" alt="google map polygon application example" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6a3a97b8-7c30-41c8-9657-28a73240c166">     
+      실패했다.
 
 
 
