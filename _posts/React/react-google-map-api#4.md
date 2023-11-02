@@ -154,7 +154,7 @@ last_modified_at: 2023-10-22
     ...
 
     ```
-  
+    - polygon을 inner, outer 두 개로 나눠서 만들어주고 배열로 전달한다.
 
     - 결과 화면    
       
