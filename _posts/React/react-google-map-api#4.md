@@ -108,8 +108,14 @@ last_modified_at: 2023-10-22
 
 
 ## 응용하기
-  - 결과 화면
-    <img width="721" alt="google map polygon example" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/c6b0f605-d967-4bde-9042-75b0116f4899">
+다각형 안에 다각형을 넣어서 해당 구역을 하이라이트 되도록 해준다.
+
+
+  - 결과 화면    
+    
+    <img width="914" alt="google map polygon application example" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6a3a97b8-7c30-41c8-9657-28a73240c166">     
+    실패했다.
+
 
 
 
