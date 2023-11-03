@@ -155,11 +155,11 @@ last_modified_at: 2023-10-22
 
     ```
     - polygon을 inner, outer 두 개로 나눠서 만들어주고 배열로 전달한다.
-
+    - 다각형 안의 다각형은 색상을 따로 지정할 수 있다.
     - 결과 화면    
-      
       <img width="914" alt="google map polygon application example" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6a3a97b8-7c30-41c8-9657-28a73240c166">     
-      실패했다.
+      실패했다.     
+      안의 다각형이 바깥 다각형의 스타일이랑 겹친다..ㅠㅠ 
 
 
 
