@@ -5,8 +5,7 @@ excerpt: "react-google-maps/api map instance 설명"
 categories:
   - React
 tags:
-  - [react, api, library, google-map, react-google-map/api, react-google-map]
-
+  - [react, api, library, google map, react-google-maps/api, react google map]
 toc: true
 toc_sticky: true
  
