@@ -1,11 +1,11 @@
 ---
-title: "React Google Maps API 연동 #2 with 설명"
-excerpt: "react-google-map/api 사용 예시와 설명"
+title: "React Google Map #2 API 연동과 Marcer(MarcerF)"
+excerpt: "react-google-maps/api 설명 및 사용 예시와 마커(React 18+)"
 
 categories:
   - React
 tags:
-  - [react, api, library, google-map, react-google-map/api, react-google-map]
+  - [react, api, library, google map, react-google-maps/api, react google map]
 
 toc: true
 toc_sticky: true
