@@ -23,7 +23,6 @@ last_modified_at: 2023-11-05
   중복으로 사용 가능하다.
 
 ## 적용 가능한 option
-#### PolygonF
 - 다각형 스타일 지정하기
   - clickable: 클릭 가능 여부
   - strokeColor: 다각형의 테두리 컬러
