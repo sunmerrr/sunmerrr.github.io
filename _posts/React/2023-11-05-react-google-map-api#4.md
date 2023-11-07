@@ -56,6 +56,15 @@ last_modified_at: 2023-11-05
         { lat: 48.164947, lng: 142.489605 }, // north east
       ];
 
+      const polygonOption = {
+        clickable: false,
+        strokeColor: "#f801ffd1",
+        strokeOpacity: 0.8,
+        strokeWeight: 7,
+        fillColor: "#000",
+        fillOpacity: 0.5,
+      }
+
       // 지도를 불러오는 함수
       const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -76,14 +85,7 @@ last_modified_at: 2023-11-05
           >
             <PolygonF
               paths={polygonCoords}
-              options={{
-                clickable: false,
-                strokeColor: "#f801ffd1",
-                strokeOpacity: 0.8,
-                strokeWeight: 7,
-                fillColor: "#000",
-                fillOpacity: 0.5,
-              }}
+              options={polygonOption}
             />
           </GoogleMap>
         </GoogleMapContainer>
@@ -137,14 +139,7 @@ last_modified_at: 2023-11-05
         >
           <PolygonF
             paths={[outerCoords, innerCoords]}
-            options={{
-              clickable: false,
-              strokeColor: "#f801ffd1",
-              strokeOpacity: 0.8,
-              strokeWeight: 7,
-              fillColor: "#000",
-              fillOpacity: 0.5,
-            }}
+            options={polygonOption}
           />
         </GoogleMap>
       </GoogleMapContainer>
