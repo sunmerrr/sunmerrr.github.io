@@ -18,7 +18,7 @@ last_modified_at: 2023-11-05
 
 ## react-google-maps/api 라이브러리의 다각형 Polygon(PolygonF)
 #### PolygonF
-  해당 라이브러리는 업데이트되면서 PolygonF 라는 API로 사용해야한다.    
+  해당 라이브러리는 React 18+ 버젼이면 PolygonF 라는 API로 사용해야한다.    
   다각형의 꼭짓점 좌표를 나타내 주는 paths 배열을 필수로 전달해준다.    
   중복으로 사용 가능하다.
 
