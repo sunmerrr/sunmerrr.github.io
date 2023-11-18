@@ -22,3 +22,7 @@ last_modified_at: 2023-11-18
 
 ## 아묻따 리팩토링
 
+## 나 어지러워..
+![리팩토링 중](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/280ed4de-a8f8-4759-8be3-bff15bfb6a34)
+    고요속의 외침 이랄까..
+
