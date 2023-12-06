@@ -42,5 +42,5 @@ PWA로 개발을 한적이 없어서 무지성 의문들을 검색해봤다.
 1. 어쨌든 웹이니까 REST API를 사용할 수 있나?
     - Web App 이라 ㅅㄱㄴ.
 1. 앱이 아닌데 푸시 알림은 어떤 방식으로 보내게 되는거지?
-    - 이건 좀 복잡한데 서비스워커를 통해 백그라운드에서 실행되는 스크립트를 활용한다고 한다.
-
+    - 이건 좀 복잡한데 서비스워커를 통해 백그라운드에서 실행되는 스크립트를 활용한다고 한다.    
+    구현은 꾀나 복잡해 보인다.(안해봐서 그런가..) [참고](https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push)
