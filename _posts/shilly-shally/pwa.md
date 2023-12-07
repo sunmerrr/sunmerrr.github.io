@@ -1,5 +1,5 @@
 ---
-title: "PWA - Progressive Web App"
+title: "Next.js에서 PWA(Progressive Web App)구현 - 단순 궁금증 부터 배포까지"
 excerpt: "웹과 네이티브 앱의 중간 그 어딘가"
 
 categories:
@@ -67,4 +67,10 @@ PWA로 개발을 한적이 없어서 무지성 의문들을 검색해봤다.
 <img width="717" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/e78d676e-4005-4624-bf76-bd4c8f903908">
 
 *GPT가 다했다는 뜻(실제임)*
+
+### 확인
+앱을 배포하고 라이트하우스를 켜면 아래와 같이 PWA 체크 표시가 뜬다. 그럼 된거다.    
+이제부터 앱 마냥 다운로드를 할 수 있다!      
+<img width="700" alt="라이트하우스" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/c53e25a0-821a-4b47-9f3e-fb6897457a3c">    
+<img width="300" alt="갤레기 앱 다운로드 후 화면" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/6fc035b0-8663-4511-a08e-6fa7eeb6f14e">    
 
