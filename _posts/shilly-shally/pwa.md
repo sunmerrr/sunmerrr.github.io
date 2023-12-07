@@ -44,3 +44,20 @@ PWA로 개발을 한적이 없어서 무지성 의문들을 검색해봤다.
 1. 앱이 아닌데 푸시 알림은 어떤 방식으로 보내게 되는거지?
     - 이건 좀 복잡한데 서비스워커를 통해 백그라운드에서 실행되는 스크립트를 활용한다고 한다.    
     구현은 꾀나 복잡해 보인다.(안해봐서 그런가..) [참고](https://developer.mozilla.org/ko/docs/Web/Progressive_web_apps/Tutorials/js13kGames/Re-engageable_Notifications_Push)
+
+## Next.js 로 웹앱 만들어보기
+[next-pwa](https://github.com/shadowwalker/next-pwa) 여기 github 페이지에 나와있는 순서대로만 해도 반은 간다.    
+지만, 나는 이거 대로 하지 않고 [이 블로그(Next-PWA-웹앱-만들기)](https://velog.io/@ghenmaru/Next-PWA-%EC%9B%B9%EC%95%B1-%EB%A7%8C%EB%93%A4%EA%B8%B0) 대로 했다.    
+여기서도 다 똑같이 할 수 없었던 것들이 몇 가지 있다.    
+1. app router 방식    
+    next.js의 page router 방식에는 _document 파일이 따로 존재하고 meta tag나 head, stript 설정 같은 것을 여기서 다 할 수 있었는데 나는 안타깝게도 app router 방식이었다.    
+    app router 방식에서는 layout에서 해당 설정 같은 것들을 처리해 줄 수 있다.    
+    <img width="989" alt="layout component 일부" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/08473508-ab92-42b9-bb99-cfc8e57ca4a5">
+
+2. manifast.json   
+    이거를 root 폴더에 넣어서 계속 에러가 났다.    
+    public 폴더 하위에 넣어줘야 한다.(쓰고 보니 블고으에도 public에 넣으라고 써져있었다..;)    
+
+3. display 설정    
+    그냥 [manifast 설정](https://www.simicart.com/manifest-generator.html/) 사이트에서 만든 파일을 그대로 넣었더니 설정 오류가 났다.    
+    display 설정은 standalone, fullscreen, 또는 minimal-ui 중에 하나로 해줘야 한다.
