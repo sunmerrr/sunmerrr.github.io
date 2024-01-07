@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2023-11-17
-last_modified_at: 2023-11-18
+last_modified_at: 2024-01
 ---
 
 내가 지금 회사에 존재하기 약 1년전, 백엔드인 그는 프론트엔드 코드를 짜달라는 지시를 받게 되는데...    
