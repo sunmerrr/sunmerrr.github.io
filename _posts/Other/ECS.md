@@ -23,3 +23,12 @@ last_modified_at: 2024-01-12
 
 ### 사용해보기
 // https://www.youtube.com/watch?v=JyzVn3iBbHc 이거 보면서 해봄
+1. Docker 이미지 빌드     
+  해당 부분은 이미 다 아는 부분이라고 생각해서 것 같아서 슬쩍 넘어간다.
+
+1. ECS Task 정의 생성    
+  ECS 클러스터에서 실행할 Task에 대한 정의를 작성한다. 여기서 어떤 컨테이너를 사용할지, 리소스를 어떻게 할당할지 등을 정할 수 있다.
+    - AWS 콘솔 메인에서 ECS를 검색하여 Amazon Elastic Container Service로 들어간다.
+
+1. ECS 서비스 생성
+  
