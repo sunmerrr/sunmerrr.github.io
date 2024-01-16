@@ -31,4 +31,24 @@ last_modified_at: 2024-01-12
     - AWS 콘솔 메인에서 ECS를 검색하여 Amazon Elastic Container Service로 들어간다.
 
 1. ECS 서비스 생성
-  
+  참고하기
+  https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html
+
+    1. AWS 리전 설정
+
+    1. EC2 인스턴스 생성
+
+    1. ECS 클러스터 생성
+        - 인스턴스 연결
+
+    1. Docker 이미지 준비
+
+    1. ECS Task 생성
+        - CLI로 하기
+        - GUI로 하기
+
+    1. ECS 서비스 생성
+
+    1. 로드 밸런서 설정(선택)
+
+    1. 서비스 시작
