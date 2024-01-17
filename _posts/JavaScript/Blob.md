@@ -21,4 +21,21 @@ last_modified_at: 2024-01-16
 
 1. 서버 호출을 통한 pdf 파일 받기    
     처음부터 막힌게 좀 웃기지만 서버 호출하는 것 부터 잘 안됐다.
-    api가 배포되기 전이라 endpoint와 query 값, headers에 어떤 값을 넣어서 보내주는지 이야기해서 로직을 먼저 짰다.    
+    api가 배포되기 전이라 endpoint와 query 값, headers에 어떤 값을 넣어서 보내주는지 백엔드와 이야기해서 로직을 먼저 짰다.    
+    그리고 api 작업이 완료되고 연결을 해보았는데... 
+    1. 1트
+
+        ```jsx
+        const { data } = useQuery(['report-eventAI'], async() => {
+          const params = 'id=summer'
+          const { data } = await ApiKeyInstance.get(`/data/log?${params}`, {
+            responseType: 'blob',
+            headers: {
+              'Content-Type': 'application/pdf',
+              'Content-Disposition': 'attachment; filename=my_file.pdf',
+            }
+          }) 
+
+          return data
+        })
+        ```
