@@ -123,3 +123,42 @@ last_modified_at: 2024-01-16
     downloadLink.click();
   }
   ```
+
+## 결과
+- fetch 시 파일명에 특수문자나 공백이 포함되어있을경우 이를 url에 직접사용하기 위해 파일명을 encoding 한다.
+- PDF 파일을 다룰때는 blob 객체로 받게 하여 클라이언트 측에서 다운로드, 미리보기 등의 작업을 수행할 수 있도록 한다.
+- 최종 코드
+
+    ```tsx
+      const handleDownload = async(filename: string, type: string) => {
+        try {
+          const encodedFilename = encodeURIComponent(`${filename}.pdf`);
+
+          const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
+            responseType: 'blob',
+            headers: {
+              'Content-Type': 'application/pdf',
+              'Content-Disposition': `attachment; filename=${encodedFilename}.pdf`,
+            }
+          })
+
+          const url = URL.createObjectURL(new Blob([pdfResponse.data], {type: 'application/pdf'}));
+
+          if (type === 'preview') {
+            return window.open(url);
+          }
+
+          if (type === 'download') {
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+
+            downloadLink.setAttribute('download', `${filename}.pdf`);
+            document.body.appendChild(downloadLink);
+
+            downloadLink.click();
+          }
+        } catch (error) {
+          console.error('Error donloading PDF:', error);
+        }
+      }
+    ```
