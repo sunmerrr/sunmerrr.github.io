@@ -23,9 +23,10 @@ last_modified_at: 2024-01-16
   처음부터 막힌게 좀 웃기지만 서버 호출하는 것 부터 잘 안됐다.
   api가 배포되기 전이라 endpoint와 query 값, headers에 어떤 값을 넣어서 보내주는지 백엔드와 이야기해서 로직을 먼저 짰다.    
   그리고 api 작업이 완료되고 연결을 해보았는데... 
+
   1. 1트
 
-      ```jsx
+      ```tsx
         const handleDownload = async(filename: string) => {
         try {
           const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
@@ -44,7 +45,7 @@ last_modified_at: 2024-01-16
   1. 2트    
       찾아보다가 랜덤 블로그에서 response type에 blob을 넣어줘야 한다는 것을 보고 그것만 넣어줬다.    
 
-      ```jsx
+      ```tsx
         const handleDownload = async(filename: string) => {
         try {
           const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
@@ -64,12 +65,11 @@ last_modified_at: 2024-01-16
       이제 정신차리고 인코딩을 제대로 해줬다.    
       headers에 content type도 추가해줬다.
 
-      ```jsx
+      ```tsx
         const handleDownload = async(filename: string) => {
         try {
           const encodedFilename = encodeURIComponent(`${filename}.pdf`);
 
-          // db에서 파일을 불러올 수 있는 api를 아래에 삽입하여 연결
           const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
             responseType: 'blob',
             headers: {
@@ -84,9 +84,9 @@ last_modified_at: 2024-01-16
 ### 2. 다운로드 기능 구현하기    
   사용자의 화면에는 보이지 않는 가상 `<a/>`요소와 다운로드 링크를 생성하고 바로 다운로드 이벤트가 발생하도록 하여 버튼 클릭 시 파일을 다운로드 받을 수 있도록 한다.
 
-  ```jsx
+  ```tsx
   const url = URL.createObjectURL(new Blob([pdfResponse.data], {type: 'application/pdf'}));
-    // 1. 위에서 호출한 데이터의 결과 pdfResponse를 기반으로 blob 객체를 생성하고, 해당 blob 객체를 가리키는 가상의 url 생성 
+    // 1. 위에서 호출한 데이터의 결과 pdfResponse를 기반으로 blob 객체를 생성하고, 해당 blob 객체를 가리키는 가상의 url 생성
 
   const downloadLink = document.createElement('a'); 
     // 2. 다운로드 링크를 나타낼 가상 요소
@@ -102,3 +102,24 @@ last_modified_at: 2024-01-16
   // 6. 생성한 가상 다운로드 링크가 클릭되도록 함
   ```
 
+### 3. 미리보기 추가하기    
+  파일을 다운로드 받기 전 미리보기 기능이 있으면 좋을 것 같아서 미리보기 기능도 추가해주었다.    
+  함수의 매개변수로 type으로 'preview'와 'download'를 받도록 하여서 어떤 버튼을 클릭한건지 알 수 있도록 했다.
+
+  ```tsx
+  const url = URL.createObjectURL(new Blob([pdfResponse.data], {type: 'application/pdf'}));
+
+  if (type === 'preview') {
+    return window.open(url);
+  }
+
+  if (type === 'download') {
+    const downloadLink = document.createElement('a');
+    downloadLink.href = url;
+
+    downloadLink.setAttribute('download', `${filename}.pdf`);
+    document.body.appendChild(downloadLink);
+
+    downloadLink.click();
+  }
+  ```
