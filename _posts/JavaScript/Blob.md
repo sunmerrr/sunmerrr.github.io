@@ -27,13 +27,15 @@ last_modified_at: 2024-01-16
   1. 1트
 
       ```tsx
-        const handleDownload = async(filename: string) => {
+      const handleDownload = async(filename: string) => {
         try {
           const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
             headers: {
               'Content-Disposition': `attachment; filename=${filename}.pdf`,
             }
           })
+        } 
+      }
       ```
 
       이렇게 하면 아래와 같은 에러가 뜬다    
@@ -46,7 +48,7 @@ last_modified_at: 2024-01-16
       찾아보다가 랜덤 블로그에서 response type에 blob을 넣어줘야 한다는 것을 보고 그것만 넣어줬다.    
 
       ```tsx
-        const handleDownload = async(filename: string) => {
+      const handleDownload = async(filename: string) => {
         try {
           const pdfResponse = await ApiKeyInstance.get(`/download/pdf`, {
             responseType: 'blob',
@@ -54,6 +56,8 @@ last_modified_at: 2024-01-16
               'Content-Disposition': `attachment; filename=${filename}.pdf`,
             }
           })
+        }
+      }
       ```
 
       1트에서 났던 에러가 똑같이 난다.    
@@ -66,7 +70,7 @@ last_modified_at: 2024-01-16
       headers에 content type도 추가해줬다.
 
       ```tsx
-        const handleDownload = async(filename: string) => {
+      const handleDownload = async(filename: string) => {
         try {
           const encodedFilename = encodeURIComponent(`${filename}.pdf`);
 
@@ -77,6 +81,8 @@ last_modified_at: 2024-01-16
               'Content-Disposition': `attachment; filename=${encodedFilename}.pdf`,
             }
           })
+        }
+      }
       ```
 
       이렇게 해주면 파일이 잘 들어온다. 굳굳
@@ -99,7 +105,7 @@ last_modified_at: 2024-01-16
     // 5. body에 위에서 생성한 가상 다운로드 링크를 추가하여 클릭 이벤트가 발생하도록 해줌
 
   downloadLink.click();
-  // 6. 생성한 가상 다운로드 링크가 클릭되도록 함
+    // 6. 생성한 가상 다운로드 링크가 클릭되도록 함
   ```
 
 ### 3. 미리보기 추가하기    
@@ -124,7 +130,7 @@ last_modified_at: 2024-01-16
   }
   ```
 
-## 결과
+## 완성본
 - fetch 시 파일명에 특수문자나 공백이 포함되어있을경우 이를 url에 직접사용하기 위해 파일명을 encoding 한다.
 - PDF 파일을 다룰때는 blob 객체로 받게 하여 클라이언트 측에서 다운로드, 미리보기 등의 작업을 수행할 수 있도록 한다.
 - 최종 코드
