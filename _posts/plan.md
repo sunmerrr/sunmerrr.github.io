@@ -5,6 +5,7 @@
 [x] 2023 회고 및 2024 계획   
 [x] blob 사용 예시 작성     
 [ ] 커뮤니티 발표 후기 작성     
+[ ] storybook     
 [x] 리팩토링   
 [ ] next sitemap    
 [ ] 내가 쓰는 GPT    
