@@ -1,0 +1,95 @@
+---
+title: "Canvas vs Iframe vs Fabric.js 비교 / Fabric.js 적용"
+excerpt: ""
+
+categories:
+  - React
+tags:
+  - [react, api, library, fabricjs, canvas]
+
+toc: true
+toc_sticky: true
+ 
+date: 2024-01-05
+last_modified_at: 2024-01-27
+---
+
+## 웹 개발에서 그래픽 및 상호작용 콘텐츠를 처리하는 다양한 방법이 있다. 이 비교에서는 Canvas, Iframe 및 Fabric.js 라이브러리 간의 차이를 살펴보려고 한다.
+
+### Canvas
+- 장점
+  - 내장 그래픽 API를 활용하여 HTML5 캔버스 요소에 그림을 그릴 수 있음
+  - 저수준 API를 라서 유연성이 좋음
+  - 다양한 도형 및 이미지를 그릴 수 있음
+
+- 단점
+  - 복잡한 그래픽 처리 및 상호작용은 수동으로 구현
+  - 상태 관리 및 이벤트 처리가 수동으로 이루어져야 함
+  - 높은 수준의 추상화가 부족하며, 개발자는 직접 많은 부분을 구현해야 함
+
+### Iframe
+- 장점
+  - 외부 웹페이지를 내부에 삽입하여 독립성을 확보할 수 있음
+  - 외부 콘텐츠를 쉽게 로드하고 통합 가능
+
+- 단점
+  - 외부 리소스 로딩에 시간이 걸릴 수 있음
+  - 동일 출처 정책에 의해 제약을 받을 수 있음
+  - 보안 및 레이아웃 문제가 발생할 수 있음
+
+### Fabric.js
+- 장점
+  - 객체 지향적인 접근을 통해 쉬운 상호작용 및 상태 관리를 가능케 한다.
+  - 다양한 그래픽 기능 및 편의 기능 제공
+  - 크로스 브라우징을 지원
+- 단점
+  - 추가적인 라이브러리 의존성 존재
+  - 초기 학습 곡선이 존재할 수 있음
+
+
+## Fabric.js 적용
+1. **설치:**
+    ```bash
+    npm install fabric
+    ```
+
+1. **React 컴포넌트에 Fabric.js 통합:**
+    ```tsx
+    // src/FabricCanvas.tsx
+    import React, { useEffect } from 'react';
+    import { fabric } from 'fabric';
+
+    const FabricCanvas: React.FC = () => {
+      useEffect(() => {
+        // Fabric.js canvas 초기화
+        const canvas = new fabric.Canvas('fabric-canvas', { width: 800, height: 600 });
+
+        // 예시: 원 생성
+        const circle = new fabric.Circle({ radius: 30, fill: 'red', left: 100, top: 100 });
+        canvas.add(circle);
+      }, []);
+
+      return (
+        <canvas id="fabric-canvas"></canvas>
+      );
+    };
+
+    export default FabricCanvas;
+    ```
+
+1. **App 컴포넌트에서 사용:**
+    ```tsx
+    // src/App.tsx
+    import React from 'react';
+    import FabricCanvas from './FabricCanvas';
+
+    const App: React.FC = () => {
+      return (
+        <App>
+            <FabricCanvas />
+        </App>
+      );
+    };
+
+    export default App;
+    ```
