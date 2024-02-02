@@ -7,6 +7,7 @@
 [ ] 커뮤니티 발표 후기 작성     
 [ ] storybook     
 [x] 리팩토링   
+[ ] Joystick    
 [ ] next sitemap    
 [ ] 내가 쓰는 GPT    
 [ ] js-스코프    
