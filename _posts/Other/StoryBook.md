@@ -15,7 +15,8 @@ last_modified_at: 2024-01-30
 ---
 
 ## Storybook JS 소개
-Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구로, 주로 React, Vue, Angular 등의 프레임워크로 작성된 컴포넌트를 다룰 때 활용된다.
+Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구로, 주로 React, Vue, Angular 등의 프레임워크로 작성된 컴포넌트를 다룰 때 활용된다.    
+[Storybook docs](https://storybook.js.org/docs/get-started/install).   
 
 ### Stroybook 장/단점
 - 장점
@@ -27,3 +28,9 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
 - 단점
   - 러닝커브: 처음 사용 시 러닝커브 발생
   - 범위: UI 컴포넌트에 중점을 두고 있어서 프로젝트의 전반적인 테스트를 수행하기 어려움
+
+### Jest, Cypress와의 비교
+**Storybook vs. Jest & Cypress**    
+* Storybook: 주로 UI 컴포넌트 개발, 문서화, 시각적 테스팅
+* Jest: 주로 유닛 테스트, 모듈 테스트에 사용. 코드 품질 보장 및 모듈 독립적 테스트에 용이
+* Cypress: 엔드 투 엔드 테스트를 위해 사용. 웹 애플리케이션의 전반적인 동작을 테스트
