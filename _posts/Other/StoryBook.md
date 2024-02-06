@@ -34,3 +34,26 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
 * Storybook: 주로 UI 컴포넌트 개발, 문서화, 시각적 테스팅
 * Jest: 주로 유닛 테스트, 모듈 테스트에 사용. 코드 품질 보장 및 모듈 독립적 테스트에 용이
 * Cypress: 엔드 투 엔드 테스트를 위해 사용. 웹 애플리케이션의 전반적인 동작을 테스트
+
+## Storybook 적용
+
+### Install
+1. install    
+    스토리북 최신 버젼 install
+    ```
+    npx storybook@latest init
+    ```
+
+2. run    
+    설치가 완료되면 일단 실행해보자
+    ```
+    npm run storybook
+    ```
+
+3. 가이드    
+    일단 시작하면 아래와 같은 가이드가 뜬다. 이것만 잘 읽고 따라가도 반은 먹힌다.     
+    ![storybook install](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3dcea71d-4217-4468-8759-7499c1537a20)   
+    [출처: Install Stroybook](https://storybook.js.org/docs/get-started/install)
+
+### 스토리 작성
+대충 둘러봤으니 이제 내 프로젝트의 컴포넌트를 작성해보자
