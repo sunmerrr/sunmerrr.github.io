@@ -57,3 +57,30 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
 
 ### 스토리 작성
 대충 둘러봤으니 이제 내 프로젝트의 컴포넌트를 작성해보자
+
+1. 테스트 할 컴포넌트 설정    
+    나는 아래의 버튼 컴포넌트를 테스트 하려고 한다.    
+    디폴트 스타일이 있고 사용자 입장에서 사용하는 순간에 스타일을 줄 수도 있다.    
+    ```tsx
+    const Button:React.FC<Props> = ({label, icon, onClick, buttonStyle, iconStyle, children}) => {
+      return (
+        <ButtonComponrnt
+          onClick={onClick}
+          style={{...buttonStyle}}
+        >
+          {icon && (
+            <IconContainer style={{...iconStyle}}>
+              <img src={icon} alt="button icon" />
+            </IconContainer>
+          )}
+          {label}
+          {children}
+        </ButtonComponrnt>
+      )
+    }
+
+    export default Button
+    ```
+
+2. 테스트 코드 작성
+    
