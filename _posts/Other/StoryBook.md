@@ -117,8 +117,10 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
       ```
 
       디폴트 스타일의 버튼을 보여주는 테스트를 먼저 작성해보고 `npm run storybook`으로 컴포넌트가 잘 뜨는지 확인해본다.    
-           
-      <img width="277" alt="custom stories" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/ecf4a098-0ee7-43fb-8439-a30458703782">    
+      <img width="277" alt="custom stories" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/24807f0f-9c39-44f1-b3a0-3d498bace693">     
+      
+      디폴트 버튼은 아래와 같은 스타일이라고 나온다.    
+      <img width="582" alt="default" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/12784437-52f6-4072-af6b-3de8bdcb8e96">
 
 
 
