@@ -1,5 +1,5 @@
 ---
-title: "Storybook/Jest/Cypress 비교 + 초기 세팅"
+title: "Storybook으로 컴포넌트 테스트 하기"
 excerpt: ""
 
 categories:
@@ -60,7 +60,7 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
 
 1. 테스트 할 컴포넌트 설정    
     나는 아래의 버튼 컴포넌트를 테스트 하려고 한다.    
-    디폴트 스타일이 있고 사용자 입장에서 사용하는 순간에 스타일을 줄 수도 있다.    
+    디폴트 스타일이 있고 사용자 입장에서 사용하면서 스타일을 변경할 수도 있다.    
     ```tsx
     const Button:React.FC<Props> = ({label, icon, onClick, buttonStyle, iconStyle, children}) => {
       return (
@@ -82,5 +82,43 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
     export default Button
     ```
 
-2. 테스트 코드 작성
+2. 테스트 코드(스토리) 작성
+    작성하는 요령은 [storybook docs](https://storybook.js.org/docs/writing-stories)에도 잘 나와있어서 그냥 따라치면 된다.     
     
+    - 파일트리 
+      테스트 파일은 컴포넌트와 같은 폴더 안에 만들어도된다.
+      ```plaintext
+      src/
+      |-- components/
+      |   |-- Common/
+      |       |-- Button.tsx
+      |       |-- Button.stories.tsx
+      ```
+    
+    - 테스트 코드
+      ```tsx
+      import { Meta, StoryObj } from '@storybook/react';
+      import { action } from '@storybook/addon-actions';
+
+      import Button from './Button';
+      import { userIcon } from '../../Assets/icon';
+
+      const meta: Meta<typeof Button> = { component: Button }
+
+      export default meta;
+      type Story = StoryObj<typeof Button>;
+
+      export const Default: Story = {
+        args: {
+          onClick: action('the Default Button clicked'),
+          label: 'button',
+        }
+      };
+      ```
+
+      디폴트 스타일의 버튼을 보여주는 테스트를 먼저 작성해보고 `npm run storybook`으로 컴포넌트가 잘 뜨는지 확인해본다.
+
+
+      
+
+
