@@ -100,25 +100,27 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
       import { Meta, StoryObj } from '@storybook/react';
       import { action } from '@storybook/addon-actions';
 
-      import Button from './Button';
-      import { userIcon } from '../../Assets/icon';
+      import Button from './Button'; // 테스트 할 컴포넌트
 
       const meta: Meta<typeof Button> = { component: Button }
 
-      export default meta;
-      type Story = StoryObj<typeof Button>;
+      export default meta; // export default를 해줘야 스토리 리스트에 뜬다.
+      type Story = StoryObj<typeof Button>; // 스토리 정의
 
-      export const Default: Story = {
-        args: {
+      export const Default: Story = { // Button 컴포넌트 하위 테스트라고 보면 된다. Default라는 하위 테스트가 생긴다.
+        args: { 
+          // 컴포넌트를 실제 사용할때 전달해줘야하는 인자들을 넣어준다. 인자 값에 따른 컴포넌트 변화를 테스트 할 수 있다.
           onClick: action('the Default Button clicked'),
           label: 'button',
         }
       };
       ```
 
-      디폴트 스타일의 버튼을 보여주는 테스트를 먼저 작성해보고 `npm run storybook`으로 컴포넌트가 잘 뜨는지 확인해본다.
+      디폴트 스타일의 버튼을 보여주는 테스트를 먼저 작성해보고 `npm run storybook`으로 컴포넌트가 잘 뜨는지 확인해본다.    
+           
+      <img width="277" alt="custom stories" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/ecf4a098-0ee7-43fb-8439-a30458703782">    
 
 
-      
+
 
 
