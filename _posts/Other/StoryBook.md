@@ -95,7 +95,7 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
       |       |-- Button.stories.tsx
       ```
     
-    - 테스트 코드
+    - 기본 테스트 코드
       ```tsx
       import { Meta, StoryObj } from '@storybook/react';
       import { action } from '@storybook/addon-actions';
@@ -122,7 +122,25 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
       디폴트 버튼은 아래와 같은 스타일이라고 나온다.    
       <img width="582" alt="default" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/12784437-52f6-4072-af6b-3de8bdcb8e96">
 
+    - 추가 테스트 코드    
+      기본 값 외에 사용할 수 있는 조건으로 스토리를 작성한다.    
+      ```tsx
+      // 스타일을 넣은 버튼
+      export const WithButtonStyle: Story = {
+        args: {
+          onClick: action('the With Button Style clicked'),
+          label: 'red button',
+          buttonStyle: {
+            width: 'fit-content', 
+            height: '30px',
+            padding: '5px 10px',
+            justifyContent: 'center',
+            backgroundColor: '#0056b3',
+          }
+        }
+      }
+      ```
 
-
+      <img width="582" alt="with button style" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/ba03fa5a-288a-4237-9c1e-449f60be6ff3">
 
 
