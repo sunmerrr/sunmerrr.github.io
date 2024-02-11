@@ -147,3 +147,24 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
 
       <img width="582" alt="with button style" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/ba03fa5a-288a-4237-9c1e-449f60be6ff3">
 
+    - 아이콘 + 문구 테스트
+      ```tsx
+      // 기본 버튼 텍스트와 아이콘을 함께 넣은 테스트 
+      export const WithIcon: Story = {
+        args: {
+          onClick: action('the With Icon Button clicked'),
+          label: 'icon button',
+          icon: userIcon, // 아이콘은 상단에 미리 import 해준후 불러온다.
+          buttonStyle: {
+            width: 'fit-content', 
+            height: '30px',
+            padding: '5px 10px',
+            justifyContent: 'center',
+            backgroundColor: '#0056b3',
+          },
+        }
+      }
+      ```
+      
+      <img width="583" alt="with icon" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/f47bf0bd-fc21-4927-b47c-8610fba9e8b6">
+
