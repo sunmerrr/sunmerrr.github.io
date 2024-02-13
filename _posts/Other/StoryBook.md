@@ -53,12 +53,12 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
     ```
 
 3. 가이드    
-    일단 시작하면 아래와 같은 가이드가 뜬다. 이것만 잘 읽고 따라가도 반은 먹힌다.     
+    일단 시작하면 아래와 같은 가이드가 뜬다. 이것만 잘 읽고 따라가도 반은 한다.     
     ![storybook install](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3dcea71d-4217-4468-8759-7499c1537a20)   
     [출처: Install Stroybook](https://storybook.js.org/docs/get-started/install)
 
 #### 스토리 작성
-대충 둘러봤으니 이제 내 프로젝트의 컴포넌트를 작성해보자
+대충 둘러봤으니 이제 내 프로젝트의 컴포넌트 테스트 코드를 작성해보자
 
 1. 테스트 할 컴포넌트 설정    
     나는 아래의 버튼 컴포넌트를 테스트 하려고 한다.    
