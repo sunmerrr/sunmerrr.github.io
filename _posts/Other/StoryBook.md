@@ -3,9 +3,9 @@ title: "Storybook 리액트 컴포넌트 테스트 하기"
 excerpt: "실제 프로젝트에서의 활용 사례도 포함한 컴포넌트 테스트"
 
 categories:
-  - Developer
+  - React
 tags:
-  - [Software, web, Developer, Software Developer]
+  - [Software, Developer, Software Developer, React, Storybook]
 
 toc: true
 toc_sticky: true
