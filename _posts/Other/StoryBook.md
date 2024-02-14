@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2024-01-30
-last_modified_at: 2024-01-30
+last_modified_at: 2024-02-14
 ---
 
 ## 실제 프로젝트에서의 활용 사례도 포함한 Storybook 리액트 컴포넌트 테스트
