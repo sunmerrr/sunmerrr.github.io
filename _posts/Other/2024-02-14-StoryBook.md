@@ -32,7 +32,7 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
   - 범위: UI 컴포넌트에 중점을 두고 있어서 프로젝트의 전반적인 테스트를 수행하기 어려움
 
 #### Jest, Cypress와의 비교
-**Storybook vs. Jest & Cypress**    
+**Storybook vs. Jest & Cypress**       
 * Storybook: 주로 UI 컴포넌트 개발, 문서화, 시각적 테스팅
 * Jest: 주로 유닛 테스트, 모듈 테스트에 사용. 코드 품질 보장 및 모듈 독립적 테스트에 용이
 * Cypress: 엔드 투 엔드 테스트를 위해 사용. 웹 애플리케이션의 전반적인 동작을 테스트
@@ -58,7 +58,7 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
     [출처: Install Stroybook](https://storybook.js.org/docs/get-started/install)
 
 #### 스토리 작성
-대충 둘러봤으니 이제 내 프로젝트의 컴포넌트 테스트 코드를 작성해보자
+대충 둘러봤으니 이제 내 프로젝트의 컴포넌트 테스트 코드를 작성해보자.    
 
 1. 테스트 할 컴포넌트 설정    
     나는 아래의 버튼 컴포넌트를 테스트 하려고 한다.    
@@ -84,7 +84,7 @@ Storybook JS는 UI 컴포넌트 개발, 문서화 및 테스트를 위한 도구
     export default Button
     ```
 
-1. 테스트 코드(스토리) 작성
+1. 테스트 코드(스토리) 작성    
     작성하는 요령은 [storybook docs](https://storybook.js.org/docs/writing-stories)에도 잘 나와있어서 그냥 따라치면 된다.     
     기본 테스트 코드와 그 외 가능한 스타일 등으로 테스트 코드를 작성해보았다.    
     
