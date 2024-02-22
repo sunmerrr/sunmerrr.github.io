@@ -24,12 +24,12 @@ last_modified_at: 2024-02-14
 이걸 혼자할수는 없었다. 내 짝꿍 GPT의 도움을 많이 받았다.    
 하.지.만. GPT도 많이 틀렸다. 그래서 내가 따로 검색하고 계산하고 이런 고생도하면서 만들었다.
 
-1. Joystick 그리기
+1. Joystick 그리기     
     시작은 또 그냥 대뜸 GPT한테 요청한다.     
     <img width="374" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/20c3643a-5272-487f-b329-2a7c8cc55232">
         
     그럼 대충 코드를 짜주는데 마음에 들지 않아서 내가 대충 짜봤다.    
-    UI 그리는거야 어렵지 않으니..
+    UI 그리는거야 어렵지 않으니까..     
     ```tsx
     const [position, setPosition] = useState({ x: 18, y: 18 }); // 대충 중앙에 맞춰 준다. 
 
