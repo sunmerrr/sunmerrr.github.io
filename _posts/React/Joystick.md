@@ -61,8 +61,10 @@ last_modified_at: 2024-02-14
     `;
     ```
 
+    이렇게 하면 아내와 같은 이미지 처럼 ui가 그려진다.
+
     <img width="120" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/7a0570f1-9e0e-4bab-955c-50544f4bcdab">
 
-
+  1. 이벤트 추가하기
 
 - 후기
