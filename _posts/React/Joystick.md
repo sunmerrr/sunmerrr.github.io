@@ -65,6 +65,17 @@ last_modified_at: 2024-02-14
 
     <img width="120" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/7a0570f1-9e0e-4bab-955c-50544f4bcdab">
 
-  1. 이벤트 추가하기
+1. 이벤트 추가하기    
+    마우스 + 키보드 조작이 가능하도록 해야한다.
+    ```tsx
+    <JoystickContainer
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      <JoystickStick x={position.x} y={position.y} />
+    </JoystickContainer>
+    ```
+    
 
 - 후기
