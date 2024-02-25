@@ -67,6 +67,7 @@ last_modified_at: 2024-02-14
 
 1. 이벤트 추가하기    
     마우스 + 키보드 조작이 가능하도록 해야한다.
+    - **마우스 이벤트 추가**
     ```tsx
     const [isDragging, setIsDragging] = useState(false);
 
@@ -87,7 +88,7 @@ last_modified_at: 2024-02-14
       } 
     };
 
-    const onMouseUp = () => {
+    const handleMouseUp = () => {
       setIsDragging(false);
       resetJoystick()
     };
@@ -112,5 +113,9 @@ last_modified_at: 2024-02-14
     </ JoystickContainer>
     ```
     
+    - **키보드 이벤트 추가**
+    ```tsx
+    ```
+
 
 - 후기
