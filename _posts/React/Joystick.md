@@ -92,6 +92,16 @@ last_modified_at: 2024-02-14
       resetJoystick()
     };
 
+    const handleMouseLeave = () => {
+      if (isDragging) {
+        setIsDragging(false);
+        resetJoystick();
+      }
+    };
+
+    const resetJoystick = () => {
+      setPosition({ x: 18, y: 18 });
+    };
 
     <JoystickContainer
       onMouseDown={handleMouseDown}
