@@ -29,7 +29,7 @@ last_modified_at: 2024-02-14
     <img width="374" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/20c3643a-5272-487f-b329-2a7c8cc55232">
         
     그럼 대충 코드를 짜주는데 마음에 들지 않아서 내가 대충 짜봤다.    
-    UI 그리는거야 어렵지 않으니까..     
+    UI 그리는거야 어렵지 않으니까..(?)     
     ```tsx
     const [position, setPosition] = useState({ x: 18, y: 18 }); // 대충 중앙에 맞춰 준다. 
 
@@ -61,7 +61,7 @@ last_modified_at: 2024-02-14
     `;
     ```
 
-    이렇게 하면 아내와 같은 이미지 처럼 ui가 그려진다.
+    이렇게 하면 아래와 같은 이미지 처럼 ui가 그려진다.
 
     <img width="120" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/7a0570f1-9e0e-4bab-955c-50544f4bcdab">
 
