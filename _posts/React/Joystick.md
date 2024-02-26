@@ -68,13 +68,38 @@ last_modified_at: 2024-02-14
 1. 이벤트 추가하기    
     마우스 + 키보드 조작이 가능하도록 해야한다.
     ```tsx
+    const [isDragging, setIsDragging] = useState(false);
+
+    const handleMouseDown = () => {
+      setIsDragging(true);
+    };
+
+    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+
+      if (isDragging) {
+        const containerRect = joystickRef.current?.getBoundingClientRect();
+        if (containerRect) {
+          const x = event.clientX - containerRect.left - 25; // 조이스틱 중앙 정렬
+          const y = event.clientY - containerRect.top - 25; // 조이스틱 중앙 정렬
+          moveJoystick(x, y)
+        }
+      } 
+    };
+
+    const onMouseUp = () => {
+      setIsDragging(false);
+      resetJoystick()
+    };
+
+
     <JoystickContainer
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
     >
       <JoystickStick x={position.x} y={position.y} />
-    </JoystickContainer>
+    </ JoystickContainer>
     ```
     
 
