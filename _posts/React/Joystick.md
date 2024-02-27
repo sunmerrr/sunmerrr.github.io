@@ -68,54 +68,109 @@ last_modified_at: 2024-02-14
 1. 이벤트 추가하기    
     마우스 + 키보드 조작이 가능하도록 해야한다.
     - **마우스 이벤트 추가**
-    ```tsx
-    const [isDragging, setIsDragging] = useState(false);
+      ```tsx
+      const [isDragging, setIsDragging] = useState(false);
 
-    const handleMouseDown = () => {
-      setIsDragging(true);
-    };
+      const handleMouseDown = () => {
+        setIsDragging(true);
+      };
 
-    const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.preventDefault();
+      const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+      event.preventDefault();
 
-      if (isDragging) {
-        const containerRect = joystickRef.current?.getBoundingClientRect();
-        if (containerRect) {
-          const x = event.clientX - containerRect.left - 25; // 조이스틱 중앙 정렬
-          const y = event.clientY - containerRect.top - 25; // 조이스틱 중앙 정렬
-          moveJoystick(x, y)
-        }
-      } 
-    };
+        if (isDragging) {
+          const containerRect = joystickRef.current?.getBoundingClientRect();
+          if (containerRect) {
+            const x = event.clientX - containerRect.left - 25; // 조이스틱 중앙 정렬
+            const y = event.clientY - containerRect.top - 25; // 조이스틱 중앙 정렬
+            moveJoystick(x, y)
+          }
+        } 
+      };
 
-    const handleMouseUp = () => {
-      setIsDragging(false);
-      resetJoystick()
-    };
-
-    const handleMouseLeave = () => {
-      if (isDragging) {
+      const handleMouseUp = () => {
         setIsDragging(false);
-        resetJoystick();
-      }
-    };
+        resetJoystick()
+      };
 
-    const resetJoystick = () => {
-      setPosition({ x: 18, y: 18 });
-    };
+      const handleMouseLeave = () => {
+        if (isDragging) {
+          setIsDragging(false);
+          resetJoystick();
+        }
+      };
 
-    <JoystickContainer
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-    >
-      <JoystickStick x={position.x} y={position.y} />
-    </ JoystickContainer>
-    ```
+      const resetJoystick = () => {
+        setPosition({ x: 18, y: 18 });
+      };
+
+      <JoystickContainer
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+      >
+        <JoystickStick x={position.x} y={position.y} />
+      </ JoystickContainer>
+      ```
     
     - **키보드 이벤트 추가**
-    ```tsx
-    ```
+      ```tsx
+      const [isPressKey, setIsPressKey] = useState(false);
+
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (isDragging) return; 
+
+        switch (event.key) {
+          case 'ArrowUp':
+            moveJoystickByKeyboard(position.x, 0);
+            break;
+          case 'ArrowDown':
+            moveJoystickByKeyboard(position.x, 35);
+            break;
+          case 'ArrowLeft':
+            moveJoystickByKeyboard(0, position.y);
+            break;
+          case 'ArrowRight':
+            moveJoystickByKeyboard(35, position.y);
+            break;
+          default:
+            break;
+        }
+
+        if (!isPressKey) {
+          setIsPressKey(true);
+        }
+      };
+
+      const handleKeyUp = () => {
+        if (!isDragging) {
+          resetJoystick();
+        }
+
+        setIsPressKey(false);
+      };
+
+      const moveJoystickByKeyboard = (targetX: number, targetY: number) => {
+        const updatePosition = () => {
+          const dx = targetX - position.x;
+          const dy = targetY - position.y;
+          position.x += dx;
+          position.y += dy;
+          
+          updateDirection(position.x, position.y);
+
+          // 조이스틱이 영역 끝쪽에 닿으면 업데이트 중지
+          if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1) {
+            setPosition({ x: targetX, y: targetY });
+            updateDirection(targetX, targetY);
+          } else {
+            requestAnimationFrame(updatePosition);
+          }
+        };
+
+        updatePosition();
+      };
+      ```
 
 
 - 후기
