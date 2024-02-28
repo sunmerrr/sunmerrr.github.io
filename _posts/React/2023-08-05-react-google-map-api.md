@@ -1,5 +1,5 @@
 ---
-title: "React Google Map #2 API 연동과 Marcer(MarcerF)"
+title: "React Google Map #2 API 연동과 Marker(MarkerF)"
 excerpt: "react-google-maps/api 설명 및 사용 예시와 마커(React 18+)"
 
 categories:
