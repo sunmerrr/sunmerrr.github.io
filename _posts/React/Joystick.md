@@ -120,6 +120,8 @@ last_modified_at: 2024-02-14
       const handleKeyDown = (event: KeyboardEvent) => {
         if (isDragging) return; 
 
+        if (!isPressKey) setIsPressKey(true);
+
         switch (event.key) {
           case 'ArrowUp':
             moveJoystickByKeyboard(position.x, 0);
@@ -136,10 +138,6 @@ last_modified_at: 2024-02-14
           default:
             break;
         }
-
-        if (!isPressKey) {
-          setIsPressKey(true);
-        }
       };
 
       const handleKeyUp = () => {
@@ -154,8 +152,7 @@ last_modified_at: 2024-02-14
         const updatePosition = () => {
           const dx = targetX - position.x;
           const dy = targetY - position.y;
-          position.x += dx;
-          position.y += dy;
+          setPosition({x: position.x += dx, y: position.y += dy})
           
           updateDirection(position.x, position.y);
 
@@ -171,6 +168,36 @@ last_modified_at: 2024-02-14
         updatePosition();
       };
       ```
+
+1. 이벤트에 따른 방향 업데이트 함수
+    ```tsx
+    const updateDirection = (x: number, y: number) => {
+      if (!isControlOn) return;
+      
+      let direction = '';
+
+      if (x > 9 && x <= 26.5 && y > -17.5 && y <= 9) { // x: 18, y: 0
+        direction = 'front';
+      } else if (x > -17.5 && x <= 9 && y > -17.5 && y <= 9) { // x: 0, y: 0
+        direction = 'frontLeft';
+      } else if (x > 26.5 && y > -17.5 && y <= 9) { // x: 35, y: 0
+        direction = 'frontRight';
+      } else if (x > 9 && x <= 26.5 && y > 26.5) { // x: 18, y: 35
+        direction = 'back';
+      } else if (x > -17.5 && x <= 9 && y > 26.5) { // x: 0, y: 35
+        direction = 'backLeft';
+      } else if (x > 26.5 && y > 26.5) { // x: 35, y: 35
+        direction = 'backRight';
+      } else if (x > -17.5 && x <= 9 && y > 9 && y <= 26.5) { // x: 0 y: 18
+        direction = 'left';
+      } else if ((x > 26.5) && (y > 9 && y <= 26.5)) { // x: 35, y: 18
+        direction = 'right';
+      }
+
+      setArrowDirection(direction)
+      onChange(direction);
+    };
+    ```
 
 
 - 후기
