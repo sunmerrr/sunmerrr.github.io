@@ -1,5 +1,5 @@
 ---
-title: "Google Maps API #4 - Polygon(PolygonF), 다각형 그리기"
+title: "Google Map API #4 - Polygon(PolygonF), 다각형 그리기"
 excerpt: "react-google-map/api 지도위에 다격형 도형 그리기"
 
 categories:

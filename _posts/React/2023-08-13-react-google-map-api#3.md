@@ -1,5 +1,5 @@
 ---
-title: "React Google Maps API #3 - 필수 옵션과 props + instance"
+title: "React Google Map API #3 - 필수 옵션과 props + instance"
 excerpt: "react-google-maps/api map instance 설명"
 
 categories:
