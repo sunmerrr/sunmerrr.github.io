@@ -176,6 +176,7 @@ last_modified_at: 2024-02-14
       
       let direction = '';
 
+      // 센터는 약 18이고 원의 가장자리는 0 또는 35 이다. 해당 값을 기준으로 아래 방향이 설정된다.
       if (x > 9 && x <= 26.5 && y > -17.5 && y <= 9) { // x: 18, y: 0
         direction = 'front';
       } else if (x > -17.5 && x <= 9 && y > -17.5 && y <= 9) { // x: 0, y: 0
@@ -194,10 +195,15 @@ last_modified_at: 2024-02-14
         direction = 'right';
       }
 
-      setArrowDirection(direction)
       onChange(direction);
     };
     ```
+
+    이렇게까지 하면 아래와 같이 마우스와 키보드 조작이 가능해진다.    
+    뭔가 공튀기는 모습 같기도..    
+    ![2024-01-319 57 08-ezgif com-video-to-gif-converter](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3009de3a-355c-45c7-97b4-a39f2b772e45)
+
+
 
 
 - 후기
