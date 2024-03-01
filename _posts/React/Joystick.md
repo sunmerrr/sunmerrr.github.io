@@ -203,7 +203,23 @@ last_modified_at: 2024-02-14
     뭔가 공튀기는 모습 같기도..    
     ![2024-01-319 57 08-ezgif com-video-to-gif-converter](https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/3009de3a-355c-45c7-97b4-a39f2b772e45)
 
+1. 방향 화살표 그리기    
+    쓸데 없지만 화살표도 그려주자.    
 
+    ```tsx
+    const [arrowDirection, setArrowDirection] = useState<string>(''); // 조이스틱 상태에 따른 화살표 활상화 상태
 
+    const resetJoystick = () => {
+      setPosition({ x: 18, y: 18 });
+      setArrowDirection('') // 입력 값이 없을때 화살표 활성화 상태 초기화
+    };
+
+    const updateDirection = (x: number, y: number) => {
+      ...
+      setArrowDirection(direction)
+      ...
+    }
+
+    ```
 
 - 후기
