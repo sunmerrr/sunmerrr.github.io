@@ -220,6 +220,25 @@ last_modified_at: 2024-02-14
       ...
     }
 
+    // 조이스틱과 같은 라인에 화살표를 넣어준다.
+    {['front', 'right', 'back', 'left'].map((arrow, index) => {
+      return (
+        <ArrowWrapper key={index} direction={arrow} rotate={index % 2 === 1 && index * 90}>
+          <Arrow fill={arrow === arrowDirection ? '#00E100' : '#6A6762'}/>
+        </ArrowWrapper>
+      )
+    })}
+    <JoystickStick x={position.x} y={position.y} />
+
+    const ArrowWrapper = styled.div<{direction: string, rotate: number}>`
+      position: absolute;
+      width: fit-content;
+      height: fit-content;
+      top: ${({rotate}) => (rotate === 0 && '5%') || (rotate === 180 && '95%') || '50%'};
+      left: ${({rotate}) => (rotate === 90 && '95%') || (rotate === 270 && '5%') || '50%'};
+      transform: translate(-50%, -50%) rotate(${({rotate}) => rotate + 'deg'});
+      z-index: 1;
+    `;
     ```
 
 - 후기
