@@ -221,16 +221,23 @@ last_modified_at: 2024-02-14
     }
 
     // 조이스틱과 같은 라인에 화살표를 넣어준다.
-    {['front', 'right', 'back', 'left'].map((arrow, index) => {
-      return (
-        <ArrowWrapper key={index} direction={arrow} rotate={index % 2 === 1 && index * 90}>
-          <Arrow fill={arrow === arrowDirection ? '#00E100' : '#6A6762'}/>
-        </ArrowWrapper>
-      )
-    })}
-    <JoystickStick x={position.x} y={position.y} />
-
-    const ArrowWrapper = styled.div<{direction: string, rotate: number}>`
+    <JoystickContainer
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      // frontLeft, frontRight 등도 처리해줬어야 했는데 깜박했다.
+      {['front', 'right', 'back', 'left'].map((arrow, index) => {
+        return (
+          <ArrowWrapper key={index} rotate={index % 2 === 1 && index * 90}>
+            <Arrow fill={arrow === arrowDirection ? '#00E100' : '#6A6762'}/>
+          </ArrowWrapper>
+        )
+      })}
+      <JoystickStick x={position.x} y={position.y} />
+    </ JoystickContainer>
+    
+    const ArrowWrapper = styled.div<{rotate: number}>`
       position: absolute;
       width: fit-content;
       height: fit-content;
