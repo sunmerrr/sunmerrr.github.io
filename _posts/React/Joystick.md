@@ -209,6 +209,8 @@ last_modified_at: 2024-02-14
     ```tsx
     const [arrowDirection, setArrowDirection] = useState<string>(''); // 조이스틱 상태에 따른 화살표 활상화 상태
 
+    ... 
+
     const resetJoystick = () => {
       setPosition({ x: 18, y: 18 });
       setArrowDirection('') // 입력 값이 없을때 화살표 활성화 상태 초기화
@@ -217,8 +219,9 @@ last_modified_at: 2024-02-14
     const updateDirection = (x: number, y: number) => {
       ...
       setArrowDirection(direction)
-      ...
     }
+
+    ...
 
     // 조이스틱과 같은 라인에 화살표를 넣어준다.
     <JoystickContainer
@@ -237,6 +240,8 @@ last_modified_at: 2024-02-14
       <JoystickStick x={position.x} y={position.y} />
     </ JoystickContainer>
     
+    ... 
+
     const ArrowWrapper = styled.div<{rotate: number}>`
       position: absolute;
       width: fit-content;
@@ -249,3 +254,4 @@ last_modified_at: 2024-02-14
     ```
 
 - 후기
+  조금 더 깔끔하게 할 수 있을 것 같은데..
