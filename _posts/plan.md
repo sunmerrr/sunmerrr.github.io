@@ -10,7 +10,6 @@
 [x] Joystick    
 [ ] 1분기 리뷰    
 [ ] next sitemap    
-[ ] 내가 쓰는 GPT    
 [ ] js-스코프    
 [ ] js-클로저    
 [ ] js-promise    
