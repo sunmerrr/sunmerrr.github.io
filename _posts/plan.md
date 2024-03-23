@@ -9,16 +9,15 @@
 [x] 리팩토링   
 [x] Joystick    
 [x] 1분기 리뷰    
-[ ] 소켓 연결 과정 + 에러 발생 시
+[ ] 소켓 연결 과정 + 에러 발생 시     
+[ ] graphQL
 [ ] next sitemap    
 [ ] js-스코프    
 [ ] js-클로저    
 [ ] js-promise    
 [ ] 2분기 리뷰     
 [ ] js-컨텍스트    
-[ ] js-    
-[ ] 커뮤니티 후기    
-[ ] 쿠버네티스 배포    
+[ ] js-       
 [ ] react hooks-useReducer    
 [ ] 3분기 리뷰    
 [ ] react hooks-useMemo    
