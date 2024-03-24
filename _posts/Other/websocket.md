@@ -16,6 +16,10 @@ last_modified_at: 2024-03-22
 
 1. 장점
 1. 연결 순서
+    - fetch 방식과 약간 다름 (create handshake - sets up a connection - transmits the handshake - validates the response)
+    1. setting up a connection
+    1. creating and transmiting a handshake request
+    1. validating the handshake response
 1. 연결 이후에
 1. 끊김 순서
 1. 어떠한 이유로 종료되었을때
