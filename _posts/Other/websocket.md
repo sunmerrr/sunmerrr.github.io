@@ -16,7 +16,7 @@ last_modified_at: 2024-03-22
 
 1. 장점
 1. 연결 순서
-    - fetch 방식과 약간 다름 (create handshake - sets up a connection - transmits the handshake - validates the response)
+    - fetch 방식과 약간 다름 (Fetch: 핸드쉐이크 생성 - 연결 설정 - 핸드쉐이크 전송 - 응답 검증)
     1. 연결 설정
     1. 핸드쉐이크 요청 생성 및 전송
     1. 핸드쉐이크 응답 검증
