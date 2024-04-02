@@ -40,3 +40,4 @@ last_modified_at: 2024-03-22
 - 대체제.   
   - server-sent Event: 이벤트 발생 시 서버측에서 이벤트를 보냄
 - 근데 시원하게 이렇게된다! 라는 자료를 발견하지 못한 것 같다.(니가 하면 되잖아)
+참고 : https://stackoverflow.com/questions/26971026/handling-connection-loss-with-websockets
