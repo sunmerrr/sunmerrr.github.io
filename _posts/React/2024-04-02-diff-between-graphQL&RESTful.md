@@ -15,7 +15,7 @@ last_modified_at: 2024-04-02
 ---
 
 ## GraphQL과 RESTful API의 차이점, 장단점을 정리해본 글
-GraphQL과 RESTful API는 모두 웹 어플리케이션에서 서버와 클라이언트 간의 데이터 교환을 위해 사용되는 기술이다.
+**GraphQL과 RESTful API는 모두 웹 어플리케이션에서 서버와 클라이언트 간의 데이터 교환을 위해 사용되는 기술이다.**
 
 ### GraphQL
 페이스북에 의해 개발된 쿼리 언어이다.    
