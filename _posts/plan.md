@@ -13,11 +13,12 @@
 [x] graphQL    
 [ ] next sitemap    
 [ ] js-스코프    
+[ ] js-this     
 [ ] js-클로저    
 [ ] js-promise    
 [ ] 2분기 리뷰     
 [ ] js-컨텍스트    
-[ ] js-       
+[ ] js-호출스택      
 [ ] react hooks-useReducer    
 [ ] 3분기 리뷰    
 [ ] react hooks-useMemo    
