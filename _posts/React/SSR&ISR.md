@@ -23,8 +23,8 @@ Server Side Rendering 의 약자로 서버에서 페이지의 HTML을 미리 생
 <img width="439" alt="ssr image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/28fa8536-d688-4631-9012-b4b1a44b45f3">    
 
 #### 장점
-- 초기 로딩 시간 단축: 서버에서 완성된 HTML을 보내주기 때문에 초기 로딩 시간이 단축된다.
-- SEO 최적화: 검색 엔진은 JavaScript를 실행시키지 않고 HTML 내용만으로 크롤링하기 때문에
+- 초기 로딩 시간 단축: 기존에 react에서는 빈 html을 보여주고 서버에 요청하여 html, css, js 파일을 받아온게 해주는 프로세스라서 사용자는 순간적이지만 빈 페이지를 보게 될 수밖에 없었다(너무 잠깐이라서 사용자가 모르고 지나갈 수도 있음) ssr을 사용하게되면 페이지의 html 을 서버에서 그려서 보내주기 때문에 사용자는 빠르게 완성된 UI를 볼 수 있다.
+- SEO 최적화: 검색 엔진은 JavaScript를 실행시키지 않고 HTML 내용만으로 크롤링하기 때문에 완성된 HTML을 보내주는 SSR방식은 SEO 최적화에 유리하다.
 - 소셜 미디어 최적화: 
 - 사용자 경험 개선: 
 
