@@ -59,3 +59,17 @@ Server Side Rendering 의 약자로 서버에서 페이지의 HTML을 미리 생
 
   export default HomePage;
   ```
+
+### 2. ISR(Incremental Static Regeneration)
+SSG와 SSR의 장점을 결합한 방식. SSG 처럼 빌드타임에 페이지를 생성하면서도 필요에 따라서 데이터를 업데이트 할 수 있는 방식이다.     
+
+ISR은 `revalidate`옵션을 통해서 페이지를 어느 주기로 업데이트 할 수 있을지 설정할 수 있다. 설정된 주기 동안에는 기존 페이지가 보여지고, 주기가 도래하면 새로운 페이지가 생성된다고 보면 된다.      
+
+<img width="445" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/a23dac1d-7153-4327-8e30-748babc7c101">    
+
+
+
+#### 장점
+- 성능 향상: 정적 파일을 제공하기 때문에
+- 스케일 용이성
+- 신선도 유지: 
