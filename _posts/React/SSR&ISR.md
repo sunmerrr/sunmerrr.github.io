@@ -10,8 +10,8 @@ tags:
 toc: true
 toc_sticky: true
  
-date: 2024-04-07
-last_modified_at: 2024-04-07
+date: 2024-04-14
+last_modified_at: 2024-04-14
 ---
 
 ## SSR과 ISR이 왜 필요하고 장점이 무엇인지, 구현은 어떻게 하는지 알아보는 글
@@ -19,6 +19,8 @@ last_modified_at: 2024-04-07
 
 ### 1. SSR
 Server Side Rendering 의 약자로 서버에서 페이지의 HTML을 미리 생성하여 클라이언트로 보내주는 방식이다.     
+검색 엔진이 방문해야하는 페이지나 소셜 미디어에 미리보기를 노출할 페이지에 적합하다고 볼 수 있다.    
+CSR에 비해서는 초기 페이지 로딩 시간이 짧으나, ISR에 비해서는 느리다고 할 수 있으며, ISR에 비해서 콘텐츠 신선도의 신뢰성이 높다.
 
 <img width="439" alt="ssr image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/28fa8536-d688-4631-9012-b4b1a44b45f3">     
 
