@@ -11,6 +11,7 @@
 [x] 1분기 리뷰    
 [ ] 소켓 연결 과정 + 에러 발생 시     
 [x] graphQL    
+[ ] SSR&ISR 비교 글
 [ ] next sitemap    
 [ ] js-스코프    
 [ ] js-this     
