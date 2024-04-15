@@ -72,4 +72,16 @@ ISR은 `revalidate`옵션을 통해서 페이지를 어느 주기로 업데이�
 - 스케일 용이성: CDN 서비스를 사용하여 ISR 을 배포하게되면 트래픽이 급증하는 상황에서도 애플리케이션 성능 유지가 가능하다.
 - 신선도 유지: `revalidate` 옵션을 설정하여, 특정 주기마다 페이지를 업데이트 할 수 있기 때문에 신선한 콘텐츠를 제공할 수 있다.
 
-
+#### 예시
+  `getStaticProps` 함수에 `revalidate`키를 설정해주면 된다.
+  ```tsx
+  export async function getStaticProps(context) {
+    const data = await fetchData(); // 데이터를 불러오는 로직
+    return {
+      props: {
+        data,
+      },
+      revalidate: 60, // 60초마다 페이지 재생성
+    };
+  }
+  ```
