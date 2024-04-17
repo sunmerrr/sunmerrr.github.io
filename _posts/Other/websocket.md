@@ -44,7 +44,7 @@ last_modified_at: 2024-03-22
 
 1. 어떠한 이유로 종료되었을때
     - 서버가 종료되었거나 컴퓨터가 강제 종료 되었을때의 경우에는 error를 볼 수 없다.(서버 종료 시 error를 보내지 않음) 
-
+    - 사용자가 '연결 종료'등의 버튼이 아닌, 브라우저를 닫거나 컴퓨터를 꺼버린 경우에는 disconnect 알림을 서버에 보낼 수 없다.
 
 5초에 한번씩 메세지를 보내는데 어느정도의 시간이 지나도록 메세지가 오지 않거나 서버에서 처리가 안되면 서버나 클라이언트가 비정상 종료된다고 본다.
 (tcp는 전송 계층 담당이라 비정상 종료는 애플리케이션 계층으로 처리)
@@ -53,3 +53,4 @@ last_modified_at: 2024-03-22
   - server-sent Event: 이벤트 발생 시 서버측에서 이벤트를 보냄
 - 근데 시원하게 이렇게된다! 라는 자료를 발견하지 못한 것 같다.(니가 하면 되잖아)
 참고 : https://stackoverflow.com/questions/26971026/handling-connection-loss-with-websockets
+참고 : https://hyeon9mak.github.io/web-socket-disconnection-detection/
