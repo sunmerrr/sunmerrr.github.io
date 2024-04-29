@@ -1,6 +1,6 @@
 ---
-title: ""
-excerpt: ""
+title: "컴퓨터 구조와 운영체제 간단 정리"
+excerpt: "컴퓨터 구조와 운영체제에 대해 간단히 정리하는 글"
 
 categories:
   - React
