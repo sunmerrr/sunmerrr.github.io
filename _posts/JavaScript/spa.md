@@ -32,7 +32,6 @@ last_modified_at: 2024-05-02
   바뀔수도 있지만 일단 써보기
     - index.html
     - router.js
-    - app.js
     - main.js
     - product.js
     - cart.js
