@@ -29,9 +29,15 @@ last_modified_at: 2024-05-02
     - 상태 관리: 있다면 전역적으로 관리한다.
 
 3. 코드 구성    
-  바뀔수도 있지만 일단 써보기
+  바뀔수도 있지만 일단 써보기     
     - index.html
+    - global.css
     - router.js
     - main.js
+    - main.css
     - product.js
+    - product.css
     - cart.js
+    - cart.css
+    
+  
