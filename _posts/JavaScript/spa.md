@@ -43,3 +43,23 @@ last_modified_at: 2024-05-02
     
 ### 1. index.html 생성
   기본적으로 보여져야하는 `index.html`파일을 설정한다. 안에 header로써 역할을 수행할 부분도 넣어줄 예정이다.
+  ```html
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My Tiny Shop</title>
+      <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <header>
+        <h1 class="title">My Tiny Shop</h1>
+      </header>
+      <input type="text" id="search-input" placeholder="Search products..." oninput="searchProducts()">
+      <div id="product"></div>
+      <div id="pagination"></div>
+      <script src="app.js"></script>
+  </body>
+  </html>
+  ```
