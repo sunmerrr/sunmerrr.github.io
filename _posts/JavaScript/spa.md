@@ -56,10 +56,11 @@ last_modified_at: 2024-05-02
       <header>
         <h1 class="title">My Tiny Shop</h1>
       </header>
-      <input type="text" id="search-input" placeholder="Search products..." oninput="searchProducts()">
       <div id="product"></div>
       <div id="pagination"></div>
       <script src="app.js"></script>
   </body>
   </html>
-  ```
+  ```    
+  - 간단한 html 페이지가 만들어졌다.
+    <img width="685" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/d8363409-9bcd-4efa-ac5b-33a085477acd">     
