@@ -11,16 +11,17 @@
 [x] 1분기 리뷰    
 [x] graphQL    
 [x] SSR&ISR 비교 글
-[x] 컴퓨터 구조 & 운영체제    
+[x] 컴퓨터 구조 & 운영체제   
+[ ] spa     
 [ ] 소켓 연결 과정 + 에러 발생 시     
-[ ] next sitemap    
+[ ] 2분기 리뷰     
 [ ] js-스코프    
 [ ] js-this     
-[ ] 2분기 리뷰     
 [ ] js-클로저    
 [ ] js-promise    
 [ ] js-컨텍스트    
 [ ] js-호출스택      
+[ ] next sitemap    
 [ ] react hooks-useReducer    
 [ ] react hooks-useMemo    
 [ ] 3분기 리뷰    
