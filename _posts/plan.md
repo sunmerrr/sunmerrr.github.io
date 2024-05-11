@@ -10,7 +10,7 @@
 [x] Joystick    
 [x] 1분기 리뷰    
 [x] graphQL    
-[x] SSR&ISR 비교 글
+[x] SSR&ISR 비교 글     
 [x] 컴퓨터 구조 & 운영체제   
 [ ] spa     
 [ ] 소켓 연결 과정 + 에러 발생 시     
