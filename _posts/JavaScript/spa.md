@@ -67,3 +67,46 @@ last_modified_at: 2024-05-02
 
 ### 2. router.js 생성
   페이지를 이동할 수 있도록 설정해줄 페이지를 만든다.
+  ```js
+  window.addEventListener("hashchange", routeChange);
+  window.addEventListener("load", routeChange);
+
+  function routeChange() {
+    const hash = window.location.hash;
+    clearPageContent();
+    updateCartCount();
+
+    if (hash.startsWith("#product/")) {
+      const productId = hash.split("/")[1];
+      loadScript("detail.js", () => {
+        loadProductPage(productId);
+      });
+    } 
+    if (hash === "#cart") {
+      loadScript("cart.js", () => {
+        loadCartPageDetail();
+      });
+    }
+    if (hash === "/") {
+      document.body.className = "main-page";
+      loadScript("main.js", () => {
+        loadProductList();
+      });
+    }
+  }
+
+  function loadScript(scriptUrl, callback) {
+    const existingScript = document.getElementById(scriptUrl);
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptUrl;
+      script.id = scriptUrl;
+      document.body.appendChild(script);
+      script.onload = () => {
+        if (callback) callback();
+      };
+    } else {
+      if (callback) callback();
+    }
+  }
+  ```
