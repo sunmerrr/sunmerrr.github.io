@@ -97,6 +97,7 @@ last_modified_at: 2024-05-02
 
   function loadScript(scriptUrl, callback) {
     const existingScript = document.getElementById(scriptUrl);
+
     if (!existingScript) {
       const script = document.createElement("script");
       script.src = scriptUrl;
@@ -105,8 +106,8 @@ last_modified_at: 2024-05-02
       script.onload = () => {
         if (callback) callback();
       };
-    } else {
-      if (callback) callback();
-    }
+    } 
+    
+    if (callback) callback();
   }
   ```
