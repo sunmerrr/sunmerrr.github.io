@@ -76,7 +76,7 @@ last_modified_at: 2024-05-02
     clearPageContent();
     updateCartCount();
 
-    if (hash.startsWith("#product/")) { // 상품 화면 로드
+    if (hash.startsWith("#product/")) { // 해당하는 url 인식 시 if 문 실행
       const productId = hash.split("/")[1];
       loadScript("detail.js", () => {
         loadProductDetailPage(productId); // detail.js 에 있는 loadProductDetailPage 를 실행
@@ -84,7 +84,7 @@ last_modified_at: 2024-05-02
     } 
     if (hash === "#cart") {
       loadScript("cart.js", () => {
-        loadCartPageDetail();
+        loadCartPageDetail();  
       });
     }
     if (hash === "/") {
