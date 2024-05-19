@@ -66,7 +66,8 @@ last_modified_at: 2024-05-02
     <img width="685" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/d8363409-9bcd-4efa-ac5b-33a085477acd">     
 
 ### 2. router.js 생성
-  페이지를 이동할 수 있도록 설정해줄 페이지를 만든다.
+  페이지를 이동할 수 있도록 설정해줄 라우터를 만든다.     
+  처음에는 그냥 함수로 작성했다가 클래스 형식으로 다시 만들었다.    
   ```js
   
   ```
