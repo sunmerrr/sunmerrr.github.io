@@ -69,5 +69,11 @@ last_modified_at: 2024-05-02
   페이지를 이동할 수 있도록 설정해줄 라우터를 만든다.     
   처음에는 그냥 함수로 작성했다가 클래스 형식으로 다시 만들었다.    
   ```js
+  class Router {
+    construntor(routes) {
+      this.routes = routes;
+      this.#loadInitialRoute();
+    }
+  }
   
   ```
