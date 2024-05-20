@@ -75,5 +75,8 @@ last_modified_at: 2024-05-02
       this.#loadInitialRoute();
     }
   }
-  
+
+  #loadInitialRoute() {
+    const pathName = window.location.pathname;
+  }
   ```
