@@ -82,11 +82,11 @@ last_modified_at: 2024-05-02
     this.#loadRoute(route);
   }
 
-  #matchRoute(path) {
+  #matchRoute(path) { // 경로를 찾아주는 함수
     return this.routes.find(route => route.path === path);
   }
 
-  #loadRoute(route) {
+  #loadRoute(route) { // 경로 로드
     if (!route) return console.error('There is no match route')
 
     fetch (route.templateUrl)
