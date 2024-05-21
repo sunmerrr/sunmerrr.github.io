@@ -94,6 +94,11 @@ last_modified_at: 2024-05-02
       .then(html => {
         document.getElementById('main-content').innerHTML = html;
       })
-      .error(err =>console.error('Error loading route', error)}
+      .error(err =>console.error('Error loading route', error))
+  }
+
+  addRoute (path, templateUrl) {
+    
+  }
   }
   ```
