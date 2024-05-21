@@ -89,6 +89,10 @@ last_modified_at: 2024-05-02
   #loadRoute(route) {
     if (!route) return console.error('There is no match route')
 
-    fetch
+    fetch (route.templateUrl)
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById()
+      })
   }
   ```
