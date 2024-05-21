@@ -79,9 +79,16 @@ last_modified_at: 2024-05-02
   #loadInitialRoute() { // 초기 경로를 로드해주는 함수
     const pathName = window.location.pathname;
     const route = this.#matchRoute(pathName);
+    this.#loadRoute(route);
   }
 
   #matchRoute(path) {
     return this.routes.find(route => route.path === path);
+  }
+
+  #loadRoute(route) {
+    if (!route) return console.error('There is no match route')
+
+    fetch
   }
   ```
