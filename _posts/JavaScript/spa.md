@@ -92,7 +92,8 @@ last_modified_at: 2024-05-02
     fetch (route.templateUrl)
       .then(res => res.text())
       .then(html => {
-        document.getElementById()
+        document.getElementById('main-content').innerHTML = html;
       })
+      .error(err =>console.error('Error loading route', error)}
   }
   ```
