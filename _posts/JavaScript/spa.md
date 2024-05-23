@@ -74,31 +74,30 @@ last_modified_at: 2024-05-02
       this.routes = routes;
       this.#loadInitialRoute();
     }
-  }
 
-  #loadInitialRoute() { // 초기 경로를 로드해주는 함수
-    const pathName = window.location.pathname;
-    const route = this.#matchRoute(pathName);
-    this.#loadRoute(route);
-  }
+    #loadInitialRoute() { // 초기 경로를 로드해주는 함수
+      const pathName = window.location.pathname;
+      const route = this.#matchRoute(pathName);
+      this.#loadRoute(route);
+    }
 
-  #matchRoute(path) { // 경로를 찾아주는 함수
-    return this.routes.find(route => route.path === path);
-  }
+    #matchRoute(path) { // 경로를 찾아주는 함수
+      return this.routes.find(route => route.path === path);
+    }
 
-  #loadRoute(route) { // 경로 로드
-    if (!route) return console.error('There is no match route')
+    #loadRoute(route) { // 경로 로드
+      if (!route) return console.error('There is no match route')
 
-    fetch (route.templateUrl)
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('main-content').innerHTML = html;
-      })
-      .error(err =>console.error('Error loading route', error))
-  }
+      fetch (route.templateUrl)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('main-content').innerHTML = html;
+        })
+        .error(err =>console.error('Error loading route', error))
+    }
 
-  addRoute (path, templateUrl) {
-    
-  }
+    addRoute (path, templateUrl) {
+      
+    }
   }
   ```
