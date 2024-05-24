@@ -96,8 +96,10 @@ last_modified_at: 2024-05-02
         .error(err =>console.error('Error loading route', error))
     }
 
-    addRoute (path, templateUrl) {
-      
+    addRoute(path, templateUrl) {
+      this.routes.push({ path, templateUrl });
     }
+
+    listen
   }
   ```
