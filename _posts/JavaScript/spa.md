@@ -100,6 +100,10 @@ last_modified_at: 2024-05-02
       this.routes.push({ path, templateUrl });
     }
 
-    listen
+    listen() {
+      window.addEventListener('popstate', () => {
+        this.#loadInitialRoute();
+      })
+    }
   }
   ```
