@@ -114,5 +114,36 @@ last_modified_at: 2024-05-02
   각 상품의 상세 내용을 보여줄 페이지로 접근 시 사용할 수 있는 동적 경로가 필요하다.
   ```js
   ...
+  #matchRoute(path) { // 경로를 찾아주는 함수
+    for (let route of this.routes) {
+      const match = this.#matchPath(route.path, path);
+      if (match) {
+        return { ...route, params: match.params };
+      }
+    }
+  }
 
+  #matchPath(routePath, currentPath) {
+  }
+
+  #loadRoute(route) { // 경로 로드
+    if (!route) return console.error('There is no match route')
+
+    fetch (route.templateUrl)
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('main-content').innerHTML = html;
+      })
+      .error(err =>console.error('Error loading route', error))
+  }
+
+  addRoute(path, templateUrl) {
+    this.routes.push({ path, templateUrl });
+  }
+
+  listen() {
+    window.addEventListener('popstate', () => {
+      this.#loadInitialRoute();
+    })
+  }
   ```
