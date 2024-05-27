@@ -152,8 +152,15 @@ last_modified_at: 2024-05-02
       .then(res => res.text())
       .then(html => {
         document.getElementById('main-content').innerHTML = html;
+
+        // URL의 매개변수를 처리 영역
+        if (route.params) {
+          console.log('Route Paramegers: ', route,params);
+        }
       })
       .error(err =>console.error('Error loading route', error))
+
+
   }
 
   addRoute(path, templateUrl) {
