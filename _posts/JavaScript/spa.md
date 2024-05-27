@@ -124,6 +124,25 @@ last_modified_at: 2024-05-02
   }
 
   #matchPath(routePath, currentPath) {
+    const routeParts = routePath.split('/').filter(part => part);
+    const pathParts = currentPath.split('/').filter(part => part);
+
+    if (routeParts.length !== pathParts.length) {
+      return null;
+    }
+
+    const params = {};
+
+    for (let i = 0; i < routeParts.length; i++) {
+      if (routeParts[i].startWith(':')) {
+        const paramName = routeParts[i].substring(1);
+        params[paramName] = pathParts[i];
+      } else if (routeParts[i] !== pathParts[i]) {
+        return null;
+      }
+    }
+
+    return { params }
   }
 
   #loadRoute(route) { // 경로 로드
