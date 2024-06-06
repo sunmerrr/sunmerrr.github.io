@@ -35,4 +35,9 @@ last_modified_at: 2024-05-29
 그럼에도 불구하고 나름 좋았던 장인성님의 세션을 짧게(?) 요약해본다.(이걸 정리하기 위해 리뷰를 쓰는 걸지도 모르겠다.)
 
 #### 일 잘하고 싶은 사람들의 3가지 고민
-<img width="650" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/9c2cf438-be76-478f-9786-ad115bc12c92">
+
+<img width="650" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/9c2cf438-be76-478f-9786-ad115bc12c92">    
+
+일단 제목부터 나의 흥미를 자극한다. '고민은 고민인데 3가지라니?' 같은 느낌의 흥미랄까...
+
+
