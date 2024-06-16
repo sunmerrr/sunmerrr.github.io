@@ -47,7 +47,9 @@ last_modified_at: 2024-05-29
     - 고민하기    
       일단 '나의 브랜드를 단 10명에게만 찾아가서 알려야한다면 누구를 찾아갈 것인가?' 라는 질문으로 출발하면, 상대를 누구로 정했기 때문에 나에게 어떤 모습을 들어내야하는지, 또는 나의 어떤 면을 정했기 때문에 누구에게 찾아갈지를 정할 수 있게된다고 했다.    
 
-    <img width="796" alt="branding" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/963321ae-9a45-41bd-91e1-9134d08e3c63">
+    <img width="796" alt="branding" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/963321ae-9a45-41bd-91e1-9134d08e3c63">    
 
 1. 커리어, 성장
+
+    <img width="739" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/5f7c28a2-8e3e-4a72-8a73-88af388b88eb">    
 1. 조직문화
