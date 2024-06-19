@@ -50,7 +50,7 @@ last_modified_at: 2024-05-29
     <img width="796" alt="branding" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/963321ae-9a45-41bd-91e1-9134d08e3c63">    
 
 1. 커리어, 성장    
-  어쩌면 내가 가장 듣고 싶었던 부분이 아닐까 싶다. '나는 지금 잘 하고 있는가?'에 대한 질문에 대한 답을 바랬다. 하지만 이 세션에서는 지금 잘하고 있는지가 아니라 앞으로 어떻게 하면 잘 하는 것인지에 대한 방향성을 알려주는 것 같았다.
+  어쩌면 내가 가장 듣고 싶었던 부분이 아닐까 싶다. '나는 지금 잘 하고 있는가?'에 대한 질문에 대한 답을 바랬다. 하지만 이 세션에서는 지금 잘하고 있는지가 아니라 앞으로 어떻게 하면 잘 하는 것인지에 대한 방향성을 말해주려고 했다.(오히려 좋아~~)
 
     <img width="739" alt="image" src="https://github.com/sunmerrr/sunmerrr.github.io/assets/65106740/5f7c28a2-8e3e-4a72-8a73-88af388b88eb">    
 1. 조직문화
