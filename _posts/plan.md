@@ -12,19 +12,17 @@
 [x] graphQL    
 [x] SSR&ISR 비교 글     
 [x] 컴퓨터 구조 & 운영체제   
-[ ] spa     
-[ ] 소켓 연결 과정 + 에러 발생 시     
 [ ] 2분기 리뷰     
+[ ] middleware
 [ ] js-스코프    
 [ ] js-this     
 [ ] js-클로저    
 [ ] js-promise    
 [ ] js-컨텍스트    
 [ ] js-호출스택      
-[ ] next sitemap    
+[ ] 소켓 연결 과정 + 에러 발생 시     
+[ ] spa     
 [ ] react hooks-useReducer    
-[ ] react hooks-useMemo    
 [ ] 3분기 리뷰    
-[ ] react hooks-useCallback     
 [ ] naver map api    
 [ ] 4분기 리뷰    
