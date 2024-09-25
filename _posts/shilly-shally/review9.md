@@ -1,6 +1,6 @@
 ---
 title: "회고글) 3, 4분기 기록"
-excerpt: ""
+excerpt: "이제는 학습이 아니라 고민의 시기가 아닐까"
 
 categories:
   - Developer
