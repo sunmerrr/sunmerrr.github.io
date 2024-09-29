@@ -11,7 +11,7 @@ toc: true
 toc_sticky: true
  
 date: 2024-09-22
-last_modified_at: 2024-09-22
+last_modified_at: 2024-09-29
 ---   
 
 1. 9월까지 목표하던 프로젝트를 마쳤다.
@@ -22,3 +22,4 @@ last_modified_at: 2024-09-22
 
 3. 몸이 계속 아프다ㅜ
 
+4. 어떤 고민을 어떻게..
