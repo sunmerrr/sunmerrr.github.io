@@ -15,3 +15,6 @@
 6. 모네. 그는 미친 사람인가. 고흐보다 조금 더 미친것 같다. - Claudia Monet [Falaise de Fécamp, die Russian Falaise près de Dieppe] 1897, [Le Bassin auxiliary nymphs, harmonie verte] 1899
 
 7. 인상파 초기- 꾸덕하고 투박하게 바른 물감이 인상적이다. 물감이 비싸고 그들은 가난했을텐데...
+
+8. 마티스 내놔..
+  (마티스 작품이 있다고 했는데 찾지 못했다. 다시 올때까지 준비 해 두도록..!)
