@@ -13,3 +13,5 @@
 5. 사람들은 역시 인상주의에 많이 몰려있다. 너무나 사람이 많은데 세상의 기원을 감명 깊게 보고 왔을지 궁금하다.
 
 6. 모네. 그는 미친 사람인가. 고흐보다 조금 더 미친것 같다. - Claudia Monet [Falaise de Fécamp, die Russian Falaise près de Dieppe] 1897, [Le Bassin auxiliary nymphs, harmonie verte] 1899
+
+7. 인상파 초기- 꾸덕하고 투박하게 바른 물감이 인상적이다. 물감이 비싸고 그들은 가난했을텐데...
