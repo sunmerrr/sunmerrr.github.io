@@ -10,14 +10,21 @@
   역동적인 그림을 정적으로 표현한다.
   '자연은 원통, 원뿔, 구로 이루어져 있다.'
   이분은 짓궂은 장난을 그림에 표현하는 듯 싶다. 세러로 길쭉한 그림을 감상하다가 정신차리고 보니 양 옆에 벽을 그려둔 그림이었다. 힘든 와중에 웃음이 났다. 오르세에서 가장 마음에 드는 그림으로 뽑았다.
+![세잔의 장난](https://github.com/user-attachments/assets/17e0f20d-5bf8-491d-985c-0d4c0d204bf0)
 
 5. 사람들은 역시 인상주의에 많이 몰려있다. 너무나 사람이 많은데 세상의 기원을 감명 깊게 보고 왔을지 궁금하다.
 
 6. 모네. 그는 미친 사람인가. 고흐보다 조금 더 미친것 같다. - Claudia Monet [Falaise de Fécamp, die Russian Falaise près de Dieppe] 1897, [Le Bassin auxiliary nymphs, harmonie verte] 1899
+![순간의 그림 - 모네](https://github.com/user-attachments/assets/c44e1467-f73e-4c4b-9dbb-b711ed9da998)
+![어쩌면 더 미친 모네](https://github.com/user-attachments/assets/ab909943-d162-42c9-8384-734eb8dee83c)
+
 
 7. 인상파 초기- 꾸덕하고 투박하게 바른 물감이 인상적이다. 물감이 비싸고 그들은 가난했을텐데...
 
 8. 마티스 내놔..
   (마티스 작품이 있다고 했는데 찾지 못했다. 다시 올때까지 준비 해 두도록..!)
 
-9. 
+9. 들라크루아의 밑그림을 보았는데 왜 그 당시 미술 평론가(?)들이 인상파 그림을 보고 그리다 말았다고 했는지 이해가 갔다. 들라크루아 그림도 참 좋은 밑그림도 인상(?)적이다 
+![들라크루아의 밑그림](https://github.com/user-attachments/assets/25139658-93d4-4e42-9edd-704ec1eb384e)
+
+
