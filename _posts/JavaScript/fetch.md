@@ -69,3 +69,8 @@ last_modified_at: 2025-04-19
   - **XMLHttpRequest(XHR)** 보다 간결하고 현대적인 방식
   - Response 객체에서 .json(), .text(), .blob() 등으로 변환 가능
   - 대부분의 현대 브라우저에서 기본 지원
+
+
+### 3. 문제 파악
+
+### 4. 개선 코드
