@@ -72,5 +72,10 @@ last_modified_at: 2025-04-19
 
 
 ### 3. 문제 파악
+- fetch 의 then, catch 의 활용성
+  - fetch 만 사용 했을때
+  - try, catch 로 감싸서 사용할때
+- error 핸들링 
+  - 위 코드에서 error 발생 시
 
 ### 4. 개선 코드
