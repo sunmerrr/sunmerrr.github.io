@@ -31,32 +31,44 @@ last_modified_at: 2025-04-19
 
 
   const cancelTicket = async ({ ticketId, authToken }: { ticketId: string; authToken?: string; }) => {
+    const url = `/api/ticket/cancel`
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
+      },
+      body: JSON.stringify({ id: ticketId }),
+    }
+
+    const response = await fetchApi(url, options);
+
+    return response.data;
+  }
+
+  async function fetchApi<T>(url: string, option: : RequestInit): Promise<T>) {
     try {
-      const response = await fetch(`/api/ticket/cancel`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${authToken}`,
-        },
-        body: JSON.stringify({ id: ticketId }),
-      });
+      const response = await fetch(url, options);
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => null);
-        const message = errorData?.message || '서버 응답 실패';
-        throw new Error(message);
+      if (response.ok === false) {
+        const errorData = await response.json().catch(() => null); // JSON 파싱 시 에러 방지
+        const errorMessage = errorData?.message || response.statusText || 'Unknown Error';
+
+        const error = new Error(errorMessage) as Error & { response?: Response };
+
+        error.response = response;
+        throw error;
       }
 
-      const data = await response.json();
-
-      if (!data || Object.keys(data).length === 0) {
-        throw new Error('빈 응답 데이터');
+      const json: ApiResponse<T> = await response.json();
+      return json;
+    } catch (error) {
+      if (error instanceof Error && error) {
+        console.error(`API Fetch error: ${error.message}, Error Name: ${error.name}`);
+      } else if (error instanceof Error) {
+        console.error(`API Fetch error: ${error.message}`);
       }
-
-      return data;
-    } catch (err) {
-      console.error('❌ 티켓 취소 중 오류 발생:', err);
-      throw err;
+      throw error;
     }
   };
   ```
@@ -79,5 +91,6 @@ last_modified_at: 2025-04-19
   - 위 코드에서 error 발생 시
 
 ### 4. 개선 코드
+- 이미 fetch 함수에서
 
 ### 5. 생각해 볼 것
