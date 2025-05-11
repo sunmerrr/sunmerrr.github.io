@@ -91,6 +91,7 @@ last_modified_at: 2025-04-19
   - 위 코드에서 error 발생 시
 
 ### 4. 개선 코드
-- 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다.
+- 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다.
+- 그럼 데이터를 불러올때는 try catch 안해줘도 될까?
 
 ### 5. 생각해 볼 것
