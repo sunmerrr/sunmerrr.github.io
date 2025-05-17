@@ -50,6 +50,7 @@ last_modified_at: 2025-04-19
     try {
       const response = await fetch(url, options);
 
+      // TODO: 기존 에러 처리 방식으로 변경
       if (response.ok === false) {
         const errorData = await response.json().catch(() => null); // JSON 파싱 시 에러 방지
         const errorMessage = errorData?.message || response.statusText || 'Unknown Error';
