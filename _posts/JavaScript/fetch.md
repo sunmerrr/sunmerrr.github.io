@@ -75,13 +75,15 @@ last_modified_at: 2025-04-19
   - **XMLHttpRequest(XHR)** 보다 간결하고 현대적인 방식
   - Response 객체에서 .json(), .text(), .blob() 등으로 변환 가능
   - 대부분의 현대 브라우저에서 기본 지원
+  - `fetch()`는 HTTP 400, 500 에러를 실패로 간주하지 않음
 
 
-### 3. 문제 파악
-- fetch 의 then, catch 의 활용성
+### 3. 문제 파악    
+- fetch 의 then, catch 의 활용성    
   - fetch 만 사용 했을때
+    
   - try, catch 로 감싸서 사용할때
-- error 핸들링 
+- error 핸들링     
   - 위 코드에서 error 발생 시
 
 ### 4. 개선 코드

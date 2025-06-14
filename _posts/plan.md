@@ -15,8 +15,8 @@
 
 [ ] network    
 [ ] web3    
-[ ] wagmi        
-[ ] middleware
+[ ] wagmi    
+[ ] middleware    
 [ ] 소켓 연결 과정 + 에러 발생 시     
 [ ] spa     
 [ ] react hooks-useReducer    
@@ -26,7 +26,7 @@
 [ ] js-클로저    
 [ ] js-promise    
 [ ] js-컨텍스트    
-[ ] js-호출스택      
+[ ] js-호출스택    
 
 [ ] 3분기 리뷰    
 [ ] 4분기 리뷰    
