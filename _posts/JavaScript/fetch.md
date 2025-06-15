@@ -79,12 +79,7 @@ last_modified_at: 2025-04-19
 
 
 ### 3. 문제 파악    
-- fetch 의 then, catch 의 활용성    
-  - fetch 만 사용 했을때
-    
-  - try, catch 로 감싸서 사용할때
-- error 핸들링     
-  - 위 코드에서 error 발생 시
+- 위 코드의 호출부인 `cancelTicket()` 에서 에러가 발생해도 `.catch()`에는 잡히지 않음
 
 ### 4. 개선 코드
 - 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다.
