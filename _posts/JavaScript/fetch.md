@@ -81,7 +81,10 @@ last_modified_at: 2025-04-19
 ### 3. 문제 파악    
 - 위 코드의 호출부인 `cancelTicket()` 에서 에러가 발생해도 `.catch()`에는 잡히지 않음    
   여기서의 문제는 '에러'를 어디까지 정의할 것인지이다. 위 코드에서 보면 내가 정의한 에러의 상황은 `response.ok === false` 또는 런타임 에러가 발생했을때다.    
-  - 
+  - `fetch()` 호출 자체 실패
+  - `fetchApi()` 내부의 `response.ok === false` 조건 만족으로 `throw error`를 실행한 경우
+  - 응답을 `response.json()`으로 파싱하는 중 발생하는 JSON 포맷 오류(`SyntaxError`)
+  - 그 외 내가 원하는 조건을 충족하지 못해서 명시적으로 `throw` 했을 때
 
 ### 4. 개선 코드
 - 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다.
