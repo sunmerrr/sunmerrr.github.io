@@ -85,10 +85,10 @@ last_modified_at: 2025-04-19
   1. `fetchApi()` 내부의 `response.ok === false` 조건 만족으로 `throw error`를 실행한 경우
   1. 응답을 `response.json()`으로 파싱하는 중 발생하는 JSON 포맷 오류(`SyntaxError`)
   1. 그 외 내가 원하는 조건을 충족하지 못해서 명시적으로 `throw` 했을 때     
-  '에러가 발생해도 `.catch()`에 잡히지 않는것은 내가 4번을 해주지 않았기 때문이다. 즉, 나는 data 가 없는 상황, 내가 바랬던 data와 다른 상황도 에러로 간주했던 것이다.    
+  '에러가 발생해도 `.catch()`에 잡히지 않는것은 내가 4번을 해주지 않았기 때문이다. 즉, 나는 data 가 없는 상황, 내가 바랬던 data와 다른 상황도 에러로 간주했던 것이다.     
 
-### 4. 개선 코드
-- 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다.
-- 그럼 데이터를 불러올때는 try catch 안해줘도 될까?
+### 4. 개선 내용
+- 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다. 하지만 문제를 파악에서 보았듯이 error 를 잡아주는게 문제가 아니라 내가 원하는 error 상황에서 javascript가 error라고 인지할 수 있도록 만들어주는게 중요했다.
+
 
 ### 5. 생각해 볼 것
