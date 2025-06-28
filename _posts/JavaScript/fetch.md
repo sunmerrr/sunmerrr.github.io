@@ -89,6 +89,22 @@ last_modified_at: 2025-04-19
 
 ### 4. 개선 내용
 - 이미 fetchApi 함수에서 throw error 를 해주기 때문에 error를 잘 잡기만 하면 된다고 생각했다. 하지만 문제를 파악에서 보았듯이 error 를 잡아주는게 문제가 아니라 내가 원하는 error 상황에서 javascript가 error라고 인지할 수 있도록 만들어주는게 중요했다.
+  ```ts
+  try {
+    const res = cancelTicket({ ticketId, authToken, })
+      .then((res) => {
+        console.log('✅ 티켓이 정상적으로 취소되었습니다:', res);
+
+        queryClient.refetchQueries({ queryKey: ['ticket-detail'] });
+        openPopup('ticket-cancel-popup');
+      })
+      .catch(() => {
+        toast.error('티켓 취소에 실패했습니다.');
+      });
+  } catch (err) {
+
+  }
+  ```
 
 
 ### 5. 생각해 볼 것
