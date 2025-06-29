@@ -92,17 +92,9 @@ last_modified_at: 2025-04-19
   ```ts
   try {
     const res = cancelTicket({ ticketId, authToken, })
-      .then((res) => {
-        console.log('✅ 티켓이 정상적으로 취소되었습니다:', res);
-
-        queryClient.refetchQueries({ queryKey: ['ticket-detail'] });
-        openPopup('ticket-cancel-popup');
-      })
-      .catch(() => {
-        toast.error('티켓 취소에 실패했습니다.');
-      });
+      .finally(() => {})
   } catch (err) {
-
+    toast.error('티켓 취소에 실패했습니다.');
   }
   ```
 
