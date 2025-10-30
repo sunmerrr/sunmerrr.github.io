@@ -38,14 +38,36 @@ NODE_OPTIONS="--max-old-space-size={용량 최대치}
 
 ### 원인 파악
 해당 프로젝트는 거의 매주 배포하고 있어서 터지는 시점을 쉽게 찾을 수 있었는데..     
-아래와 같은 폰트 등록이 원인이었다.
+아래와 같은 용량이 큰 폰트(2MB 초과) 등록이 원인이었다.
 
 ```ts
 PretendardVariable.woff2
 ```
 
-뭔가 '엥..?' 스럽지만 폰트를 삭제하고 나니까 `heap out of memory` 에러가 사라졌다.    
 
-엥...   
+뭔가 '엥..?'스럽지만 폰트를 삭제하고 나니까 `heap out of memory` 에러가 사라졌다.        
 
+> V8 GC와 `.woff2` 파싱
+>
+> Next.js는 `next/font/local()` 사용 시, `.woff2` 파일을 단순 링크하는 것이 아니라 다음 > 작업을 내부적으로 수행한다:
+> 
+> 1. `.woff2` 파일을 **직접 읽고**
+> 2. **헤더 및 메타데이터를 파싱**
+> 3. 해당 정보를 바탕으로 `@font-face`, `preload`, `font-family` 클래스를 자동 생성
+> 
+> 이 과정은 빌드 타임 또는 dev 서버 기동 시 발생하며, `.woff2`의 **파일 크기**와 **복잡성**이 > 클수록 Node.js의 **GC 부담이 커진다**.
+   
+GPT는 위와 같이 분석을 해주었는데 납득이 잘 되지는 않았다.   
+GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는지는 맥북 사양을 보고도 파악하지 못하는 멍청이 주인1과 멍청이 GPT가 있어서 일까....    
       
+### 해결 방법
+1. 폰트 파일 수 최소화
+
+    불필요한 weight 제거 → 예: Regular(400) + Bold(700)만 사용
+
+    ```ts
+    src: [
+      { path: './PretendardGOV-Regular.subset.woff2', weight: '400', style: 'normal' },
+      { path: './PretendardGOV-Bold.subset.woff2', weight: '700', style: 'normal' },
+    ]
+    ```
