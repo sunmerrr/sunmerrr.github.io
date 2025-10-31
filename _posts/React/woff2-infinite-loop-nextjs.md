@@ -44,7 +44,6 @@ NODE_OPTIONS="--max-old-space-size={용량 최대치}
 PretendardVariable.woff2
 ```
 
-
 뭔가 '엥..?'스럽지만 폰트를 삭제하고 나니까 `heap out of memory` 에러가 사라졌다.        
 
 > V8 GC와 `.woff2` 파싱
@@ -63,11 +62,12 @@ GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는�
 ### 해결 방법
 1. 폰트 파일 수 최소화
 
-    불필요한 weight 제거 → 예: Regular(400) + Bold(700)만 사용
+    불필요한 weight 제거 → 예: Regular(400), Bold(700)만 사용
 
     ```ts
     src: [
       { path: './PretendardGOV-Regular.subset.woff2', weight: '400', style: 'normal' },
       { path: './PretendardGOV-Bold.subset.woff2', weight: '700', style: 'normal' },
+      ...
     ]
     ```
