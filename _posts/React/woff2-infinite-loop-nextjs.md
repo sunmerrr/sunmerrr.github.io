@@ -60,10 +60,8 @@ GPT는 위와 같이 분석을 해주었는데 납득이 잘 되지는 않았다
 GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는지는 맥북 사양을 보고도 파악하지 못하는 멍청이 주인1과 멍청이 GPT가 있어서 일까....    
       
 ### 해결 방법
-1. 폰트 파일 수 최소화
-
-    불필요한 weight 제거 → 예: Regular(400), Bold(700)만 사용
-
+1. 폰트 파일 수 최소화    
+    불필요한 weight 제거 → 예: Regular(400), Bold(700)만 사용   
     ```ts
     src: [
       { path: './PretendardGOV-Regular.subset.woff2', weight: '400', style: 'normal' },
@@ -71,3 +69,7 @@ GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는�
       ...
     ]
     ```
+
+1. Variable 대신 subset 사용   
+    Variable Font(`.woff2`)는 내부적으로 훨씬 복잡하며, 단일 파일이 1MB 이상일 경우 문제가 더 커질 수 있다.  
+    가능하다면 **정적 서브셋(weight별 `.woff2`)**을 사용하는 것이 좋다.
