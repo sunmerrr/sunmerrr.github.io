@@ -11,10 +11,8 @@ toc: true
 toc_sticky: true
  
 date: 2025-10-13
-last_modified_at: 2025-10-1
+last_modified_at: 2025-11-3
 ---   
-
-말투 왜이러지..;;
 
 > **TL;DR**: `next/font/local`로 큰 용량의 `.woff2` 폰트를 등록하면, dev 서버 실행 중 Node.js가 OOM(Out of Memory)으로 죽을 수 있다. 원인은 `.woff2` 파싱 중 V8의 `mark-compact GC` 루프가 감당하지 못하기 때문. 해결 방법은 폰트 수 쪼개거나, `@font-face` 방식으로 우회하는 것이다.
 
@@ -79,3 +77,16 @@ GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는�
     이 방법도 있지만 next의 기능을 사용하고자 한 것이라 사용하지는 않았다.
 1. Node.js 버전 변경    
     동료들과 같은 node 버전을 사용하고 있어서 근본적인 해결책이 아니라는 생각때문에 건너 뛰었다. 
+
+#### 참고
+- [Next.js Fonts 공식 문서](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
+- [Pretendard 폰트 GitHub](https://github.com/orioncactus/pretendard)
+- [`mark-compact` GC 설명 (V8 공식)](https://v8.dev/blog/trash-talk)
+
+#### mark-compact GC란?(GPT가 말아줌)     
+V8의 mark-compact GC는 살아있는 객체를 식별(mark)하고, 정리(compact)하는 GC 단계다.    
+이 단계는 다음과 같은 상황에서 문제가 발생할 수 있다:   
+- `.woff2` 파싱 중 메모리 상에서 **순환 구조 or 반복 객체 생성**
+- GC가 객체를 회수하기도 전에 계속 힙이 증가
+- 결과적으로 Node.js는 `heap limit`을 초과하고 강제 종료 
+
