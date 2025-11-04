@@ -78,6 +78,11 @@ GC 부담이 커진다는건 알겠는데 왜 내 맥북에서만 발생했는�
 1. Node.js 버전 변경    
     동료들과 같은 node 버전을 사용하고 있어서 근본적인 해결책이 아니라는 생각때문에 건너 뛰었다. 
 
+### 이후에 해볼 것
+- node 버전을 낮추지 말고 높여 보기
+- 맥 새로 띄울때 기본으로 함께 실행되는 프로그램 모두 없애고 실행해보기(실행 당시 displayLink 하나만 기본으로 실행됨)
+- 다른 맥북과 - .zprofile, .zshrc 등이 다른지 체크해보기
+
 #### 참고
 - [Next.js Fonts 공식 문서](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
 - [Pretendard 폰트 GitHub](https://github.com/orioncactus/pretendard)
