@@ -40,4 +40,5 @@ TIL
 - 토스트/알림 컴포넌트 UX 최적화 3가지 포인트
 - 폰트가 페이지 로딩에 미치는 영향과 FOUT/FOIT 이슈
 - 컴포넌트 폴더 구조: index.ts, barrel export 진짜 쓰는 이유
+- 
 
