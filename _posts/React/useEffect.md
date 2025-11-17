@@ -15,3 +15,5 @@ last_modified_at: 2025-11-10
 ---
 
 ## useEffect 를 쌓아두어서 생긴 일.
+  
+정리 해야하는데
