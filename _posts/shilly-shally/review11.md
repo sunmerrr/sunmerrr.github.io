@@ -28,4 +28,9 @@ ps5 추가 구매
 
 진행 한 프로젝트
 #### 게임 세팅 전체 UI 및 로직 변경
-내용: 게임 생성이 조금 더 적은 뎁스를 거쳐서 될 수 있도록 리뉴얼 함
+**내용**: 게임 생성이 조금 더 적은 뎁스를 거쳐서 될 수 있도록 하기위해 리뉴얼 함 + 하는김에 리팩토링까지    
+**스택**: React-Hook-Form, zustand     
+**주요 내용**:     
+
+1. 개임 생성의 create - prepare - update - finalize 순서를 create 한 단계로 변경
+1. zustand 와 useContext, React-Hook-Form 의 역할 분담이 제대로 되어있지 않은 부분 리팩토링
