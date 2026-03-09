@@ -1,6 +1,6 @@
 ---
 title: "AI 작업 파이프라인"
-excerpt: ""
+excerpt: "AI를 어떻게하면 더 잘, 더 효율적으로 쓸 수 있을까"
 
 categories:
   - AI
